@@ -8,7 +8,7 @@ public class DataSources {
     private Connection connection;
     private static DataSources instance;
 
-    private final String URL = "jdbc:mysql://localhost:3306/pi";
+    private final String URL = "jdbc:mysql://localhost:3306/gestion_materiel";
     private final String USERNAME = "root";
     private final String PASSWORD = "";
 
