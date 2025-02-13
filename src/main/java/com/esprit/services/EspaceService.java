@@ -1,7 +1,6 @@
 package com.esprit.services;
 
 import com.esprit.models.Disponibilite;
-import com.esprit.models.categorieEspace;
 import com.esprit.models.Espace;
 import com.esprit.utils.DataSource;
 
@@ -15,14 +14,15 @@ public class EspaceService implements IService<Espace> {
 
     @Override
     public void ajouter(Espace espace) {
-        String req = "INSERT INTO espace (nom, titre, localisation, etat, categorie) VALUES (?,?,?,?,?)";
+        // Updated query to use type_espace_id
+        String req = "INSERT INTO espace (nom, titre, localisation, etat, type_espace_id) VALUES (?,?,?,?,?)";
         try {
             PreparedStatement pst = connection.prepareStatement(req);
             pst.setString(1, espace.getNom());
             pst.setString(2, espace.getTitre());
-            pst.setString(3, espace.getLocalisation());
-            pst.setString(4, espace.getetat().toString()); // Enum to String
-            pst.setString(5, espace.getCategorie().toString()); // Enum to String
+            pst.setString(3, espace.getLocalisation());  // Set Time type
+            pst.setString(4, espace.getEtat().toString()); // Enum to String
+            pst.setInt(5, espace.getType_espace_id());  // Set foreign key for type_espace
             pst.executeUpdate();
             System.out.println("Espace ajouté");
         } catch (SQLException e) {
@@ -32,14 +32,15 @@ public class EspaceService implements IService<Espace> {
 
     @Override
     public void modifier(Espace espace) {
-        String req = "UPDATE espace SET nom=?, titre=?, localisation=?, etat=?, categorie=? WHERE id=?";
+        // Updated query to use type_espace_id
+        String req = "UPDATE espace SET nom=?, titre=?, localisation=?, etat=?, type_espace_id=? WHERE id=?";
         try {
             PreparedStatement pst = connection.prepareStatement(req);
             pst.setString(1, espace.getNom());
             pst.setString(2, espace.getTitre());
-            pst.setString(3, espace.getLocalisation());
-            pst.setString(4, espace.getetat().toString()); // Enum to String
-            pst.setString(5, espace.getCategorie().toString()); // Enum to String
+            pst.setString(3, espace.getLocalisation());  // Set Time type
+            pst.setString(4, espace.getEtat().toString()); // Enum to String
+              // Set foreign key for type_espace
             pst.setInt(6, espace.getId());
             pst.executeUpdate();
             System.out.println("Espace modifié");
@@ -74,9 +75,9 @@ public class EspaceService implements IService<Espace> {
                         rs.getInt("id"),
                         rs.getString("nom"),
                         rs.getString("titre"),
-                        rs.getString("localisation"),
+                        rs.getString("localisation"),  // Use getTime to match Time type
                         Disponibilite.valueOf(rs.getString("etat")), // Enum from String
-                        categorieEspace.valueOf(rs.getString("categorie")) // Enum from String
+                        rs.getInt("type_espace_id") // Get foreign key for type_espace
                 );
                 espaces.add(espace);
             }

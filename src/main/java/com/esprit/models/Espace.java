@@ -1,29 +1,33 @@
 package com.esprit.models;
 
+import java.sql.Time;  // For localisation field as Time
+
 public class Espace {
 
     private int id;
     private String nom;
     private String titre;
-    private String localisation;
+    private String localisation;  // Change to String type
     private Disponibilite etat;
-    private categorieEspace categorie;
+    private int type_espace_id;  // Add type_espace_id as an integer
 
-    public Espace(int id, String nom, String titre, String localisation, Disponibilite etat, categorieEspace categorie) {
+    // Constructor with type_espace_id
+    public Espace(int id, String nom, String titre, String localisation, Disponibilite etat, int type_espace_id) {
         this.id = id;
         this.nom = nom;
         this.titre = titre;
         this.localisation = localisation;
         this.etat = etat;
-        this.categorie = categorie;
+        this.type_espace_id = type_espace_id;
     }
 
-    public Espace(String nom, String titre, String localisation, Disponibilite etat, categorieEspace categorie) {
+    // Constructor without id (for creating new records)
+    public Espace(String nom, String titre, String localisation, Disponibilite etat, int type_espace_id) {
         this.nom = nom;
         this.titre = titre;
         this.localisation = localisation;
         this.etat = etat;
-        this.categorie = categorie;
+        this.type_espace_id = type_espace_id;
     }
 
     // Getters and setters
@@ -59,23 +63,20 @@ public class Espace {
         this.localisation = localisation;
     }
 
-    public Disponibilite getetat() {
+    public Disponibilite getEtat() {
         return etat;
     }
-    public categorieEspace getCategorie() {
-        return categorie;
-    }
 
-    public void setetat(Disponibilite etat) {
+    public void setEtat(Disponibilite etat) {
         this.etat = etat;
     }
 
-    public categorieEspace getCatégorie() {
-        return categorie;
+    public int getType_espace_id() {
+        return type_espace_id;
     }
 
-    public void setCatégorie(categorieEspace catégorie) {
-        this.categorie = catégorie;
+    public void setType_espace_id(int type_espace_id) {
+        this.type_espace_id = type_espace_id;
     }
 
     @Override
@@ -84,11 +85,9 @@ public class Espace {
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", titre='" + titre + '\'' +
-                ", localisation='" + localisation + '\'' +
+                ", localisation=" + localisation +
                 ", etat=" + etat +
-                ", catégorie=" + categorie +
+                ", type_espace_id=" + type_espace_id +
                 '}';
     }
 }
-
-
