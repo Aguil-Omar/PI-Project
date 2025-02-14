@@ -1,0 +1,87 @@
+Folder PATH listing
+Volume serial number is B80F-5E2F
+C:.
+|   .gitignore
+|   pom.xml
+|   project_structure.txt
+|   README.md
+|   
++---.idea
+|       .gitignore
+|       compiler.xml
+|       encodings.xml
+|       jarRepositories.xml
+|       misc.xml
+|       uiDesigner.xml
+|       vcs.xml
+|       workspace.xml
+|       
++---src
+|   +---main
+|   |   +---java
+|   |   |   \---com
+|   |   |       \---esprit
+|   |   |           +---controllers
+|   |   |           |       AfficheEspace.java
+|   |   |           |       AjoutEspace.java
+|   |   |           |       
+|   |   |           +---models
+|   |   |           |       Disponibilite.java
+|   |   |           |       Espace.java
+|   |   |           |       TypeEspace.java
+|   |   |           |       
+|   |   |           +---services
+|   |   |           |       EspaceService.java
+|   |   |           |       IService.java
+|   |   |           |       TypeEspaceService.java
+|   |   |           |       
+|   |   |           +---tests
+|   |   |           |       MainProg.java
+|   |   |           |       MainProgfx.java
+|   |   |           |       
+|   |   |           \---utils
+|   |   |                   DataSource.java
+|   |   |                   
+|   |   \---resources
+|   |           AfficheEspace.fxml
+|   |           AjoutEspace.fxml
+|   |           
+|   \---test
+|       \---java
+\---target
+    +---classes
+    |   |   AfficheEspace.fxml
+    |   |   AjoutEspace.fxml
+    |   |   
+    |   \---com
+    |       \---esprit
+    |           +---controllers
+    |           |       AfficheEspace.class
+    |           |       AjoutEspace.class
+    |           |       
+    |           +---models
+    |           |       Disponibilite.class
+    |           |       Espace.class
+    |           |       TypeEspace.class
+    |           |       
+    |           +---services
+    |           |       EspaceService.class
+    |           |       IService.class
+    |           |       TypeEspaceService.class
+    |           |       
+    |           +---tests
+    |           |       MainProg.class
+    |           |       MainProgfx.class
+    |           |       
+    |           \---utils
+    |                   DataSource.class
+    |                   
+    +---generated-sources
+    |   \---annotations
+    \---maven-status
+        \---maven-compiler-plugin
+            \---compile
+                \---default-compile
+                        createdFiles.lst
+                        inputFiles.lst
+                        

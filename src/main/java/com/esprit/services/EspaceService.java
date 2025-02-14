@@ -1,6 +1,5 @@
 package com.esprit.services;
 
-import com.esprit.models.Disponibilite;
 import com.esprit.models.Espace;
 import com.esprit.utils.DataSource;
 
@@ -40,7 +39,7 @@ public class EspaceService implements IService<Espace> {
             pst.setString(2, espace.getTitre());
             pst.setString(3, espace.getLocalisation());  // Set Time type
             pst.setString(4, espace.getEtat().toString()); // Enum to String
-              // Set foreign key for type_espace
+            // Set foreign key for type_espace
             pst.setInt(6, espace.getId());
             pst.executeUpdate();
             System.out.println("Espace modifié");
@@ -72,12 +71,11 @@ public class EspaceService implements IService<Espace> {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Espace espace = new Espace(
-                        rs.getInt("id"),
                         rs.getString("nom"),
                         rs.getString("titre"),
-                        rs.getString("localisation"),  // Use getTime to match Time type
-                        Disponibilite.valueOf(rs.getString("etat")), // Enum from String
-                        rs.getInt("type_espace_id") // Get foreign key for type_espace
+                        rs.getString("localisation")  // Use getTime to match Time type
+                        // Enum from String
+                        // Get foreign key for type_espace
                 );
                 espaces.add(espace);
             }

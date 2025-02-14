@@ -1,7 +1,5 @@
 package com.esprit.models;
 
-import java.sql.Time;  // For localisation field as Time
-
 public class Espace {
 
     private int id;
@@ -12,7 +10,7 @@ public class Espace {
     private int type_espace_id;  // Add type_espace_id as an integer
 
     // Constructor with type_espace_id
-    public Espace(int id, String nom, String titre, String localisation, Disponibilite etat, int type_espace_id) {
+    public Espace(String nom, String titre, String localisation) {
         this.id = id;
         this.nom = nom;
         this.titre = titre;
@@ -28,6 +26,9 @@ public class Espace {
         this.localisation = localisation;
         this.etat = etat;
         this.type_espace_id = type_espace_id;
+    }
+
+    public Espace(String nom, String titre, String localisation, String etat) {
     }
 
     // Getters and setters

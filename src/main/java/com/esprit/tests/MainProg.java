@@ -1,8 +1,8 @@
 package com.esprit.tests;
 
 import com.esprit.models.*;
-import com.esprit.services.EspaceService;
-import com.esprit.models.Disponibilite;
+import com.esprit.services.*;
+
 import com.esprit.services.TypeEspaceService;
 
 public class MainProg {
@@ -10,7 +10,7 @@ public class MainProg {
         EspaceService es = new EspaceService();
 
 
-        //es.ajouter(new Espace("Salle de conférence", "Réunion internationale", "3er étage",  Disponibilite.DISPONIBLE, 1));
+        es.ajouter(new Espace("Salle de conférence", "Réunion internationale", "3er étage",  Disponibilite.INDISPONIBLE, 2));
 
 
 
@@ -26,14 +26,14 @@ public class MainProg {
 
 
 
-        tes.ajouter(new TypeEspace("Salle de conférence", "Salle pour conférences et réunions"));
+       // tes.ajouter(new TypeEspace("Salle de conférence", "Salle pour conférences et réunions"));
 
 
 
         //tes.modifier(new TypeEspace(1, "Salle de fetes ", "Salle pour grandes conférences"));
 
 
-        //tes.supprimer(new TypeEspace(1, "", ""));
+         tes.supprimer(new TypeEspace(2, "", ""));
 
 
 
