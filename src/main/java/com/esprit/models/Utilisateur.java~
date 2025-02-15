@@ -5,27 +5,24 @@ public class Utilisateur {
     private int id;
     private String nom;
     private String prenom;
-    private String email;
     private String motDePasse;
     private Role role;
     private Adresse adresse;
     private String tel;
 
-    public Utilisateur(int id, String nom, String prenom, String email, String motDePasse, Role role, Adresse adresse, String tel) {
+    public Utilisateur(int id, String nom, String prenom, String motDePasse, Role role, Adresse adresse, String tel) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
-        this.email = email;
         this.motDePasse = motDePasse;
         this.role = role;
         this.adresse = adresse;
         this.tel = tel;
     }
 
-    public Utilisateur(String nom, String prenom, String email, String motDePasse, Role role, Adresse adresse, String tel) {
+    public Utilisateur(String nom, String prenom, String motDePasse, Role role, Adresse adresse, String tel) {
         this.nom = nom;
         this.prenom = prenom;
-        this.email = email;
         this.motDePasse = motDePasse;
         this.role = role;
         this.adresse = adresse;
@@ -54,14 +51,6 @@ public class Utilisateur {
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getMotDePasse() {
@@ -102,7 +91,6 @@ public class Utilisateur {
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
-                ", email='" + email + '\'' +
                 ", motDePasse='" + motDePasse + '\'' +
                 ", role=" + role +
                 ", adresse=" + adresse +

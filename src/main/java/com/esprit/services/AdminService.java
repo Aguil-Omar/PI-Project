@@ -26,7 +26,7 @@ public class AdminService implements IServices<Utilisateur> {
                 adresseId = rs.getInt(1);
             }
 
-            String userQuery = "INSERT INTO Utilisateur (nom, prenom, motDePasse, role, adresse_id, tel) VALUES (?, ?, ?, ?, ?, ?)";
+            String userQuery = "INSERT INTO Utilisateur (nom, prenom, motDePasse, role, adresse_id, tel, email) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement userStmt = connection.prepareStatement(userQuery);
             userStmt.setString(1, utilisateur.getNom());
             userStmt.setString(2, utilisateur.getPrenom());
@@ -34,6 +34,7 @@ public class AdminService implements IServices<Utilisateur> {
             userStmt.setString(4, utilisateur.getRole().toString());
             userStmt.setInt(5, adresseId);
             userStmt.setString(6, utilisateur.getTel());
+            userStmt.setString(7, utilisateur.getEmail());
             userStmt.executeUpdate();
 
             System.out.println("Utilisateur ajouté avec succès.");
@@ -45,7 +46,7 @@ public class AdminService implements IServices<Utilisateur> {
     public List<Utilisateur> rechercher() {
         List<Utilisateur> utilisateurs = new ArrayList<>();
         try {
-            String query = "SELECT u.id, u.nom, u.prenom, u.motDePasse, u.role, u.tel, " +
+            String query = "SELECT u.id, u.nom, u.prenom, u.motDePasse, u.role, u.tel, u.email," +
                     "a.codePostal, a.region " +
                     "FROM Utilisateur u JOIN Adresse a ON u.adresse_id = a.id";
             Statement stmt = connection.createStatement();
@@ -55,14 +56,16 @@ public class AdminService implements IServices<Utilisateur> {
                 int id = rs.getInt("id");
                 String nom = rs.getString("nom");
                 String prenom = rs.getString("prenom");
+                String email = rs.getString("email");
                 String motDePasse = rs.getString("motDePasse");
                 String role = rs.getString("role");
                 String tel = rs.getString("tel");
+
                 int codePostal = rs.getInt("codePostal");
                 String region = rs.getString("region");
 
                 Adresse adresse = new Adresse(codePostal, region);
-                Utilisateur utilisateur = new Utilisateur(id, nom, prenom, motDePasse, Role.valueOf(role), adresse, tel);
+                Utilisateur utilisateur = new Utilisateur( nom, prenom,email ,motDePasse, Role.valueOf(role), adresse, tel);
 
                 utilisateurs.add(utilisateur);
             }
