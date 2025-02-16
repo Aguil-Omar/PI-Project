@@ -14,10 +14,10 @@ public class TypeEspaceService implements IService<TypeEspace> {
     @Override
     public void ajouter(TypeEspace typeEspace) {
         // Insert new type_espace record
-        String req = "INSERT INTO type_espace (nom, description) VALUES (?, ?)";
+        String req = "INSERT INTO type_espace (type, description) VALUES (?, ?)";
         try {
             PreparedStatement pst = connection.prepareStatement(req);
-            pst.setString(1, typeEspace.getNom());
+            pst.setString(1, typeEspace.gettype());
             pst.setString(2, typeEspace.getDescription());
             pst.executeUpdate();
             System.out.println("TypeEspace ajouté");
@@ -29,10 +29,10 @@ public class TypeEspaceService implements IService<TypeEspace> {
     @Override
     public void modifier(TypeEspace typeEspace) {
         // Update type_espace record by id
-        String req = "UPDATE type_espace SET nom=?, description=? WHERE id=?";
+        String req = "UPDATE type_espace SET type=?, description=? WHERE id=?";
         try {
             PreparedStatement pst = connection.prepareStatement(req);
-            pst.setString(1, typeEspace.getNom());
+            pst.setString(1, typeEspace.gettype());
             pst.setString(2, typeEspace.getDescription());
             pst.setInt(3, typeEspace.getId());
             pst.executeUpdate();
@@ -67,7 +67,7 @@ public class TypeEspaceService implements IService<TypeEspace> {
             while (rs.next()) {
                 TypeEspace typeEspace = new TypeEspace(
                         rs.getInt("id"),
-                        rs.getString("nom"),
+                        rs.getString("type"),
                         rs.getString("description")
                 );
                 typeEspaces.add(typeEspace);

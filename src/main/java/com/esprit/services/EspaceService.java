@@ -14,14 +14,14 @@ public class EspaceService implements IService<Espace> {
     @Override
     public void ajouter(Espace espace) {
         // Updated query to use type_espace_id
-        String req = "INSERT INTO espace (nom, titre, localisation, etat, type_espace_id) VALUES (?,?,?,?,?)";
+        String req = "INSERT INTO espace (nom, titre, localisation, etat, type_espace_id) VALUES (?,?,?,?,NULL)";
         try {
             PreparedStatement pst = connection.prepareStatement(req);
             pst.setString(1, espace.getNom());
             pst.setString(2, espace.getTitre());
             pst.setString(3, espace.getLocalisation());  // Set Time type
             pst.setString(4, espace.getEtat().toString()); // Enum to String
-            pst.setInt(5, espace.getType_espace_id());  // Set foreign key for type_espace
+
             pst.executeUpdate();
             System.out.println("Espace ajouté");
         } catch (SQLException e) {

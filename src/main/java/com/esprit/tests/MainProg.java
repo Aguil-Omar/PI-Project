@@ -10,7 +10,7 @@ public class MainProg {
         EspaceService es = new EspaceService();
 
 
-        es.ajouter(new Espace("Salle de conférence", "Réunion internationale", "3er étage",  Disponibilite.INDISPONIBLE, 2));
+       // es.ajouter(new Espace("Salle de conférence", "Réunion internationale", "3er étage",  Disponibilite.INDISPONIBLE, 2));
 
 
 
@@ -26,14 +26,14 @@ public class MainProg {
 
 
 
-       // tes.ajouter(new TypeEspace("Salle de conférence", "Salle pour conférences et réunions"));
+        //tes.ajouter(new TypeEspace("Salle de conférence", "Salle pour conférences et réunions"));
 
 
 
         //tes.modifier(new TypeEspace(1, "Salle de fetes ", "Salle pour grandes conférences"));
 
 
-         tes.supprimer(new TypeEspace(2, "", ""));
+        // tes.supprimer(new TypeEspace(2, "", ""));
 
 
 

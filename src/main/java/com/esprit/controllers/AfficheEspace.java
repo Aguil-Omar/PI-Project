@@ -2,6 +2,9 @@ package com.esprit.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Labeled;
 
 public class AfficheEspace {
 
@@ -16,6 +19,13 @@ public class AfficheEspace {
 
     @FXML
     private Label lbDisponible;
+
+    @FXML
+    private Label lbType;
+
+    @FXML
+    private Label lbDescription;
+
 
     public void setLbNom(String nom) {
         this.lbNom.setText(nom);
@@ -32,4 +42,14 @@ public class AfficheEspace {
     public void setLbDisponible(String disponible) {
         this.lbDisponible.setText(disponible);
     }
+    public void setLbType(String type) {
+        this.lbType.setText(type);
+
+    }
+
+    public void setLbDescription(String description) {
+        this.lbDescription.setText(description);
+    }
+
+
 }
