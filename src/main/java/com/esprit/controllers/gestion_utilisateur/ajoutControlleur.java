@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 
-public class testcontroller {
+public class ajoutControlleur {
 
     @FXML
     private TextField nomField, prenomField, motDePasseField, emailField, telField, codePostalField, regionField;

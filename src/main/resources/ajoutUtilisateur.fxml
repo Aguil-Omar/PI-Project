@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #CEF1F9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.gestion_utilisateur.testcontroller">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #CEF1F9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.gestion_utilisateur.ajoutControlleur">
 
    <!-- Header -->
    <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #03045F; -fx-padding: 20;">
@@ -96,7 +96,7 @@
 
          <!-- Submit Button -->
          <HBox alignment="CENTER" spacing="20">
-            <Button fx:id="ajouterButton" alignment="CENTER" minWidth="230.0" onAction="#ajouterUtilisateur" prefHeight="46.0" prefWidth="230.0" style="-fx-background-color: #03045F; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 10 20;" text="Modifier Utilisateur"/>
+            <Button fx:id="ajouterButton" alignment="CENTER" minWidth="230.0" onAction="#ajouterUtilisateur" prefHeight="46.0" prefWidth="230.0" style="-fx-background-color: #03045F; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 10 20;" text="ajouter Utilisateur"/>
             <Button fx:id="cancelButton" alignment="CENTER" minWidth="230.0" onAction="#cancelAdd" prefHeight="46.0" prefWidth="230.0" style="-fx-background-color: #93E1F0; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 10 20;" text="Cancel"/>
          </HBox>
       </VBox>

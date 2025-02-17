@@ -81,8 +81,8 @@ public class listUtilisateur implements Initializable {
     @FXML
     public void handleAddUtilisateur() {
         try {
-            // Load the test.fxml scene
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/test.fxml"));
+            // Load the ajoutUtilisateur.fxml scene
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ajoutUtilisateur.fxml"));
             Parent root = loader.load();
 
             // Create a new stage for the new scene
