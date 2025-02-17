@@ -1,0 +1,50 @@
+#commentListView {
+    -fx-background-color: transparent;
+    -fx-border-radius: 10px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+#commentListView .list-cell {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-padding: 10px;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-text-fill: #333;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 5, 0.2, 2, 2);
+    -fx-alignment: center-left;
+    -fx-label-padding: 5px;
+}
+
+#commentListView .list-cell:empty {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+#commentListView .list-cell:filled {
+    -fx-padding: 7px 10px;
+}
+
+.button-addComment{
+    -fx-background-color: #03045F;
+    -fx-text-fill: #CEF1F9;
+    -fx-font-size: 21px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 2px 5px;
+    -fx-cursor: hand;
+}
+.button-addComment:hover{
+    -fx-background-color: #CEF1F9;
+    -fx-text-fill: #03045F;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+}
+.button-addComment:pressed {
+    -fx-background-color: #0078B8;
+    -fx-text-fill: #CEF1F9;
+}
