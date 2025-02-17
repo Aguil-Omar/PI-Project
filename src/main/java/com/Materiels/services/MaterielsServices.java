@@ -37,10 +37,10 @@ public class MaterielsServices implements Iservives<Materiels> {
             String req = "UPDATE materiel  SET nom=? ,prix=?,etat=? WHERE id=? ";
             try {
                 PreparedStatement pst = connection.prepareStatement(req);
-                pst.setInt(1, Materiels.getId());
-                pst.setString(2, Materiels.getNom());
-                pst.setFloat(3, Materiels.getPrix());
-                pst.setString(4, Materiels.getEtat().toString());
+                pst.setInt(4, Materiels.getId());
+                pst.setString(1, Materiels.getNom());
+                pst.setFloat(2, Materiels.getPrix());
+                pst.setString(3, Materiels.getEtat().toString());
 
                 pst.executeUpdate();
                 System.out.println("materiel modifiée");
@@ -84,6 +84,7 @@ public class MaterielsServices implements Iservives<Materiels> {
 
 
             return materiels;
+
         }
     }
 

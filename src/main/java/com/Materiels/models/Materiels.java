@@ -9,18 +9,21 @@ public class Materiels {
         private Disponibilte etat;
 
 
+
     public Materiels (int id, String nom , float prix , Disponibilte etat) {
         this.id = id;
         this.nom = nom;
 
         this.prix = prix;
         this.etat = etat;
+
     }
     public Materiels ( String nom,  float prix , Disponibilte etat) {
         this.nom = nom;
 
         this.prix = prix;
         this.etat = etat;
+
     }
 
     public int getId() {
@@ -62,6 +65,7 @@ public class Materiels {
                 ", nom='" + nom + '\'' +
                 ", prix=" + prix +
                 ", etat=" + etat +
+
                 '}';
     }
 

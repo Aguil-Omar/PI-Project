@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+
+<TabPane fx:id="tabPane" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Materiels.controllers.MainInterface">
+    <tabs>
+
+        <Tab fx:id="typeMaterielsTab" text="Gestion des Types de Matériels">
+            <content>
+                <fx:include source="AfficheTypeMateriels.fxml" />
+            </content>
+        </Tab>
+
+        <Tab fx:id="materielsTab" text="Gestion des Matériels">
+            <content>
+                <fx:include source="AfficheMateriels.fxml" />
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
