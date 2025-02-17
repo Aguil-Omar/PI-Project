@@ -1,4 +1,4 @@
-package com.esprit.models;
+package com.esprit.models.utilisateur;
 
 public enum Role {
 

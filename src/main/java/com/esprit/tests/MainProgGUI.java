@@ -23,8 +23,9 @@ public class MainProgGUI extends Application {
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/readUtilisateur.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,800,500);
         primaryStage.setScene(scene);
+
         primaryStage.setTitle("WorkshopPIDEV");
         primaryStage.show();
     }

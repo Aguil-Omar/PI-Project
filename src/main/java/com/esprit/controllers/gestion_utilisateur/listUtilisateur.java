@@ -1,7 +1,7 @@
-package com.esprit.controllers;
+package com.esprit.controllers.gestion_utilisateur;
 
-import com.esprit.models.Utilisateur;
-import com.esprit.services.AdminService;
+import com.esprit.models.utilisateur.Utilisateur;
+import com.esprit.services.utilisateur.AdminService;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -77,6 +77,25 @@ public class listUtilisateur implements Initializable {
         List<Utilisateur> utilisateursList = adminService.rechercher();
 
         utilisateurs.addAll(utilisateursList);
+    }
+    @FXML
+    public void handleAddUtilisateur() {
+        try {
+            // Load the test.fxml scene
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/test.fxml"));
+            Parent root = loader.load();
+
+            // Create a new stage for the new scene
+            Stage stage = new Stage();
+            stage.setTitle("Add Utilisateur");
+
+            // Set the scene and show the stage
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -196,5 +215,6 @@ public class listUtilisateur implements Initializable {
 
         utilisateurTable.setItems(utilisateurs);
         initData();
+
     }
 }

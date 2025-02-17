@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1154c01-4f1a-4288-a2b3-c93ce25e2899" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/listUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/listUtilisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/testcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/testcontroller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/models/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/models/Utilisateur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/services/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/services/AdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/tests/MainProg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/tests/MainProg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/tests/MainProgGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/tests/MainProgGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/readUtilisateur.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/readUtilisateur.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +25,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>

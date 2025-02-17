@@ -1,17 +1,22 @@
-package com.esprit.controllers;
+package com.esprit.controllers.gestion_utilisateur;
 
-import com.esprit.models.Adresse;
-import com.esprit.models.Role;
-import com.esprit.models.Utilisateur;
-import com.esprit.services.AdminService;
+import com.esprit.models.utilisateur.Adresse;
+import com.esprit.models.utilisateur.Role;
+import com.esprit.models.utilisateur.Utilisateur;
+import com.esprit.services.utilisateur.AdminService;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 
 public class testcontroller {
 
@@ -25,7 +30,8 @@ public class testcontroller {
     private Button ajouterButton, browseImageButton;
     @FXML
     private ImageView imageView;
-
+@FXML
+private Button cancelButton;
     private AdminService adminService = new AdminService();
     private String imagePath;
 
@@ -62,6 +68,30 @@ public class testcontroller {
             Image image = new Image(selectedFile.toURI().toString());
             imageView.setImage(image);
         }
+    }
+    private void redirectToReadUtilisateur() {
+        try {
+            // Load the readUtilisateur.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/readUtilisateur.fxml"));
+            AnchorPane root = loader.load();
+
+            // Set the new scene
+            Stage stage = (Stage) cancelButton.getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Erreur", "Erreur lors de la redirection : " + e.getMessage());
+        }
+    }
+
+    @FXML
+    private void cancelAdd() {
+        // Reload the current page with the original utilisateur details
+          // Reset form fields with current utilisateur data
+
+        this.redirectToReadUtilisateur();
     }
 
     @FXML

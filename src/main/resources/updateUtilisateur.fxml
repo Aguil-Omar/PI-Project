@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #CEF1F9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.gestion_utilisateur.updateUtilisateur">
+
+    <!-- Header -->
+    <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1196.0" style="-fx-background-color: #03045F; -fx-padding: 20;">
+        <children>
+            <Label fx:id="headerLabel" style="-fx-text-fill: #FFFFFF; -fx-font-size: 36px; -fx-font-weight: bold;" text="Eventopia" />
+        </children>
+    </VBox>
+
+    <!-- Main Form Section -->
+    <HBox alignment="CENTER" layoutX="174.0" layoutY="110.0" prefHeight="570.0" prefWidth="806.0" style="-fx-background-color: #FFFFFF; -fx-padding: 20px; -fx-background-radius: 10; -fx-border-color: #2196F3; -fx-border-width: 2px; -fx-spacing: 10px;">
+
+        <!-- Image View -->
+        <VBox alignment="CENTER" prefWidth="250.0" style="-fx-padding: 10px;">
+            <ImageView fx:id="userImageView" fitHeight="150" fitWidth="150" style="-fx-border-color: #2196F3; -fx-border-width: 1px; -fx-background-color: #f4f4f4;" />
+        </VBox>
+
+        <!-- Form Fields -->
+        <VBox alignment="CENTER" prefHeight="570.0" prefWidth="550.0" style="-fx-background-color: #FFFFFF; -fx-padding: 20px; -fx-background-radius: 10; -fx-border-color: #2196F3; -fx-border-width: 2px; -fx-spacing: 10px;">
+            <!-- Form Title -->
+            <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #03045F; -fx-margin-bottom: 10px;" text="Modifier Utilisateur" />
+
+            <!-- Form Fields -->
+            <VBox prefHeight="480.0" prefWidth="796.0" spacing="10">
+                <!-- Nom Field -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #03045F; -fx-min-width: 100px;" text="Nom:" />
+                    <TextField fx:id="nomField" prefHeight="38.0" prefWidth="431.0" style="-fx-padding: 8px; -fx-background-color: #f4f4f4; -fx-border-color: #2196F3; -fx-border-width: 1px; -fx-font-size: 14px; -fx-min-width: 200px;" />
+                </HBox>
+
+                <!-- Prenom Field -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #03045F; -fx-min-width: 100px;" text="Prenom:" />
+                    <TextField fx:id="prenomField" prefHeight="38.0" prefWidth="430.0" style="-fx-padding: 8px; -fx-background-color: #f4f4f4; -fx-border-color: #2196F3; -fx-border-width: 1px; -fx-font-size: 14px; -fx-min-width: 200px;" />
+                </HBox>
+
+                <!-- Email Field -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #03045F; -fx-min-width: 100px;" text="Email:" />
+                    <TextField fx:id="emailField" prefHeight="38.0" prefWidth="432.0" style="-fx-padding: 8px; -fx-background-color: #f4f4f4; -fx-border-color: #2196F3; -fx-border-width: 1px; -fx-font-size: 14px; -fx-min-width: 200px;" />
+                </HBox>
+
+                <!-- Mot de Passe Field -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #03045F; -fx-min-width: 100px;" text="Mot de Passe:" />
+                    <PasswordField fx:id="motDePasseField" prefHeight="38.0" prefWidth="425.0" style="-fx-padding: 8px; -fx-background-color: #f4f4f4; -fx-border-color: #2196F3; -fx-border-width: 1px; -fx-font-size: 14px; -fx-min-width: 200px;" />
+                </HBox>
+
+                <!-- Role Field -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #03045F; -fx-min-width: 100px;" text="Role:" />
+                    <HBox spacing="10">
+                        <RadioButton fx:id="adminRadioButton" selected="true" style="-fx-font-size: 14px;" text="Admin">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="roleGroup" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="organisateurRadioButton" style="-fx-font-size: 14px;" text="Organisateur" toggleGroup="$roleGroup" />
+                        <RadioButton fx:id="participantRadioButton" style="-fx-font-size: 14px;" text="Participant" toggleGroup="$roleGroup" />
+                    </HBox>
+                </HBox>
+
+                <!-- Code Postal Field -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #03045F; -fx-min-width: 100px;" text="Code Postal:" />
+                    <TextField fx:id="codePostalField" prefHeight="38.0" prefWidth="428.0" style="-fx-padding: 8px; -fx-background-color: #f4f4f4; -fx-border-color: #2196F3; -fx-border-width: 1px; -fx-font-size: 14px; -fx-min-width: 200px;" />
+                </HBox>
+
+                <!-- Region Field -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #03045F; -fx-min-width: 100px;" text="Region:" />
+                    <TextField fx:id="regionField" prefHeight="38.0" prefWidth="427.0" style="-fx-padding: 8px; -fx-background-color: #f4f4f4; -fx-border-color: #2196F3; -fx-border-width: 1px; -fx-font-size: 14px; -fx-min-width: 200px;" />
+                </HBox>
+
+                <!-- Telephone Field -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #03045F; -fx-min-width: 100px;" text="Telephone:" />
+                    <TextField fx:id="telField" prefHeight="38.0" prefWidth="425.0" style="-fx-padding: 8px; -fx-background-color: #f4f4f4; -fx-border-color: #2196F3; -fx-border-width: 1px; -fx-font-size: 14px; -fx-min-width: 200px;" />
+                </HBox>
+
+                <!-- Image Upload -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #03045F; -fx-min-width: 100px;" text="Upload Image:" />
+                    <HBox spacing="10">
+                        <Button onAction="#browseImage" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 8px 16px;" text="Choose Image" />
+                    </HBox>
+                </HBox>
+
+                <!-- Submit Button -->
+                <HBox alignment="CENTER" spacing="20">
+                    <Button fx:id="updateButton" alignment="CENTER" minWidth="230.0" onAction="#updateUtilisateur" prefHeight="46.0" prefWidth="230.0" style="-fx-background-color: #03045F; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 10 20;" text="Modifier Utilisateur"/>
+                    <Button fx:id="cancelButton" alignment="CENTER" minWidth="230.0" onAction="#cancelUpdate" prefHeight="46.0" prefWidth="230.0" style="-fx-background-color: #93E1F0; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 10 20;" text="Cancel"/>
+                </HBox>
+
+
+            </VBox>
+        </VBox>
+    </HBox>
+</AnchorPane>

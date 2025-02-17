@@ -1,5 +1,5 @@
-package com.esprit.models;
-import  com.esprit.models.Adresse;
+package com.esprit.models.utilisateur;
+
 public class Utilisateur {
 
     private int id;
@@ -11,7 +11,16 @@ public class Utilisateur {
     private Adresse adresse;
     private String tel;
 
-    public Utilisateur(int id, String nom, String prenom, String email, String motDePasse, Role role, Adresse adresse, String tel) {
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    private String imageUrl;
+    public Utilisateur(int id, String nom, String prenom, String email, String motDePasse, Role role, Adresse adresse, String tel,String imageUrl) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -20,9 +29,10 @@ public class Utilisateur {
         this.role = role;
         this.adresse = adresse;
         this.tel = tel;
+        this.imageUrl=imageUrl;
     }
 
-    public Utilisateur(String nom, String prenom, String email, String motDePasse, Role role, Adresse adresse, String tel) {
+    public Utilisateur(String nom, String prenom, String email, String motDePasse, Role role, Adresse adresse, String tel,String imageUrl) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
@@ -30,6 +40,7 @@ public class Utilisateur {
         this.role = role;
         this.adresse = adresse;
         this.tel = tel;
+        this.imageUrl=imageUrl;
     }
 
     public int getId() {
