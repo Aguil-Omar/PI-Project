@@ -4,7 +4,6 @@ import com.esprit.models.Disponibilite;
 import com.esprit.models.Espace;
 import com.esprit.models.TypeEspace;
 import com.esprit.services.EspaceService;
-import com.esprit.services.TypeEspaceService;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,22 +11,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 
-import javax.swing.text.AbstractDocument;
 import java.io.IOException;
 
 public class AjoutEspace {
 
     @FXML
-    private TextField tfNom;
-
-    @FXML
-    private TextField tfTitre;
-
-    @FXML
-    private TextField tfLocalisation;
-    @FXML
-    private TextField tfType;
+    private TextField tfNom, tfLocalisation, tfType;
 
     @FXML
     private TextArea taDescription;
@@ -35,55 +26,92 @@ public class AjoutEspace {
     @FXML
     private ComboBox<String> cbDisponible;
 
-    private String typeEspaceNom;
-    private String typeEspaceDescription;
+    @FXML
+    private Button Bajouter;
+
+    private EspaceService espaceService = new EspaceService();
+
+    private AfficheEspace afficheEspaceController;  // Reference to AfficheEspaceController
 
     @FXML
     public void initialize() {
         // Populate ComboBox with ENUM values
         cbDisponible.setItems(FXCollections.observableArrayList("DISPONIBLE", "INDISPONIBLE"));
     }
-    public void setTypeEspace(TypeEspace typeEspace) {
-        this.typeEspaceNom = typeEspace.gettype();
-        this.typeEspaceDescription = typeEspace.getDescription();
-        tfType.setText(typeEspaceNom);
-        taDescription.setText(typeEspaceDescription);
-    }
 
     @FXML
-    void AddEspace(ActionEvent event) throws IOException {
+    private void AddEspace(ActionEvent event) throws IOException {
+        // Retrieving input data
         String nom = tfNom.getText();
-        String titre = tfTitre.getText();
         String localisation = tfLocalisation.getText();
-        Disponibilite etat = Disponibilite.valueOf(cbDisponible.getValue()); // Get selected value
 
-        if (nom.isEmpty() || titre.isEmpty() || localisation.isEmpty() || etat == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Validation Error");
-            alert.setContentText("Veuillez remplir tous les champs !");
-            alert.show();
+        // Validate ComboBox selection for state
+        String selectedState = cbDisponible.getValue();
+        if (selectedState == null) {
+            showAlert("Erreur", "Veuillez sélectionner l'état de l'espace");
+            return;
+        }
+        Disponibilite etat = Disponibilite.valueOf(selectedState);
+
+        // Create TypeEspace object (only if it doesn't already exist in the DB)
+        String typeName = tfType.getText();
+        String typeDescription = taDescription.getText();
+        if (typeName == null || typeDescription == null || typeName.isEmpty() || typeDescription.isEmpty()) {
+            showAlert("Erreur", "Veuillez remplir les champs Type et Description");
             return;
         }
 
-        EspaceService es = new EspaceService();
-        es.ajouter(new Espace(nom, titre, localisation, Disponibilite.valueOf(cbDisponible.getValue()), 1));
+        // Fetch or create the TypeEspace object from the database
+        TypeEspace typeEspace = espaceService.getTypeEspaceByTypeAndDescription(typeName, typeDescription);
+        if (typeEspace == null) {
+            // If the TypeEspace does not exist, create and save it
+            typeEspace = new TypeEspace(typeName, typeDescription);
+            espaceService.saveTypeEspace(typeEspace);
+        }
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Confirmation");
-        alert.setContentText("Espace ajouté avec succès !");
-        alert.show();
+        // Input validation for Espace fields
+        if (nom.isEmpty() || localisation.isEmpty() || etat == null || typeEspace == null) {
+            showAlert("Erreur", "Veuillez remplir tous les champs");
+            return;
+        }
 
-        // Redirect to the display page
+        // Creating the Espace object
+        Espace espace = new Espace(nom, localisation, etat, typeEspace);
+
+        // Adding the Espace through the service
+        espaceService.ajouter(espace);  // Ensure the method `ajouter` is properly defined in EspaceService
+
+        // Clear fields after submission
+        clearFields();
+
+        // Show success message
+        showAlert("Succès", "Espace ajouté avec succès !");
+
+        // Redirect to the display page after adding the space
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficheEspace.fxml"));
         Parent root = loader.load();
         tfNom.getScene().setRoot(root);
         AfficheEspace ap = loader.getController();
-        ap.setLbNom(tfNom.getText());
-        ap.setLbTitre(tfTitre.getText());
-        ap.setLbLocalisation(tfLocalisation.getText());
-        ap.setLbDisponible(cbDisponible.getValue());
-        tfLocalisation.clear();
-        tfTitre.clear();
+        ap.refreshTableView();  // Refresh the table view to show the new data
+    }
+
+    // Utility method to show alerts like in your friend's code
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    // Clear all fields after submission
+    private void clearFields() {
         tfNom.clear();
+        tfLocalisation.clear();
+        tfType.clear();
+        taDescription.clear();
+        cbDisponible.setValue(null);  // Clear ComboBox
     }
 }
+
+    // Setter for AfficheEspaceController, so that we can pass it from the main app
+

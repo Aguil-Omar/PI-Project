@@ -27,11 +27,11 @@ public class TypeEspace {
         this.id = id;
     }
 
-    public String gettype() {
+    public String getType() {
         return type;
     }
 
-    public void settype(String type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -52,3 +52,6 @@ public class TypeEspace {
                 '}';
     }
 }
+
+
+

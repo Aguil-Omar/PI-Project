@@ -3,40 +3,26 @@ package com.esprit.tests;
 import com.esprit.models.*;
 import com.esprit.services.*;
 
-import com.esprit.services.TypeEspaceService;
-
 public class MainProg {
     public static void main(String[] args) {
         EspaceService es = new EspaceService();
 
 
-       // es.ajouter(new Espace("Salle de conférence", "Réunion internationale", "3er étage",  Disponibilite.INDISPONIBLE, 2));
+//       TypeEspace typeEspace = new TypeEspace("Salle de conférence", "Salle ");
+//        Espace espace = new Espace("Salle OMNIA", "Ariana", Disponibilite.DISPONIBLE, typeEspace);
+//        es.ajouter(espace);
 
 
+        TypeEspace modifiedType = new TypeEspace(31, "Salle de fêtes", "Salle pour grandes conférences");
+        Espace modifiedEspace = new Espace(34, "Salle ESPRIT", "MONASTIR", Disponibilite.INDISPONIBLE, modifiedType);
+        es.modifier(modifiedEspace);
 
-       // es.modifier(new Espace(3, "Salle A", "Réunion importante", "1er étage", Disponibilite.INDISPONIBLE, 2));
+        // Deleting an espace (assuming ID exists)
 
+        //Espace espaceToDelete = new Espace(33, "", "", Disponibilite.DISPONIBLE, modifiedType);
+        //es.supprimer(espaceToDelete);
 
-
-       // es.supprimer(new Espace(3, "", "", "", Disponibilite.DISPONIBLE, 3)); // assuming 3 is a valid type_espace_id
-
-
-        System.out.println(es.rechercher());
-        TypeEspaceService tes = new TypeEspaceService();
-
-
-
-        //tes.ajouter(new TypeEspace("Salle de conférence", "Salle pour conférences et réunions"));
-
-
-
-        //tes.modifier(new TypeEspace(1, "Salle de fetes ", "Salle pour grandes conférences"));
-
-
-        // tes.supprimer(new TypeEspace(2, "", ""));
-
-
-
-        System.out.println(tes.rechercher());
+        // Displaying all espaces
+        es.rechercher().forEach(System.out::println);
     }
 }

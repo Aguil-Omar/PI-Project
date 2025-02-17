@@ -1,55 +1,77 @@
 package com.esprit.controllers;
 
+import com.esprit.models.Espace;
+import com.esprit.models.Disponibilite;
+import com.esprit.models.TypeEspace;
+import com.esprit.services.EspaceService;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Labeled;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
-public class AfficheEspace {
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    @FXML
-    private Label lbNom;
+import static javafx.scene.control.TableView.*;
 
-    @FXML
-    private Label lbTitre;
+public class AfficheEspace implements Initializable {
 
     @FXML
-    private Label lbLocalisation;
+    private TableView<Espace> espaceTableView;
 
     @FXML
-    private Label lbDisponible;
+    private TableColumn<Espace, String> cNom;
 
     @FXML
-    private Label lbType;
+    private TableColumn<Espace, String> cLocalisation;
 
     @FXML
-    private Label lbDescription;
+    private TableColumn<Espace, String> cDisponible;
 
+    @FXML
+    private TableColumn<Espace, String> cType;
 
-    public void setLbNom(String nom) {
-        this.lbNom.setText(nom);
+    @FXML
+    private TableColumn<Espace, String> cDescription;
+
+    private ObservableList<Espace> espaces = FXCollections.observableArrayList();
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        // Displaying the name of the space
+        cNom.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNom()));
+
+        // Displaying the localisation of the space
+        cLocalisation.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getLocalisation()));
+
+        // Displaying the availability (Etat) using the enum's string representation
+        cDisponible.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEtat().toString()));
+
+        // Displaying the type of space
+        cType.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTypeEspace().getType()));
+
+        // Displaying the description from the TypeEspace object
+        cDescription.setCellValueFactory(cellData ->
+                new SimpleStringProperty(cellData.getValue().getTypeEspace().getDescription()));
+
+        // Load data into table
+        espaceTableView.setItems(espaces);
     }
 
-    public void setLbTitre(String titre) {
-        this.lbTitre.setText(titre);
+    public void setData(Espace espace) {
+        espaces.add(espace);
+        espaceTableView.setItems(espaces);  // Ensure the TableView updates with the new data
+        espaceTableView.refresh();  // Refresh to reflect the changes in the TableView
     }
+    public void refreshTableView() {
+        // Get updated list of Espace from the database
+        ObservableList<Espace> espaceList = FXCollections.observableArrayList(EspaceService.getAllEspaces());
 
-    public void setLbLocalisation(String localisation) {
-        this.lbLocalisation.setText(localisation);
+        // Set the updated data to the TableView
+        TableView.setItems(espaceList);
     }
-
-    public void setLbDisponible(String disponible) {
-        this.lbDisponible.setText(disponible);
-    }
-    public void setLbType(String type) {
-        this.lbType.setText(type);
-
-    }
-
-    public void setLbDescription(String description) {
-        this.lbDescription.setText(description);
-    }
-
-
 }
