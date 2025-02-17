@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #f4f4f4;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pi_dev.controllers.EvenementController.AfficherProgramme">
+
+    <children>
+        <TableView fx:id="tableProgrammes" layoutX="50.0" layoutY="50.0" prefHeight="400.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="colActivite" text="Activité" prefWidth="180.0"/>
+                <TableColumn fx:id="colHeureDebut" text="Heure Début" prefWidth="120.0"/>
+                <TableColumn fx:id="colHeureFin" text="Heure Fin" prefWidth="120.0"/>
+                <TableColumn fx:id="colActions" text="Actions"/>
+
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
