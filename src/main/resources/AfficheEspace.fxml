@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.AfficheEspace">
+<AnchorPane prefHeight="614.0" prefWidth="925.0" style="-fx-background-color: #CEF1F9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.AfficheEspace">
    <children>
-      <TableView fx:id="espaceTable" layoutX="74.0" layoutY="86.0" prefHeight="200.0" prefWidth="451.0">
+      <TableView fx:id="espaceTable" layoutX="29.0" layoutY="157.0" prefHeight="400.0" prefWidth="905.0">
         <columns>
-          <TableColumn fx:id="cNom" prefWidth="75.0" text="Nom" />
-            <TableColumn fx:id="cLocalisation" prefWidth="75.0" text="Localisation" />
-            <TableColumn fx:id="cDisponible" prefWidth="95.199951171875" text="Etat" />
-            <TableColumn fx:id="cType" prefWidth="75.0" text="Type" />
-            <TableColumn fx:id="cDescription" prefWidth="75.0" text="Description" />
+          <TableColumn fx:id="cNom" prefWidth="150.3999900817871" text="Nom" />
+            <TableColumn fx:id="cLocalisation" minWidth="0.0" prefWidth="260.8000030517578" text="Localisation" />
+            <TableColumn fx:id="cDisponible" prefWidth="178.4000244140625" text="Etat" />
+            <TableColumn fx:id="caction" prefWidth="315.2000732421875" text="Action" />
         </columns>
       </TableView>
+      <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="964.0" style="-fx-background-color: #03045F;">
+         <children>
+            <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 36px; -fx-font-weight: bold;" text="Eventopia" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

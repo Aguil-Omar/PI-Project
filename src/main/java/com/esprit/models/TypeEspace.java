@@ -6,7 +6,7 @@ public class TypeEspace {
     private String description;
 
     // Constructor
-    public TypeEspace(int id, String type, String description) {
+    public TypeEspace(int id) {
         this.id = id;
         this.type = type;
         this.description = description;
@@ -18,9 +18,21 @@ public class TypeEspace {
         this.description = description;
     }
 
+    public TypeEspace(int id, String type, String description) {
+        this.id = id;
+        this.type = type;
+        this.description = description;
+    }
+
     // Getters and setters
     public int getId() {
         return id;
+    }
+
+    public TypeEspace(String description, String type, int id) {
+        this.description = description;
+        this.type = type;
+        this.id = id;
     }
 
     public void setId(int id) {

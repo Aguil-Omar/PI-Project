@@ -17,15 +17,19 @@ public class Espace {
     }
 
     // Constructor without ID (for adding new espaces)
-    public Espace(String s, String nom, String localisation, Disponibilite etat, TypeEspace typeEspace) {
+    public Espace( String nom, String localisation, Disponibilite etat, TypeEspace typeEspace) {
         this.nom = nom;
         this.localisation = localisation;
         this.etat = etat;
         this.typeEspace = typeEspace;
     }
 
-    public Espace(String nom, String localisation, Disponibilite etat, TypeEspace typeEspace) {
+    public Espace(String nom, String localisation, Disponibilite etat) {
+        this.nom = nom;
+        this.localisation = localisation;
+        this.etat = etat;
     }
+
 
     // Getters and Setters
     public int getId() {
