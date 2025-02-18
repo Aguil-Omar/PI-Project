@@ -2,6 +2,7 @@ package com.Materiels.services;
 
 import com.Materiels.models.Disponibilte;
 import com.Materiels.models.Materiels;
+import com.Materiels.models.TypeMateriels;
 import com.Materiels.utils.DataSources;
 
 import java.sql.Connection;
@@ -17,12 +18,13 @@ public class MaterielsServices implements Iservives<Materiels> {
 
         @Override
         public void ajouter(Materiels Materiels) {
-            String req = "INSERT INTO materiel (nom, prix,etat) VALUES (?,?,?)";
+            String req = "INSERT INTO materiel (nom, prix,etat, type_materiel_id ) VALUES (?,?,?,?)";
             try {
                 PreparedStatement pst = connection.prepareStatement(req);
                 pst.setString(1, Materiels.getNom());
                 pst.setFloat(2, Materiels.getPrix());
                 pst.setString(3, Materiels.getEtat().toString());
+                pst.setInt(4, Materiels.getTypeMateriel().getId());
 
 
                 pst.executeUpdate();
@@ -34,13 +36,15 @@ public class MaterielsServices implements Iservives<Materiels> {
 
         @Override
         public void modifier(Materiels Materiels) {
-            String req = "UPDATE materiel  SET nom=? ,prix=?,etat=? WHERE id=? ";
+            String req = "UPDATE materiel  SET nom=? ,prix=?,etat=?, type_materiel_id =? WHERE id=? ";
             try {
                 PreparedStatement pst = connection.prepareStatement(req);
-                pst.setInt(4, Materiels.getId());
                 pst.setString(1, Materiels.getNom());
                 pst.setFloat(2, Materiels.getPrix());
                 pst.setString(3, Materiels.getEtat().toString());
+                pst.setInt(4, Materiels.getTypeMateriel ().getId());
+                pst.setInt(5, Materiels.getId());
+
 
                 pst.executeUpdate();
                 System.out.println("materiel modifiée");
@@ -66,17 +70,31 @@ public class MaterielsServices implements Iservives<Materiels> {
         public List<Materiels> rechercher() {
             List<Materiels> materiels = new ArrayList<>();
 
-            String req = "SELECT * FROM materiel";
+            String req = "SELECT m.id, m.nom, m.prix, m.etat, m.type_materiel_id, tm.nomM, tm.description FROM materiel m JOIN type_materiel tm ON m.type_materiel_id = tm.id";
+
+            System.out.println(req);
+
             try {
                 PreparedStatement pst = connection.prepareStatement(req);
                 ResultSet rs = pst.executeQuery();
+                System.out.println(rs);
                 while (rs.next()) {
-                    materiels.add(new Materiels(
+
+                    TypeMateriels typeMateriel = new TypeMateriels(
+                            rs.getInt("id"),
+                            rs.getString("nomM"),
+                            rs.getString("description")
+                    );
+                    Materiels materiel = new Materiels(
                             rs.getInt("id"),
                             rs.getString("nom"),
                             rs.getFloat("prix"),
-                            Disponibilte.valueOf(rs.getString("etat"))
-                    ));
+                            Disponibilte.valueOf(rs.getString("etat")),
+                            typeMateriel
+
+                    );
+                    materiels.add(materiel);
+
                 }
             } catch (SQLException e) {
                 System.out.println(e.getMessage());

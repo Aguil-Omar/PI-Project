@@ -12,7 +12,7 @@
         <Label fx:id="lblMessage" layoutX="20.0" layoutY="60.0" text="Êtes-vous sûr de vouloir supprimer ce matériel ?" />
 
 
-        <Button fx:id="btnConfirmer" layoutX="50.0" layoutY="120.0" text="Confirmer " onAction="#confirmer" />
-        <Button fx:id="btnAnnuler" layoutX="150.0" layoutY="120.0" text="Annuler" onAction="#annuler" />
+        <Button fx:id="btnConfirmer" layoutX="50.0" layoutY="120.0" text="Confirmer " onAction="#confirmer" style="-fx-background-color: #28b463;" />
+        <Button fx:id="btnAnnuler" layoutX="150.0" layoutY="120.0" text="Annuler" onAction="#annuler" style="-fx-background-color:#c0392b;" />
     </children>
 </AnchorPane>

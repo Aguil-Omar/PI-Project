@@ -2,20 +2,18 @@ package com.Materiels.controllers;
 
 import com.Materiels.models.Disponibilte;
 import com.Materiels.models.Materiels;
+import com.Materiels.models.TypeMateriels;
 import com.Materiels.services.MaterielsServices;
+import com.Materiels.services.TypeMaterielsServices;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+
+import java.util.List;
 
 public class AjoutMateriels {
 
@@ -27,6 +25,9 @@ public class AjoutMateriels {
 
     @FXML
     private ComboBox<String> cmbEtat;
+    @FXML
+    private ComboBox<TypeMateriels> cmbTypeMateriel;
+    private TypeMaterielsServices typeMaterielsService = new TypeMaterielsServices();
 
     @FXML
     private Button btnAjout;
@@ -37,17 +38,48 @@ public class AjoutMateriels {
     public void initialize() {
 
         cmbEtat.setItems(FXCollections.observableArrayList("DISPONIBLE", "INDISPONIBLE"));
+        List<TypeMateriels> typeMateriels = typeMaterielsService.rechercher();
+        cmbTypeMateriel.setItems(FXCollections.observableArrayList(typeMateriels));
+        cmbTypeMateriel.setCellFactory(param -> new ListCell<TypeMateriels>() {
+            @Override
+            protected void updateItem(TypeMateriels item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item.getNomM());
+                }
+            }
+        });
+        cmbTypeMateriel.setButtonCell(new ListCell<TypeMateriels>() {
+            @Override
+            protected void updateItem(TypeMateriels item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item.getNomM());
+                }
+            }
+        });
     }
 
+
     @FXML
-    void ajout(ActionEvent event) {
+    void ajout(ActionEvent event)   {
 
         String nom = txtNom.getText();
         String prixStr = txtPrix.getText();
         String etatStr = cmbEtat.getValue();
+        TypeMateriels selectedTypeMateriel = cmbTypeMateriel.getSelectionModel().getSelectedItem();
+        if (selectedTypeMateriel == null) {
+
+            System.out.println("Please select a TypeMateriels");
+            return;
+        }
 
 
-        if (nom.isEmpty() || prixStr.isEmpty() || etatStr == null) {
+        if (nom.isEmpty() || prixStr.isEmpty() || etatStr == null || selectedTypeMateriel == null) {
             showAlert("Erreur", "Tous les champs doivent être remplis !");
             return;
         }
@@ -57,7 +89,7 @@ public class AjoutMateriels {
             Disponibilte etat = Disponibilte.valueOf(etatStr);
 
 
-            Materiels materiel = new Materiels(nom, prix, etat);
+            Materiels materiel = new Materiels(nom, prix, etat, selectedTypeMateriel);
 
 
             MaterielsServices ms = new MaterielsServices();

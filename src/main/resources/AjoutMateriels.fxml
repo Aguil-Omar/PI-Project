@@ -2,16 +2,22 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Materiels.controllers.AjoutMateriels">
    <children>
-      <Label fx:id="LbTitre" layoutX="224.0" layoutY="60.0" text="ajouter Materiels" />
+      <Label fx:id="LbTitre" layoutX="224.0" layoutY="60.0" text="ajouter Materiels">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
       <Label fx:id="LbNom" layoutX="91.0" layoutY="131.0" text="nom" />
       <Label fx:id="LBPrix" layoutX="91.0" layoutY="183.0" text="prix" />
       <Label fx:id="LbEtat" layoutX="91.0" layoutY="239.0" text="Etat" />
       <ComboBox fx:id="cmbEtat" layoutX="268.0" layoutY="235.0" prefWidth="150.0" />
-      <Button fx:id="btnAjout" layoutX="140.0" layoutY="320.0" mnemonicParsing="false" onAction="#ajout" text="ajouter" />
-      <Button fx:id="btnAnnuler" layoutX="366.0" layoutY="320.0" mnemonicParsing="false" onAction="#annuler" text="annuler" />
+      <Label fx:id="LbType" layoutX="90.0" layoutY="287.0" text="Type" />
+      <ComboBox fx:id="cmbTypeMateriel" layoutX="268.0" layoutY="283.0" prefWidth="150.0" />
+      <Button fx:id="btnAjout" layoutX="142.0" layoutY="345.0" mnemonicParsing="false" onAction="#ajout" style="-fx-background-color: #28b463;" text="ajouter" />
+      <Button fx:id="btnAnnuler" layoutX="366.0" layoutY="345.0" mnemonicParsing="false" onAction="#annuler" style="-fx-background-color:#c0392b;" text="annuler" />
       <TextField fx:id="txtNom" layoutX="269.0" layoutY="127.0" />
       <TextField fx:id="txtPrix" layoutX="269.0" layoutY="179.0" />
 

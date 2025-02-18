@@ -39,11 +39,7 @@ public class TypeMateriels {
 
     @Override
     public String toString() {
-        return "TypeMateriels{" +
-                "id=" + id +
-                ", nomM='" + nomM + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return nomM;
     }
 
     public TypeMateriels(String nomM, String description) {

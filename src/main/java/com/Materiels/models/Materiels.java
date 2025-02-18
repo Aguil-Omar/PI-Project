@@ -7,22 +7,22 @@ public class Materiels {
 
         private float prix;
         private Disponibilte etat;
+         private TypeMateriels typeMateriel;
 
 
-
-    public Materiels (int id, String nom , float prix , Disponibilte etat) {
+    public Materiels (int id,String nom , float prix , Disponibilte etat,TypeMateriels typeMateriel ) {
         this.id = id;
         this.nom = nom;
-
         this.prix = prix;
         this.etat = etat;
+        this.typeMateriel  = typeMateriel;
 
     }
-    public Materiels ( String nom,  float prix , Disponibilte etat) {
+    public Materiels ( String nom,  float prix , Disponibilte etat, TypeMateriels typeMateriel ) {
         this.nom = nom;
-
         this.prix = prix;
         this.etat = etat;
+        this.typeMateriel  = typeMateriel ;
 
     }
 
@@ -57,6 +57,13 @@ public class Materiels {
     public void setEtat(Disponibilte etat) {
         this.etat = etat;
     }
+    public TypeMateriels getTypeMateriel () {
+        return typeMateriel ;
+
+    }
+    public void setTypeMateriel(TypeMateriels typeMateriel) {
+        this.typeMateriel = typeMateriel;
+    }
 
     @Override
     public String toString() {
@@ -65,6 +72,7 @@ public class Materiels {
                 ", nom='" + nom + '\'' +
                 ", prix=" + prix +
                 ", etat=" + etat +
+                ", TypeMateriel =" + typeMateriel  +
 
                 '}';
     }

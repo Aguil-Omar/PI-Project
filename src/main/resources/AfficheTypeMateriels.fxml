@@ -2,10 +2,14 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="431.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Materiels.controllers.AfficheTypeMateriels">
     <children>
-        <Label layoutX="297.0" layoutY="65.0" text="Liste des Types de Matériels" />
+        <Label layoutX="224.0" layoutY="57.0" text="Liste des Types de Matériels">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
 
         <TableView fx:id="tableTypeMateriels" layoutX="45.0" layoutY="108.0" prefHeight="239.0" prefWidth="654.0">
             <columns>
@@ -15,6 +19,8 @@
             </columns>
         </TableView>
 
-        <Button fx:id="btnAjouterType" layoutX="290.0" layoutY="366.0" mnemonicParsing="false" onAction="#Ajout" text="Ajouter un type de matériel" />
+        <Button fx:id="btnAjouterType" layoutX="290.0" layoutY="366.0" mnemonicParsing="false" onAction="#Ajout" style="-fx-background-color: #28b463;" text="Ajouter un type de matériel" />
+
+
     </children>
 </AnchorPane>
