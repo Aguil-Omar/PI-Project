@@ -1,36 +1,39 @@
 package com.pi_dev.models.GestionEsapce;
 
-import java.sql.Time;  // For localisation field as Time
+import com.pi_dev.services.*;
 
 public class Espace {
-
     private int id;
     private String nom;
-    private String titre;
-    private String localisation;  // Change to String type
+    private String localisation;
     private Disponibilite etat;
-    private int type_espace_id;  // Add type_espace_id as an integer
+    private com.esprit.models.TypeEspace typeEspace; // Store TypeEspace instead of just an ID
 
-    // Constructor with type_espace_id
-    public Espace(int id, String nom, String titre, String localisation, Disponibilite etat, int type_espace_id) {
+    // Constructor with ID
+    public Espace(int id, String nom, String localisation, Disponibilite etat, com.esprit.models.TypeEspace typeEspace) {
         this.id = id;
         this.nom = nom;
-        this.titre = titre;
         this.localisation = localisation;
         this.etat = etat;
-        this.type_espace_id = type_espace_id;
+        this.typeEspace = typeEspace;
     }
 
-    // Constructor without id (for creating new records)
-    public Espace(String nom, String titre, String localisation, Disponibilite etat, int type_espace_id) {
+    // Constructor without ID (for adding new espaces)
+    public Espace( String nom, String localisation, Disponibilite etat, com.esprit.models.TypeEspace typeEspace) {
         this.nom = nom;
-        this.titre = titre;
         this.localisation = localisation;
         this.etat = etat;
-        this.type_espace_id = type_espace_id;
+        this.typeEspace = typeEspace;
     }
 
-    // Getters and setters
+    public Espace(String nom, String localisation, Disponibilite etat) {
+        this.nom = nom;
+        this.localisation = localisation;
+        this.etat = etat;
+    }
+
+
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -45,14 +48,6 @@ public class Espace {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public String getTitre() {
-        return titre;
-    }
-
-    public void setTitre(String titre) {
-        this.titre = titre;
     }
 
     public String getLocalisation() {
@@ -71,12 +66,12 @@ public class Espace {
         this.etat = etat;
     }
 
-    public int getType_espace_id() {
-        return type_espace_id;
+    public com.esprit.models.TypeEspace getTypeEspace() {
+        return typeEspace;
     }
 
-    public void setType_espace_id(int type_espace_id) {
-        this.type_espace_id = type_espace_id;
+    public void setTypeEspace(com.esprit.models.TypeEspace typeEspace) {
+        this.typeEspace = typeEspace;
     }
 
     @Override
@@ -84,10 +79,9 @@ public class Espace {
         return "Espace{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
-                ", titre='" + titre + '\'' +
-                ", localisation=" + localisation +
+                ", localisation='" + localisation + '\'' +
                 ", etat=" + etat +
-                ", type_espace_id=" + type_espace_id +
+                ", typeEspace=" + typeEspace +
                 '}';
     }
 }

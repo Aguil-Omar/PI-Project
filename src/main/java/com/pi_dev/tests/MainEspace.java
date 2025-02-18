@@ -1,45 +1,42 @@
 package com.pi_dev.tests;
 
-
-import com.pi_dev.models.GestionEsapce.Disponibilite;
 import com.pi_dev.models.GestionEsapce.Espace;
 import com.pi_dev.models.GestionEsapce.TypeEspace;
-import com.pi_dev.services.*;
-
+import com.pi_dev.models.GestionEsapce.Disponibilite;
+import com.pi_dev.services.EspaceService;
 import com.pi_dev.services.TypeEspaceService;
+
 
 public class MainEspace {
     public static void main(String[] args) {
         EspaceService es = new EspaceService();
 
+        // Adding new Espace objects
+        es.ajouter(new Espace(1, "Salle de réunion", "3er étage", Disponibilite.DISPONIBLE, new TypeEspace(46)));  // Assuming type_espace_id = 1
+        es.ajouter(new Espace(2, "Réunion internationale", "3er étage", Disponibilite.DISPONIBLE, new TypeEspace(2)));  // Assuming type_espace_id = 2
 
-        //es.ajouter(new Espace("Salle de press", "seminaire tayara", "3er étage",  Disponibilite.DISPONIBLE, 1));
+        // Modifying an existing Espace object
+        //es.modifier(new Espace(3, "Salle B", "Salle de conférence", "2ème étage", Disponibilite.INDISPONIBLE, new TypeEspace(3)));  // Assuming type_espace_id = 3
+        // es.modifier(new Espace(3, "Salle A", "Réunion importante", "1er étage", Disponibilite.INDISPONIBLE, new TypeEspace(2)));  // Assuming type_espace_id = 2
 
+        // Deleting an Espace object
+        //es.supprimer(new Espace(2, "", "", "", Disponibilite.DISPONIBLE, new TypeEspace(1)));  // Assuming type_espace_id = 1
+        // es.supprimer(new Espace(3, "", "", "", Disponibilite.DISPONIBLE, new TypeEspace(3)));  // Assuming type_espace_id = 3
 
-
-        // es.modifier(new Espace(3, "Salle A", "Réunion importante", "1er étage", Disponibilite.INDISPONIBLE, 2));
-
-
-
-        // es.supprimer(new Espace(3, "", "", "", Disponibilite.DISPONIBLE, 3)); // assuming 3 is a valid type_espace_id
-
-
+        // Displaying all Espace objects
         System.out.println(es.rechercher());
+
+        // Working with TypeEspaceService
         TypeEspaceService tes = new TypeEspaceService();
+        tes.ajouter(new TypeEspace("Salle de conférence", "Salle pour conférences et réunions"));
 
+        // Modifying a TypeEspace object
+        //tes.modifier(new TypeEspace(1, "Salle de fêtes", "Salle pour grandes conférences"));
 
+        // Deleting a TypeEspace object
+        // tes.supprimer(new TypeEspace(1, "", ""));
 
-       // tes.ajouter(new TypeEspace("Salle de conférence", "Salle pour conférences et réunions"));
-
-
-
-        //tes.modifier(new TypeEspace(1, "Salle de fetes ", "Salle pour grandes conférences"));
-
-
-        //tes.supprimer(new TypeEspace(1, "", ""));
-
-
-
+        // Displaying all TypeEspace objects
         System.out.println(tes.rechercher());
     }
 }
