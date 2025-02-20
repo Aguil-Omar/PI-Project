@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="450.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.GestionMateriel.AfficheMateriels">
+    <children>
+        <Label layoutX="295.0" layoutY="72.0" text="Liste des Matériels">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+
+        <TableView fx:id="tableMateriels" layoutX="53.0" layoutY="111.0" prefHeight="258.0" prefWidth="603.0">
+            <columns>
+                <TableColumn fx:id="colNom" prefWidth="150.0" text="Nom" />
+                <TableColumn fx:id="colPrix" prefWidth="150.0" text="Prix" />
+                <TableColumn fx:id="colEtat" prefWidth="150.0" text="État" />
+                <TableColumn fx:id="colType" prefWidth="150.0" text="Type" />
+                <TableColumn fx:id="colAction" prefWidth="150.0" text="Action" />
+            </columns>
+        </TableView>
+
+        <Button fx:id="btnA" layoutX="284.0" layoutY="384.0" mnemonicParsing="false" onAction="#Ajout" style="-fx-background-color: #28b463;" text="Ajouter un matériel" />
+    </children>
+</AnchorPane>

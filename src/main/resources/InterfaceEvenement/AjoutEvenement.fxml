@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.control.ComboBox?>
+        <?import javafx.scene.control.DatePicker?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.scene.control.TextArea?>
+        <?import javafx.scene.control.TextField?>
+        <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Region?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@../styles/afficheEvents.css" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.EvenementController.AjoutEvenement">
+    <!-- Nav Bar -->
+    <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: #03045F;">
+        <children>
+            <!-- Eventopia Logo -->
+            <Label style="-fx-text-fill: white; -fx-font-size: 30px;-fx-padding: 0 0 0 15px; -fx-font-weight: bold;" text="Eventopia" />
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- Ajouter Événement Button -->
+            <Button styleClass="button-addEvent" onAction="#navigateAfficheEvent" text="Afficher les Événements" />
+        </children>
+    </HBox>
+<children>
+    <!-- Titre principal -->
+    <Label layoutX="20.0" layoutY="65.0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Ajouter Événement" />
+
+
+    <Label layoutX="230.0" layoutY="100.0" text="Titre" style="-fx-font-weight: bold;" />
+    <Label layoutX="230.0" layoutY="150.0" text="Description" style="-fx-font-weight: bold;"/>
+    <Label layoutX="230.0" layoutY="280.0" text="Date" style="-fx-font-weight: bold;" />
+    <Label layoutX="230.0" layoutY="350.0" text="Statut" style="-fx-font-weight: bold;" />
+    <Label layoutX="230.0" layoutY="420.0" text="Catégorie" style="-fx-font-weight: bold;"/>
+
+    <TextField fx:id="tfTitre" layoutX="328.0" layoutY="100.0" prefWidth="200.0" />
+    <TextArea fx:id="taDescription" layoutX="328.0" layoutY="150.0" prefHeight="100.0" prefWidth="200.0" wrapText="true" />
+    <DatePicker fx:id="dpDate" layoutX="328.0" layoutY="275.0" prefWidth="200.0" />
+    <ComboBox fx:id="cbStatut" layoutX="328.0" layoutY="345.0" prefWidth="200.0" />
+    <ComboBox fx:id="cbCategorie" layoutX="328.0" layoutY="415.0" prefWidth="200.0" />
+
+    <!-- Bouton Ajouter avec style -->
+    <Button layoutX="600.0" layoutY="405.0" mnemonicParsing="false" onAction="#addEvenement" styleClass="button-addEvent"  text="Ajouter" />
+</children>
+</AnchorPane>

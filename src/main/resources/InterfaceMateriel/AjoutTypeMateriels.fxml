@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.GestionMateriel.AjoutTypeMateriels">
+    <children>
+        <Label fx:id="LbTitre" layoutX="224.0" layoutY="60.0" text="Ajouter un Type de Matériel">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+        <Label fx:id="LbNomM" layoutX="91.0" layoutY="131.0" text="Nom du Type" />
+        <Label fx:id="LbDescription" layoutX="91.0" layoutY="183.0" text="Description" />
+
+        <TextField fx:id="txtNomM" layoutX="269.0" layoutY="127.0" prefWidth="200.0" />
+        <TextField fx:id="txtDescription" layoutX="269.0" layoutY="179.0" prefWidth="200.0" />
+
+        <Button fx:id="btnAjout" layoutX="140.0" layoutY="320.0" mnemonicParsing="false" onAction="#ajout" style="-fx-background-color: #28b463;" text="Ajouter" />
+        <Button fx:id="btnAnnuler" layoutX="366.0" layoutY="320.0" mnemonicParsing="false" onAction="#annuler" style="-fx-background-color:#c0392b;" text="Annuler" />
+    </children>
+</Pane>
