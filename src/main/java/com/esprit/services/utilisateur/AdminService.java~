@@ -335,7 +335,7 @@ public class AdminService implements IServices<Utilisateur> {
                     // Create and return a Utilisateur object
                     return new Utilisateur(id, nom, prenom, email, motDePasse, Role.valueOf(role), adresse, tel, imageUrl);
                 } else {
-                    System.out.println("User not found for email: " + email);
+                    // Return null if no user is found with the given email
                     return null;
                 }
             }

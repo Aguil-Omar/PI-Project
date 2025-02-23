@@ -1,0 +1,217 @@
+/* styles.css */
+
+/* Root styling */
+.root {
+    -fx-font-family: "Arial";
+    -fx-background-color: #ffffff; /* Default background for the entire application */
+}
+
+/* Left Pane Styling */
+.left-pane {
+    -fx-background-color: #06234f/* Blue gradient */
+    -fx-alignment: center;
+}
+
+/* App Name Label */
+.app-name-label {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.5, 0, 1); /* Subtle shadow for depth */
+}
+/* Sign-Up Title Label */
+.signup-title-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333; /* Dark gray for contrast */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0.5, 0, 1); /* Subtle shadow */
+}
+
+/* Sign-Up Button */
+.signup-button {
+    -fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298); /* Gradient background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 16px;
+    -fx-padding: 12px 30px; /* Padding for button */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.5, 0, 2); /* Subtle shadow */
+}
+
+/* Verification Title Label */
+.verify-title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333; /* Dark gray for contrast */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0.5, 0, 1); /* Subtle shadow */
+}
+
+/* Verification Button */
+.verify-button {
+    -fx-background-color: #4a90e2; /* Blue background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 16px;
+    -fx-padding: 12px 30px; /* Padding for button */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.5, 0, 2); /* Subtle shadow */
+}
+
+.verify-button:hover {
+    -fx-background-color: #357ABD; /* Darker blue on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 5); /* Larger shadow on hover */
+}
+/* Reset Password Title Label */
+.reset-title-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333; /* Dark gray for contrast */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0.5, 0, 1); /* Subtle shadow */
+}
+
+/* Reset Button */
+.reset-button {
+    -fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298); /* Gradient background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 16px;
+    -fx-padding: 12px 30px; /* Padding for button */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.5, 0, 2); /* Subtle shadow */
+}
+
+.reset-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #2a5298, #1e3c72); /* Reverse gradient on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 5); /* Larger shadow on hover */
+}
+
+/* Additional Styling for the Right Pane */
+.right-pane {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-alignment: center;
+    -fx-padding: 40;
+    -fx-spacing: 20; /* Consistent spacing between elements */
+}
+
+/* Additional Styling for the Left Pane */
+.left-pane {
+    -fx-background-color: #06234f; /* Blue gradient */
+    -fx-alignment: center;
+    -fx-spacing: 20; /* Consistent spacing between elements */
+}
+
+/* Additional Styling for the App Logo */
+ImageView {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 5); /* Subtle shadow for depth */
+}
+
+/* Additional Styling for the App Description */
+.app-description-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.5, 0, 2); /* Subtle shadow */
+}
+
+/* Additional Styling for the Message Label */
+.message-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #ff0000; /* Red for error messages */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0.5, 0, 1); /* Subtle shadow */
+}
+
+/* Additional Styling for the Email Field */
+.email-field {
+    -fx-background-color: #f5f5f5; /* Light gray background */
+    -fx-border-color: #cccccc; /* Light gray border */
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-padding: 10px;
+    -fx-pref-width: 250px; /* Medium size */
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333; /* Dark gray text */
+    -fx-prompt-text-fill: #999999; /* Light gray placeholder text */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.5, 0, 2); /* Subtle shadow */
+}
+
+.email-field:focused {
+    -fx-border-color: #4a90e2; /* Blue border when focused */
+    -fx-effect: dropshadow(gaussian, rgba(74, 144, 226, 0.3), 10, 0.5, 0, 5); /* Glow effect */
+}
+
+/* Message Label */
+.message-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #ff0000; /* Red for error messages */
+}
+.signup-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #2a5298, #1e3c72); /* Reverse gradient on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 5); /* Larger shadow on hover */
+}
+/* App Description Label */
+.app-description-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+}
+
+/* Right Pane Styling */
+.right-pane {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-alignment: center;
+    -fx-padding: 40;
+}
+
+/* Sign-In Title Label */
+.signin-title-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333; /* Dark gray for contrast */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0.5, 0, 1); /* Subtle shadow */
+}
+
+/* Input Fields (Email and Password) */
+.input-field {
+    -fx-background-color: #f5f5f5; /* Light gray background */
+    -fx-border-color: #cccccc; /* Light gray border */
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-padding: 10px;
+    -fx-pref-width: 250px; /* Medium size */
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333; /* Dark gray text */
+    -fx-prompt-text-fill: #999999; /* Light gray placeholder text */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.5, 0, 2); /* Subtle shadow */
+}
+
+.input-field:focused {
+    -fx-border-color: #4a90e2; /* Blue border when focused */
+    -fx-effect: dropshadow(gaussian, rgba(74, 144, 226, 0.3), 10, 0.5, 0, 5); /* Glow effect */
+}
+
+/* Sign-In Button */
+.signin-button {
+    -fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298); /* Gradient background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 16px;
+    -fx-padding: 12px 30px; /* Padding for button */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.5, 0, 2); /* Subtle shadow */
+}
+
+.signin-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #2a5298, #1e3c72); /* Reverse gradient on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 5); /* Larger shadow on hover */
+}
+
+/* Link Labels (Forgot Password and Sign Up) */
+.link-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #4a90e2; /* Blue text */
+    -fx-underline: true; /* Underline for link effect */
+    -fx-cursor: hand; /* Hand cursor on hover */
+}
+
+.link-label:hover {
+    -fx-text-fill: #357ABD; /* Darker blue on hover */
+    -fx-effect: dropshadow(gaussian, rgba(74, 144, 226, 0.3), 2, 0.5, 0, 1); /* Subtle glow on hover */
+}
