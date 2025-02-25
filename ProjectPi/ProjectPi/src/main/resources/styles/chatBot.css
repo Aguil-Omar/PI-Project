@@ -1,0 +1,37 @@
+
+.button{
+    -fx-background-color: #03045F;
+    -fx-text-fill: #CEF1F9;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 2px 5px;
+    -fx-cursor: hand;
+}
+.button:hover{
+    -fx-background-color: #CEF1F9;
+    -fx-text-fill: #03045F;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+}
+.button:pressed {
+    -fx-background-color: #0078B8;
+    -fx-text-fill: #CEF1F9;
+}
+#userInput {
+    -fx-font-size: 14px;
+    -fx-padding: 8px;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #0078b8;
+    -fx-border-width: 2px;
+    -fx-text-fill: #333;
+}
+
+#userInput:focused {
+    -fx-background-color: white;
+    -fx-border-color: #005f8a;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 120, 184, 0.5), 5, 0, 0, 2);
+}
