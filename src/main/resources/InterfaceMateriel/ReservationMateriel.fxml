@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #F4F4F4;"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pi_dev.controllers.GestionMateriel.ReservationMateriels">
+
+    <children>
+        <!-- En-tête -->
+        <VBox prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #03045F;">
+            <children>
+                <Label text="Réserver un Matériel" style="-fx-text-fill: white; -fx-font-size: 36px; -fx-font-weight: bold;" alignment="CENTER"/>
+            </children>
+        </VBox>
+
+        <!-- Conteneur des cartes (GridPane) -->
+        <ScrollPane layoutX="20.0" layoutY="120.0" prefHeight="550.0" prefWidth="960.0">
+            <content>
+                <GridPane fx:id="gridMateriels" hgap="20" vgap="20" style="-fx-padding: 10;">
+                    <!-- Les cartes seront ajoutées dynamiquement ici -->
+                </GridPane>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>
