@@ -17,9 +17,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
@@ -230,6 +235,65 @@ public class AfficheTypeEspace {
             showAlert("Error", "An error occurred while generating the PDF.", Alert.AlertType.ERROR);
             e.printStackTrace();
         }
+    }
+
+    public void excel(ActionEvent actionEvent) {
+        // File chooser to let the user select save location
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Excel File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Excel Files", "*.xlsx"));
+        File file = fileChooser.showSaveDialog(null);
+
+        if (file == null) {
+            return; // User canceled the save dialog
+        }
+
+        try (Workbook workbook = new XSSFWorkbook()) {
+            Sheet sheet = workbook.createSheet("Types Espaces");
+
+            // Header Row
+            Row headerRow = sheet.createRow(0);
+            String[] columns = {"Nom", "Description"};
+            CellStyle headerStyle = createHeaderStyle(workbook);
+
+            for (int i = 0; i < columns.length; i++) {
+                org.apache.poi.ss.usermodel.Cell cell = headerRow.createCell(i);
+                cell.setCellValue(columns[i]);
+                cell.setCellStyle(headerStyle);
+            }
+
+            // Populate Data
+            int rowNum = 1;
+            for (TypeEspace typeEspace : typeTable.getItems()) { // Assuming typeEspaceTable is your TableView
+                Row row = sheet.createRow(rowNum++);
+                row.createCell(0).setCellValue(typeEspace.getType());
+                row.createCell(1).setCellValue(typeEspace.getDescription());
+            }
+
+            // Auto-size columns
+            for (int i = 0; i < columns.length; i++) {
+                sheet.autoSizeColumn(i);
+            }
+
+            // Write to file
+            try (FileOutputStream fileOut = new FileOutputStream(file)) {
+                workbook.write(fileOut);
+            }
+
+            // Success message
+            showAlert("Success", "Excel file generated successfully!", Alert.AlertType.INFORMATION);
+
+        } catch (IOException e) {
+            showAlert("Error", "Failed to generate Excel file.", Alert.AlertType.ERROR);
+            e.printStackTrace();
+        }
+    }
+    private CellStyle createHeaderStyle(Workbook workbook) {
+        CellStyle style = workbook.createCellStyle();
+        java.awt.Font font = (java.awt.Font) workbook.createFont();
+        font.isBold();
+        style.setFont((org.apache.poi.ss.usermodel.Font) font);
+        return style;
     }
 }
 

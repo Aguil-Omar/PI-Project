@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -14,9 +15,10 @@
       <TableView fx:id="espaceTable" layoutX="29.0" layoutY="191.0" prefHeight="400.0" prefWidth="902.0">
         <columns>
           <TableColumn fx:id="cNom" prefWidth="150.3999900817871" text="Nom" />
-            <TableColumn fx:id="cLocalisation" minWidth="0.0" prefWidth="260.8000030517578" text="Localisation" />
-            <TableColumn fx:id="cDisponible" prefWidth="178.4000244140625" text="Etat" />
-            <TableColumn fx:id="caction" prefWidth="315.2000732421875" text="Action" />
+            <TableColumn fx:id="cLocalisation" minWidth="0.0" prefWidth="235.9999542236328" text="Localisation" />
+            <TableColumn fx:id="cDisponible" prefWidth="210.39996337890625" text="Etat" />
+            <TableColumn fx:id="cimage" prefWidth="154.39993896484373" text="image" />
+            <TableColumn fx:id="caction" maxWidth="255.2000732421875" prefWidth="149.60009765625" text="Action" />
         </columns>
       </TableView>
       <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="964.0" style="-fx-background-color: #03045F;">
@@ -24,12 +26,15 @@
             <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 36px; -fx-font-weight: bold;" text="Eventopia" />
          </children>
       </VBox>
-      <Button fx:id="ajout" layoutX="786.0" layoutY="124.0" mnemonicParsing="false" onAction="#ajout" prefHeight="40.0" prefWidth="154.0" text="Ajouter Espace" />
-      <Button fx:id="retour" layoutX="14.0" layoutY="130.0" mnemonicParsing="false" onAction="#retour" prefHeight="26.0" prefWidth="70.0" text="Retour" />
-      <ComboBox fx:id="ctri" layoutX="111.0" layoutY="130.0" prefWidth="150.0" />
-      <Button fx:id="tri" layoutX="282.0" layoutY="132.0" mnemonicParsing="false" onAction="#tri" text="Trier" />
-      <TextField fx:id="tfrecherche" layoutX="342.0" layoutY="132.0" prefHeight="26.0" prefWidth="96.0" />
-      <Button fx:id="recherche" layoutX="454.0" layoutY="133.0" mnemonicParsing="false" onAction="#recherche" text="Rechercher" />
-      <Button fx:id="pdf" layoutX="570.0" layoutY="133.0" mnemonicParsing="false" onAction="#pdf" text="PDF" />
+      <Button fx:id="ajout" layoutX="786.0" layoutY="124.0" mnemonicParsing="false" onAction="#handleAjout" prefHeight="40.0" prefWidth="154.0" text="Ajouter Espace" />
+      <Button fx:id="retour" layoutX="14.0" layoutY="130.0" mnemonicParsing="false" onAction="#retour" prefHeight="26.0" prefWidth="54.0" text="Retour" />
+      <ComboBox fx:id="ctri" layoutX="78.0" layoutY="130.0" prefWidth="150.0" />
+      <Button fx:id="tri" layoutX="241.0" layoutY="133.0" mnemonicParsing="false" onAction="#handleTri" text="Filtrer" />
+      <TextField fx:id="tfrecherche" layoutX="299.0" layoutY="132.0" prefHeight="26.0" prefWidth="144.0" />
+      <Button fx:id="pdf" layoutX="489.0" layoutY="133.0" mnemonicParsing="false" onAction="#pdf" text="PDF" />
+      <Button fx:id="excel" layoutX="536.0" layoutY="133.0" mnemonicParsing="false" onAction="#excel" text="Excel" />
+      <Button fx:id="stat" layoutX="591.0" layoutY="133.0" mnemonicParsing="false" onAction="#stat" text="Stat" />
+      <Button fx:id="qr" layoutX="640.0" layoutY="133.0" mnemonicParsing="false" onAction="#qr" text="QR" />
+      <ImageView fx:id="qrI" fitHeight="74.0" fitWidth="96.0" layoutX="682.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

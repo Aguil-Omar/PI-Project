@@ -30,4 +30,8 @@ public class Homepage {
     public void gotype(ActionEvent actionEvent) {
         switchScene(actionEvent, "/InterfaceEspace/AfficheTypeEspace.fxml");
     }
+
+    public void list(ActionEvent actionEvent) {
+        switchScene(actionEvent, "/InterfaceEspace/EspaceList.fxml");
+    }
 }

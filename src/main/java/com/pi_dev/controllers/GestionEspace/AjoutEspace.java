@@ -11,8 +11,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -28,9 +32,12 @@ public class AjoutEspace {
 
     @FXML
     private ComboBox<TypeEspace> cbType;
+    @FXML
+    private ImageView imageV;
 
     private final TypeEspaceService typeEspaceService = new TypeEspaceService();
     private Disponibilite etat;
+    private String imageUrl;
 
     @FXML
     public void initialize() {
@@ -74,6 +81,7 @@ public class AjoutEspace {
         String selectedValue = cbDisponible.getValue();
         TypeEspace selectedTypeEspace = cbType.getSelectionModel().getSelectedItem();
 
+
         if (selectedTypeEspace == null) {
             // Handle the case where no TypeEspace is selected
             System.out.println("Please select a TypeEspace");
@@ -81,10 +89,11 @@ public class AjoutEspace {
         }
 
         // Check if all fields are filled
-        if (nom.isEmpty() || localisation.isEmpty() || selectedValue == null || selectedTypeEspace == null) {
+        if (nom.isEmpty() || localisation.isEmpty() || selectedValue == null || selectedTypeEspace == null || imageUrl == null) {
             showAlert("Validation Error", "Veuillez remplir tous les champs !", Alert.AlertType.WARNING);
             return;
         }
+
 
         // Convert to ENUM safely
         try {
@@ -95,7 +104,7 @@ public class AjoutEspace {
         }
 
         // Create new Espace object
-        Espace newEspace = new Espace(nom, localisation, etat, selectedTypeEspace);
+        Espace newEspace = new Espace(nom, localisation, etat, selectedTypeEspace, imageUrl);
 
         // Add new Espace object to the database
         EspaceService espaceService = new EspaceService();
@@ -146,5 +155,23 @@ public class AjoutEspace {
         switchScene(actionEvent, "/InterfaceEspace/AfficheEspace.fxml");
 
 
+    }
+
+
+    @FXML
+    private void upload(ActionEvent actionEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Sélectionner une image");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Fichiers d'image", "*.png", "*.jpg", "*.jpeg")
+        );
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            imageUrl = selectedFile.getAbsolutePath();
+            System.out.println("Image path: " + imageUrl);
+            Image image = new Image(selectedFile.toURI().toString());
+            imageV.setImage(image);
+        }
     }
 }

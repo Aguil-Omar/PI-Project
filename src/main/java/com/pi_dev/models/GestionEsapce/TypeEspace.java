@@ -11,6 +11,10 @@ public class TypeEspace {
         this.type = type;
         this.description = description;
     }
+    public TypeEspace(int id, String type) {
+        this.id = id;
+        this.type = type;
+    }
 
     // Constructor without ID (for insertion)
     public TypeEspace(String type, String description) {

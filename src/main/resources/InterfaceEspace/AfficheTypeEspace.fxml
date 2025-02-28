@@ -26,9 +26,10 @@
       <Button fx:id="retour" layoutX="52.0" layoutY="132.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
       <Button fx:id="ajoutt" layoutX="786.0" layoutY="132.0" mnemonicParsing="false" onAction="#ajoutt" text="Ajouter Type Espace" />
        <ComboBox fx:id="ctri" layoutX="111.0" layoutY="130.0" prefWidth="150.0" />
-       <Button fx:id="tri" layoutX="282.0" layoutY="132.0" mnemonicParsing="false" onAction="#tri" text="Trier" />
+       <Button fx:id="tri" layoutX="282.0" layoutY="132.0" mnemonicParsing="false" onAction="#tri" text="Filtrer" />
        <TextField fx:id="tfrecherche" layoutX="342.0" layoutY="132.0" prefHeight="26.0" prefWidth="96.0" />
        <Button fx:id="recherche" layoutX="454.0" layoutY="133.0" mnemonicParsing="false" onAction="#recherche" text="Rechercher" />
       <Button fx:id="pdf" layoutX="548.0" layoutY="132.0" mnemonicParsing="false" onAction="#pdf" text="PDF" />
+      <Button fx:id="excel" layoutX="608.0" layoutY="133.0" mnemonicParsing="false" onAction="#excel" text="Excel" />
    </children>
 </AnchorPane>
