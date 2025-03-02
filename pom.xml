@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<<<<<<< HEAD
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://www.apache.org/xsd/maven-4.0.0.xsd">
+=======
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
@@ -87,6 +91,7 @@
             <version>5.10.0</version>
             <scope>test</scope>
         </dependency>
+<<<<<<< HEAD
 
         <!-- ✅ ZXing (pour générer les QR codes) -->
         <dependency>
@@ -99,6 +104,8 @@
             <artifactId>javase</artifactId>
             <version>3.4.1</version>
         </dependency>
+=======
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
     </dependencies>
 
     <repositories>
@@ -140,4 +147,8 @@
             </plugin>
         </plugins>
     </build>
+<<<<<<< HEAD
 </project>
+=======
+</project>
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4

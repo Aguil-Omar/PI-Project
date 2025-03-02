@@ -1,4 +1,4 @@
-package com.pi_dev.models.GestionMateriels;
+package com.Materiels.models;
 
 public class Materiels {
 
@@ -8,24 +8,21 @@ public class Materiels {
         private float prix;
         private Disponibilte etat;
          private TypeMateriels typeMateriel;
-         private String imagePath;
 
 
-    public Materiels (int id,String nom , float prix , Disponibilte etat , TypeMateriels typeMateriel, String imagePath ) {
+    public Materiels (int id,String nom , float prix , Disponibilte etat,TypeMateriels typeMateriel ) {
         this.id = id;
         this.nom = nom;
         this.prix = prix;
         this.etat = etat;
         this.typeMateriel  = typeMateriel;
-        this.imagePath = imagePath;
 
     }
-    public Materiels ( String nom,  float prix , Disponibilte etat, TypeMateriels typeMateriel,String imagePath ) {
+    public Materiels ( String nom,  float prix , Disponibilte etat, TypeMateriels typeMateriel ) {
         this.nom = nom;
         this.prix = prix;
         this.etat = etat;
         this.typeMateriel  = typeMateriel ;
-        this.imagePath = imagePath;
 
     }
 
@@ -62,28 +59,12 @@ public class Materiels {
     }
     public TypeMateriels getTypeMateriel () {
         return typeMateriel ;
-<<<<<<< HEAD
-=======
 
-
-
-
->>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
     }
     public void setTypeMateriel(TypeMateriels typeMateriel) {
         this.typeMateriel = typeMateriel;
     }
-    public String getImagePath() {
-        return imagePath;
-    }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
     @Override
     public String toString() {
         return "Materiels{" +
@@ -92,7 +73,6 @@ public class Materiels {
                 ", prix=" + prix +
                 ", etat=" + etat +
                 ", TypeMateriel =" + typeMateriel  +
-                ", imagePath='" + imagePath + '\'' +
 
                 '}';
     }

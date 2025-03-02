@@ -1,23 +1,10 @@
-package com.pi_dev.controllers.GestionMateriel;
+package com.Materiels.controllers;
 
-<<<<<<< HEAD
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-=======
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
->>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 
 import java.io.IOException;
 
@@ -37,14 +24,14 @@ public class MainInterface {
     public void initialize() {
         try {
 
-            FXMLLoader materielsLoader = new FXMLLoader(getClass().getResource("/InterfaceMateriel/AfficheMateriels.fxml"));
+            FXMLLoader materielsLoader = new FXMLLoader(getClass().getResource("/AfficheMateriels.fxml"));
             AnchorPane materielsContent = materielsLoader.load();
             materielsTab.setContent(materielsContent);
             AfficheMateriels materielsController = materielsLoader.getController();
             materielsController.setMainController(this);
 
 
-            FXMLLoader typeMaterielsLoader = new FXMLLoader(getClass().getResource("/InterfaceMateriel/AfficheTypeMateriels.fxml"));
+            FXMLLoader typeMaterielsLoader = new FXMLLoader(getClass().getResource("/AfficheTypeMateriels.fxml"));
             AnchorPane typeMaterielsContent = typeMaterielsLoader.load();
             typeMaterielsTab.setContent(typeMaterielsContent);
             AfficheTypeMateriels typeMaterielsController = typeMaterielsLoader.getController();
@@ -62,12 +49,7 @@ public class MainInterface {
     }
 
 
-<<<<<<< HEAD
-
-}
-=======
     public void switchToTypeMaterielsTab() {
         tabPane.getSelectionModel().select(typeMaterielsTab);
     }
 }
->>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4

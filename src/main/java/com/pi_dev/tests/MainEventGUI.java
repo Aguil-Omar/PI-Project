@@ -13,6 +13,10 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+<<<<<<< HEAD
+=======
+import com.pi_dev.controllers.CommentController.CommentController;
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 
 
 import java.io.IOException;
@@ -33,8 +37,13 @@ public class MainEventGUI extends Application {
        // FXMLLoader loaderAjout = new FXMLLoader(getClass().getResource("/InterfaceComment/comment.fxml"));
       //FXMLLoader loaderAjout = new FXMLLoader(getClass().getResource("/InterfaceUtilisateur/readUtilisateur.fxml"));
        // FXMLLoader loaderAjout = new FXMLLoader(getClass().getResource("/InterfaceEvenement/AfficherEvenement.fxml"));
+<<<<<<< HEAD
         //FXMLLoader loaderAjout = new FXMLLoader(getClass().getResource("/InterfaceMateriel/AjoutMateriels.fxml"));
         FXMLLoader loaderAjout = new FXMLLoader(getClass().getResource("/InterfaceMateriel/ReservationMateriels.fxml"));
+=======
+        FXMLLoader loaderAjout = new FXMLLoader(getClass().getResource("/InterfaceMateriel/MainInterface.fxml"));
+       // FXMLLoader loaderAjout = new FXMLLoader(getClass().getResource("/InterfaceMateriel/ReservationMateriel.fxml"));
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
         Parent rootAjout = loaderAjout.load();
         Scene sceneAjout = new Scene(rootAjout);
         primaryStage.setScene(sceneAjout);

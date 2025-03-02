@@ -1,13 +1,17 @@
 package com.pi_dev.controllers.GestionMateriel;
 
+<<<<<<< HEAD
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
+=======
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
+<<<<<<< HEAD
 import com.pi_dev.models.GestionEsapce.Espace;
 import com.pi_dev.models.GestionEsapce.TypeEspace;
 import com.pi_dev.models.GestionMateriels.Disponibilte;
@@ -16,12 +20,20 @@ import com.pi_dev.models.GestionMateriels.TypeMateriels;
 import com.pi_dev.services.MaterielsServices;
 import com.pi_dev.utils.DataSource;
 import javafx.beans.property.SimpleObjectProperty;
+=======
+import com.pi_dev.models.GestionMateriels.Materiels;
+import com.pi_dev.models.GestionMateriels.TypeMateriels;
+import com.pi_dev.services.MaterielsServices;
+
+import com.pi_dev.services.TypeMaterielsServices;
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+<<<<<<< HEAD
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -34,10 +46,19 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+=======
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.apache.poi.ss.usermodel.*;
+<<<<<<< HEAD
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import javafx.scene.image.Image;
@@ -55,12 +76,27 @@ import java.util.HashMap;
 
 import java.util.List;
 import java.util.Map;
+=======
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 import javafx.scene.chart.PieChart;
 import javafx.geometry.Pos;
 import javafx.geometry.Insets;
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 public class AfficheMateriels {
 
     @FXML
@@ -68,8 +104,11 @@ public class AfficheMateriels {
 
     @FXML
     private TableColumn<Materiels, String> colNom;
+<<<<<<< HEAD
     @FXML
     private ImageView qrI;
+=======
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 
     @FXML
     private TableColumn<Materiels, Float> colPrix;
@@ -79,10 +118,13 @@ public class AfficheMateriels {
 
     @FXML
     private TableColumn<Materiels, String> colType;
+<<<<<<< HEAD
     @FXML
     private TableColumn<Materiels, String> colImage;
     @FXML
     private TableColumn<Materiels, String> colQrCode;
+=======
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 
     @FXML
     private TableColumn<Materiels, Void> colAction;
@@ -91,8 +133,11 @@ public class AfficheMateriels {
     @FXML
     private TextField tfrechercheM;
     private MaterielsServices MaterielsServices = new MaterielsServices();
+<<<<<<< HEAD
     private ObservableList<Materiels> materiels = FXCollections.observableArrayList();
 
+=======
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 
     @FXML
     public void initialize() {
@@ -101,6 +146,7 @@ public class AfficheMateriels {
         colPrix.setCellValueFactory(new PropertyValueFactory<>("prix"));
         colEtat.setCellValueFactory(new PropertyValueFactory<>("etat"));
         colType.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTypeMateriel().getNomM()));
+<<<<<<< HEAD
         // Set up the image column with null check and default image handling
         colImage.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getImagePath()));  // Assuming you have a 'imageUrl' property in Espace
         //colQrCode.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getQrCodePath()));
@@ -132,6 +178,8 @@ public class AfficheMateriels {
             }
         });
 
+=======
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
         ctriM.setItems(FXCollections.observableArrayList("A-Z", "Z-A", "Clear"));
         // Configuration de la colonne d'actions
         colAction.setCellFactory(createActionCellFactory());
@@ -143,13 +191,23 @@ public class AfficheMateriels {
         colEtat.prefWidthProperty().bind(tableMateriels.widthProperty().multiply(0.2));
         colType.prefWidthProperty().bind(tableMateriels.widthProperty().multiply(0.2));
         colAction.prefWidthProperty().bind(tableMateriels.widthProperty().multiply(0.2));
+<<<<<<< HEAD
         colImage.prefWidthProperty().bind(tableMateriels.widthProperty().multiply(0.15));
 
     }
+=======
+    }
+
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
     @FXML
     public void rafraichirListe() {
         List<Materiels> list = MaterielsServices.rechercher();
         System.out.println("Retrieved Data: " + list);  // Debugging
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
         ObservableList<Materiels> MaterielsObservableList = FXCollections.observableArrayList(list);
         tableMateriels.setItems(MaterielsObservableList);
         tableMateriels.refresh();  // Ensure UI update
@@ -158,18 +216,30 @@ public class AfficheMateriels {
         return param -> new TableCell<>() {
             private final Button editButton = new Button("Modifier");
             private final Button deleteButton = new Button("Supprimer");
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
             {
                 // Action pour le bouton "Modifier"
                 editButton.setOnAction(event -> {
                     Materiels materiel = getTableView().getItems().get(getIndex());
                     modifierMateriel(materiel);
                 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
                 // Action pour le bouton "Supprimer"
                 deleteButton.setOnAction(event -> {
                     Materiels materiel = getTableView().getItems().get(getIndex());
                     supprimerMateriel(materiel);
                 });
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
             @Override
             protected void updateItem(Void item, boolean empty) {
                 super.updateItem(item, empty);
@@ -181,18 +251,33 @@ public class AfficheMateriels {
             }
         };
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
     private void modifierMateriel(Materiels materiel) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/InterfaceMateriel/ModifierMateriels.fxml"));
             Parent root = loader.load();
+<<<<<<< HEAD
             ModifierMateriels controller = loader.getController();
             controller.setMateriel(materiel);
+=======
+
+            ModifierMateriels controller = loader.getController();
+            controller.setMateriel(materiel);
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
             tableMateriels.getScene().setRoot(root);
         } catch (Exception e) {
             e.printStackTrace();
             showAlert("Erreur", "Impossible de charger la vue de modification.");
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
     private void supprimerMateriel(Materiels materiel) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/InterfaceMateriel/SupprimerMateriels.fxml"));
@@ -207,9 +292,28 @@ public class AfficheMateriels {
             showAlert("Erreur", "Impossible de charger la vue de suppression.");
         }
     }
+<<<<<<< HEAD
     @FXML
     private void Ajout(ActionEvent actionEvent) {
         switchScene(actionEvent, "/InterfaceMateriel/AjoutMaterials.fxml");
+=======
+
+    @FXML
+    private void Ajout() {
+        naviguerVersAjout();
+    }
+
+    private void naviguerVersAjout() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/InterfaceMateriel/AjoutMateriels.fxml"));
+            Parent root = loader.load();
+            Scene currentScene = tableMateriels.getScene();
+            currentScene.setRoot(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert("Erreur", "Impossible de charger la vue d'ajout.");
+        }
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
     }
 
     private void showAlert(String title, String message) {
@@ -218,11 +322,19 @@ public class AfficheMateriels {
         alert.setContentText(message);
         alert.show();
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
     private MainInterface mainController;
 
     public void setMainController(MainInterface mainController) {
         this.mainController = mainController;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
     @FXML
     private void switchToMaterielsTab() {
         if (mainController != null) {
@@ -248,10 +360,18 @@ public class AfficheMateriels {
                     rafraichirListe();
                     return;  // Skip the sorting part if "Clear" is selected
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
             // Update the TableView with the sorted list
             tableMateriels.setItems(MaterielsList);
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
     public void recherche(ActionEvent actionEvent) {
         String searchTerm = tfrechercheM.getText().toLowerCase();  // Get the search term and convert to lower case for case-insensitive search
 
@@ -290,6 +410,7 @@ public class AfficheMateriels {
                 document.add(new Paragraph("prix: " + Materiels.getPrix()));
                 document.add(new Paragraph("etat: " + Materiels.getEtat()));
                 document.add(new Paragraph("type: " + Materiels.getTypeMateriel()));
+<<<<<<< HEAD
                 document.add(new Paragraph("\n"));
             }
             // Step 4: Close the document and writer
@@ -299,12 +420,33 @@ public class AfficheMateriels {
             e.printStackTrace();
         }
     }
+=======
+
+                document.add(new Paragraph("\n"));
+            }
+
+            // Step 4: Close the document and writer
+            document.close();
+
+
+        } catch (Exception e) {
+            // Handle error
+
+            e.printStackTrace();
+        }
+    }
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
     public void excel(ActionEvent actionEvent) {
         // File chooser to let the user select save location
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save Excel File");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Excel Files", "*.xlsx"));
         File file = fileChooser.showSaveDialog(null);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
         if (file == null) {
             return; // User canceled the save dialog
         }
@@ -360,8 +502,13 @@ public class AfficheMateriels {
         return style;
     }
     public void stat(ActionEvent actionEvent) {
+<<<<<<< HEAD
         int disponibleCount = 0;
         int indisponibleCount = 0;
+=======
+        int availableCount = 0;
+        int unavailableCount = 0;
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
         Map<String, Integer> typeMaterialCount = new HashMap<>();
 
         System.out.println("DEBUG: Checking Materiel -> TypeMateriel Mapping");
@@ -378,10 +525,17 @@ public class AfficheMateriels {
             }
 
             // Counting Availability
+<<<<<<< HEAD
             if (materiel.getEtat() == Disponibilte.DISPONIBLE) {  // Assuming 'etat' is a string like "Disponible" or "Indisponible"
                 disponibleCount++;
             } else {
                 indisponibleCount++;
+=======
+            if (materiel.getEtat().equals("Disponible")) {  // Assuming 'etat' is a string like "Disponible" or "Indisponible"
+                availableCount++;
+            } else {
+                unavailableCount++;
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
             }
 
             // Counting Type Usage
@@ -389,14 +543,24 @@ public class AfficheMateriels {
             typeMaterialCount.put(type, typeMaterialCount.getOrDefault(type, 0) + 1);
         }
 
+<<<<<<< HEAD
         int totalMateriels = disponibleCount++ + indisponibleCount++;
+=======
+        int totalMateriels = availableCount + unavailableCount;
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 
         // Pie Chart for Availability
         PieChart pieChartAvailability = new PieChart();
         PieChart.Data availableData = new PieChart.Data(
+<<<<<<< HEAD
                 "Disponible (" + calculatePercentage( disponibleCount++, totalMateriels) + "%)", disponibleCount);
         PieChart.Data unavailableData = new PieChart.Data(
                 "Indisponible (" + calculatePercentage(indisponibleCount++, totalMateriels) + "%)", indisponibleCount);
+=======
+                "Disponible (" + calculatePercentage(availableCount, totalMateriels) + "%)", availableCount);
+        PieChart.Data unavailableData = new PieChart.Data(
+                "Indisponible (" + calculatePercentage(unavailableCount, totalMateriels) + "%)", unavailableCount);
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
         pieChartAvailability.getData().addAll(availableData, unavailableData);
         pieChartAvailability.setTitle("Disponibilité des Matériels");
 
@@ -424,6 +588,7 @@ public class AfficheMateriels {
         return (int) Math.round((part * 100.0) / total);
     }
 
+<<<<<<< HEAD
     private void switchScene(ActionEvent event, String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
@@ -493,6 +658,8 @@ public class AfficheMateriels {
 
         return null;
     }
+=======
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 
 
 }

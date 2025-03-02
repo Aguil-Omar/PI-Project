@@ -2,7 +2,10 @@
 
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
+<<<<<<< HEAD
 <?import javafx.scene.image.*?>
+=======
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="614.0" prefWidth="925.0" style="-fx-background-color: #CEF1F9;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.GestionMateriel.AfficheMateriels">
@@ -26,9 +29,13 @@
                         <Button fx:id="rechercheM" onAction="#recherche" styleClass="button-search" text="Rechercher" />
                         <Button fx:id="pdfM" onAction="#pdf" styleClass="button-filter" text="PDF" />
                         <Button fx:id="excelM" onAction="#excel" styleClass="button-filter" text="Excel" />
+<<<<<<< HEAD
                         <Button fx:id="BtnStat" mnemonicParsing="false" onAction="#stat" styleClass="button" text="Stat" />
                         <Button fx:id="qr" layoutX="640.0" layoutY="133.0" mnemonicParsing="false" onAction="#qr" text="QR" />
                   <ImageView fx:id="qrI" fitHeight="43.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true" />
+=======
+                  <Button fx:id="BtnStat" mnemonicParsing="false" text="Stat" onAction="#stat" styleClass="button"/>
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
                     </children>
                 </HBox>
             </children>
@@ -44,8 +51,11 @@
                 <TableColumn fx:id="colPrix" text="Prix" />
                 <TableColumn fx:id="colEtat" text="État" />
                 <TableColumn fx:id="colType" text="Type" />
+<<<<<<< HEAD
                 <TableColumn fx:id="colImage" text="Image" />
 
+=======
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
                 <TableColumn fx:id="colAction" text="Action" />
             </columns>
         </TableView>
@@ -54,6 +64,11 @@
         <HBox alignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <children>
                 <Button fx:id="btnA" mnemonicParsing="false" onAction="#Ajout" prefHeight="30.0" prefWidth="150.0" styleClass="button-addMateriel" text="Ajouter un matériel" />
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
             </children>
         </HBox>
     </children>

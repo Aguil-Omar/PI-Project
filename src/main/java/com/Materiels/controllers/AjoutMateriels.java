@@ -1,18 +1,10 @@
-package com.pi_dev.controllers.GestionMateriel;
+package com.Materiels.controllers;
 
-<<<<<<< HEAD
-import com.pi_dev.models.GestionEsapce.Disponibilite;
-=======
->>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
-import com.pi_dev.models.GestionMateriels.Disponibilte;
-import com.pi_dev.models.GestionMateriels.Materiels;
-import com.pi_dev.models.GestionMateriels.TypeMateriels;
-import com.pi_dev.services.MaterielsServices;
-<<<<<<< HEAD
-import com.pi_dev.services.TypeEspaceService;
-=======
->>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
-import com.pi_dev.services.TypeMaterielsServices;
+import com.Materiels.models.Disponibilte;
+import com.Materiels.models.Materiels;
+import com.Materiels.models.TypeMateriels;
+import com.Materiels.services.MaterielsServices;
+import com.Materiels.services.TypeMaterielsServices;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,25 +12,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-<<<<<<< HEAD
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.control.ComboBox;
-import javafx.scene.image.Image;
-import javafx.stage.FileChooser;
-
-import java.io.File;
-import java.util.List;
-
-
-
-
-=======
 
 import java.util.List;
 
->>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 public class AjoutMateriels {
 
     @FXML
@@ -52,21 +28,11 @@ public class AjoutMateriels {
     @FXML
     private ComboBox<TypeMateriels> cmbTypeMateriel;
     private TypeMaterielsServices typeMaterielsService = new TypeMaterielsServices();
-<<<<<<< HEAD
-    @FXML
-    private ImageView ImageV;
-=======
 
->>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
     @FXML
     private Button btnAjout;
     @FXML
     private Button btnAnnule ;
-<<<<<<< HEAD
-    private Disponibilite etat;
-    private String imagePath;
-=======
->>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 
     @FXML
     public void initialize() {
@@ -100,16 +66,18 @@ public class AjoutMateriels {
 
 
     @FXML
-    void ajout(ActionEvent event) {
+    void ajout(ActionEvent event)   {
 
         String nom = txtNom.getText();
         String prixStr = txtPrix.getText();
         String etatStr = cmbEtat.getValue();
         TypeMateriels selectedTypeMateriel = cmbTypeMateriel.getSelectionModel().getSelectedItem();
         if (selectedTypeMateriel == null) {
+
             System.out.println("Please select a TypeMateriels");
             return;
         }
+
 
         if (nom.isEmpty() || prixStr.isEmpty() || etatStr == null || selectedTypeMateriel == null) {
             showAlert("Erreur", "Tous les champs doivent être remplis !");
@@ -120,32 +88,26 @@ public class AjoutMateriels {
             float prix = Float.parseFloat(prixStr);
             Disponibilte etat = Disponibilte.valueOf(etatStr);
 
-<<<<<<< HEAD
-            // Create new Espace object
-            Materiels newMateriels = new Materiels(nom, prix, etat, selectedTypeMateriel, imagePath);
 
-            // Add new Espace object to the database
-            MaterielsServices MaterielsService = new MaterielsServices();
-            MaterielsService.ajouter(newMateriels);
-=======
-            // Utilisation du constructeur avec 5 paramètres
-            Materiels materiel = new Materiels(nom, prix, etat, selectedTypeMateriel, null);  // Utilise `null` pour imagePath (tu peux aussi la récupérer si nécessaire)
+            Materiels materiel = new Materiels(nom, prix, etat, selectedTypeMateriel);
+
 
             MaterielsServices ms = new MaterielsServices();
             ms.ajouter(materiel);
->>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
+
 
             showAlert("Succès", "Matériel ajouté avec succès !");
 
+
             clearFields();
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/InterfaceMateriel/MainInterface.fxml"));
-                Parent root = loader.load();
+            try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainInterface.fxml"));
+            Parent root=loader.load();
                 txtNom.getScene().setRoot(root);
-            } catch (Exception e) {
-                e.printStackTrace();
+
             }
 
+            catch (Exception e){e.printStackTrace();}
         } catch (NumberFormatException e) {
             showAlert("Erreur", "Le prix doit être un nombre valide.");
         } catch (IllegalArgumentException e) {
@@ -162,7 +124,7 @@ public class AjoutMateriels {
 
     private void naviguerVersMain() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/InterfaceMateriel/MainInterface.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainInterface.fxml"));
             Parent root = loader.load();
             Scene currentScene = btnAjout.getScene();
             currentScene.setRoot(root);
@@ -186,25 +148,4 @@ public class AjoutMateriels {
         cmbEtat.getSelectionModel().clearSelection();
     }
 
-
-<<<<<<< HEAD
-
-    @FXML
-    private void upload(ActionEvent actionEvent) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Sélectionner une image");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Fichiers d'image", "*.png", "*.jpg", "*.jpeg")
-        );
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        if (selectedFile != null) {
-            imagePath = selectedFile.getAbsolutePath();
-            System.out.println("Image path: " + imagePath);
-            Image image = new Image(selectedFile.toURI().toString());
-            ImageV.setImage(image);
-        }
-    }
-=======
->>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 }

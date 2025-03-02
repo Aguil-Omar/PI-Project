@@ -1,14 +1,18 @@
 package com.pi_dev.services;
 
+<<<<<<< HEAD
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
+=======
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 import com.pi_dev.models.GestionMateriels.Disponibilte;
 import com.pi_dev.models.GestionMateriels.Materiels;
 import com.pi_dev.models.GestionMateriels.TypeMateriels;
 import com.pi_dev.utils.DataSource;
+<<<<<<< HEAD
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,6 +21,11 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+=======
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +44,7 @@ public class MaterielsServices implements IService<Materiels> {
 
     @Override
     public void ajouter(Materiels materiels) {
+<<<<<<< HEAD
         try {
             // Upload the image to the specified location
             if (materiels.getImagePath() != null) {
@@ -99,12 +109,35 @@ public class MaterielsServices implements IService<Materiels> {
     public void modifier(Materiels materiels) {
         final String updateQuery = "UPDATE materiel SET nom=?, prix=?, etat=?, type_materiel_id=? , imagePath = ? WHERE id=?";
         try (PreparedStatement pst = connection.prepareStatement(updateQuery)) {
+=======
+        final String req = "INSERT INTO materiel (nom, prix, etat, type_materiel_id, ImagePath) VALUES (?,?,?,?,?)";
+        try (PreparedStatement pst = connection.prepareStatement(req)) {
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
             pst.setString(1, materiels.getNom());
             pst.setFloat(2, materiels.getPrix());
             pst.setString(3, materiels.getEtat().toString());
             pst.setInt(4, materiels.getTypeMateriel().getId());
             pst.setString(5, materiels.getImagePath());
 
+<<<<<<< HEAD
+=======
+            pst.executeUpdate();
+            System.out.println("✅ Matériel ajouté avec succès !");
+        } catch (SQLException e) {
+            System.err.println("❌ Erreur lors de l'ajout du matériel : " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void modifier(Materiels materiels) {
+        final String updateQuery = "UPDATE materiel SET nom=?, prix=?, etat=?, type_materiel_id=? , imagePath = ?WHERE id=?";
+        try (PreparedStatement pst = connection.prepareStatement(updateQuery)) {
+            pst.setString(1, materiels.getNom());
+            pst.setFloat(2, materiels.getPrix());
+            pst.setString(3, materiels.getEtat().toString());
+            pst.setInt(4, materiels.getTypeMateriel().getId());
+            pst.setString(5, materiels.getImagePath());
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
             pst.setInt(6, materiels.getId());
 
             int rowsUpdated = pst.executeUpdate();
@@ -114,7 +147,11 @@ public class MaterielsServices implements IService<Materiels> {
                 System.out.println("⚠ Aucun matériel trouvé avec l'ID : " + materiels.getId());
             }
         } catch (SQLException e) {
+<<<<<<< HEAD
             e.printStackTrace();
+=======
+            System.err.println("❌ Erreur SQL lors de la modification du matériel : " + e.getMessage());
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
         }
     }
 
@@ -135,9 +172,15 @@ public class MaterielsServices implements IService<Materiels> {
         }
     }
 
+<<<<<<< HEAD
     public List<Materiels> getMaterielsDisponibles() {
         List<Materiels> materiels = new ArrayList<>();
         final String query = "SELECT m.id, m.nom, m.prix, m.etat, m.type_materiel_id, tm.nomM, tm.description, m.ImagePath, m.qrCodePath FROM materiel m JOIN type_materiel tm ON m.type_materiel_id = tm.id";
+=======
+    private ObservableList<Materiels> getMaterielsDisponiblesDepuisBD() {
+        ObservableList<Materiels> materiels = FXCollections.observableArrayList();
+        final String query = "SELECT m.id, m.nom, m.prix, m.etat, m.type_materiel_id, tm.nomM, tm.description, m.ImagePath FROM materiel m JOIN type_materiel tm ON m.type_materiel_id = tm.id";
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 
         try (PreparedStatement pst = connection.prepareStatement(query); ResultSet resultSet = pst.executeQuery()) {
             while (resultSet.next()) {
@@ -148,14 +191,22 @@ public class MaterielsServices implements IService<Materiels> {
                 String nomM = resultSet.getString("nomM");
                 String description = resultSet.getString("description");
                 String imagePath = resultSet.getString("ImagePath");
+<<<<<<< HEAD
                 String qrCodePath = resultSet.getString("qrCodePath");
+=======
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 
                 // Convertir String en enum Disponibilte
                 Disponibilte etat = Disponibilte.valueOf(etatStr);
 
+<<<<<<< HEAD
                 TypeMateriels typeMateriel = new TypeMateriels(resultSet.getInt("type_materiel_id"), nomM, description);
                 Materiels materiel = new Materiels(id, nom, prix, etat, typeMateriel, imagePath);
 
+=======
+                TypeMateriels typeMateriel = new TypeMateriels(nomM, description);
+                Materiels materiel = new Materiels(nom, prix, etat, typeMateriel, imagePath);
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
                 materiels.add(materiel);
             }
         } catch (SQLException e) {
@@ -167,7 +218,11 @@ public class MaterielsServices implements IService<Materiels> {
     @Override
     public List<Materiels> rechercher() {
         List<Materiels> resultats = new ArrayList<>();
+<<<<<<< HEAD
         final String query = "SELECT m.id, m.nom, m.prix, m.etat, m.type_materiel_id, tm.nomM, tm.description, m.ImagePath, m.qrCodePath FROM materiel m JOIN type_materiel tm ON m.type_materiel_id = tm.id";
+=======
+        final String query = "SELECT m.id, m.nom, m.prix, m.etat, m.type_materiel_id, tm.nomM, tm.description, m.ImagePath FROM materiel m JOIN type_materiel tm ON m.type_materiel_id = tm.id";
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 
         try (PreparedStatement pst = connection.prepareStatement(query); ResultSet rs = pst.executeQuery()) {
             while (rs.next()) {
@@ -178,12 +233,19 @@ public class MaterielsServices implements IService<Materiels> {
                 String description = rs.getString("description");
                 String nomM = rs.getString("nomM");
                 String imagePath = rs.getString("ImagePath");
+<<<<<<< HEAD
                 String qrCodePath = rs.getString("qrCodePath");
 
                 Disponibilte etat = Disponibilte.valueOf(etatStr);  // Conversion en enum
                 TypeMateriels typeMateriel = new TypeMateriels(rs.getInt("type_materiel_id"), nomM, description);
                 Materiels materiel = new Materiels(id, nom, prix, etat, typeMateriel, imagePath);
 
+=======
+
+                Disponibilte etat = Disponibilte.valueOf(etatStr);  // Conversion en enum
+                TypeMateriels typeMateriel = new TypeMateriels(nomM, description);
+                Materiels materiel = new Materiels(nom, prix, etat, typeMateriel, imagePath);
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
 
                 resultats.add(materiel);
             }
@@ -193,4 +255,8 @@ public class MaterielsServices implements IService<Materiels> {
 
         return resultats;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5916df4342ab696d848a6db15296686a6a62f6b4
