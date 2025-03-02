@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="614.0" prefWidth="925.0" style="-fx-background-color: #CEF1F9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.GestionEspace.AfficheTypeEspace">
+   <children>
+      <TableView fx:id="typeTable" layoutX="29.0" layoutY="157.0" prefHeight="400.0" prefWidth="905.0">
+        <columns>
+          <TableColumn fx:id="cType" prefWidth="191.99999618530273" text="Type" />
+          <TableColumn fx:id="cDescription" prefWidth="434.40000915527344" text="Description" />
+            <TableColumn fx:id="cAction" prefWidth="279.20001220703125" text="Action" />
+        </columns>
+      </TableView>
+      <VBox prefHeight="100.0" prefWidth="964.0" style="-fx-background-color: #03045F;">
+         <children>
+            <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 36px; -fx-font-weight: bold;" text="Eventopia" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+
+
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.Button?>
+<AnchorPane prefHeight="500.0" stylesheets="@../styles/afficheEvents.css" prefWidth="700.0" style="-fx-background-color: #f4f4f4;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pi_dev.controllers.EvenementController.AfficherEvenement">
+
+    <!-- Nav Bar -->
+    <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: #03045F;">
+        <children>
+            <!-- Eventopia Logo -->
+            <Label style="-fx-text-fill: white; -fx-font-size: 30px;-fx-padding: 0 0 0 15px; -fx-font-weight: bold;" text="Eventopia" />
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- Ajouter Événement Button -->
+            <Button styleClass="button-addEvent" onAction="#addEvent" text="Ajouter Événement" />
+        </children>
+    </HBox>
+
+    <children>
+        <TableView fx:id="tableEvenements" layoutX="23.0" layoutY="90.0" prefHeight="470.0" prefWidth="760.0">
+            <columns>
+                <TableColumn fx:id="colTitre" text="Titre" prefWidth="100.0"/>
+                <TableColumn fx:id="colDescription" text="Description" prefWidth="200.0"/>
+                <TableColumn fx:id="colDate" text="Date" prefWidth="90.0"/>
+                <TableColumn fx:id="colStatut" text="Statut" prefWidth="75.0"/>
+                <TableColumn fx:id="colCategorie" text="Catégorie" prefWidth="75.0"/>
+                <TableColumn fx:id="colAction" text="Action" prefWidth="200.0"/>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

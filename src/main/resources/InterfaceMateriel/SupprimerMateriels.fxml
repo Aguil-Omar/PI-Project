@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="614.0" prefWidth="925.0" style="-fx-background-color: #CEF1F9;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.GestionMateriel.SupprimerMateriel">
+    <children>
+        <!-- VBox pour le titre "Eventopia" -->
+        <VBox prefHeight="100.0" prefWidth="964.0" style="-fx-background-color: #03045F;">
+            <children>
+                <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 36px; -fx-font-weight: bold;" text="Eventopia" />
+            </children>
+        </VBox>
+
+        <!-- Contenu existant -->
+        <Label layoutX="20.0" layoutY="120.0" text="Confirmer la suppression" textFill="#080808">
+         <font>
+            <Font size="36.0" />
+         </font></Label>
+        <Label fx:id="lblMessage" layoutX="148.0" layoutY="236.0" text="Êtes-vous sûr de vouloir supprimer ce matériel ?" textFill="#282727">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+
+        <Button fx:id="btnConfirmer" layoutX="249.0" layoutY="339.0" onAction="#confirmer" prefHeight="47.0" prefWidth="117.0" style="-fx-background-color: #28b463;" text="Confirmer" />
+        <Button fx:id="btnAnnuler" layoutX="529.0" layoutY="339.0" onAction="#annuler" prefHeight="47.0" prefWidth="118.0" style="-fx-background-color:#c0392b;" text="Annuler" />
+    </children>
+</AnchorPane>

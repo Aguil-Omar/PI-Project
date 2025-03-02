@@ -1,0 +1,21 @@
+
+.button-addEvent{
+    -fx-background-color: #03045F;
+    -fx-text-fill: #CEF1F9;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+
+}
+.button-addEvent:hover{
+    -fx-background-color: #CEF1F9;
+    -fx-text-fill: #03045F;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+}
+.button-addEvent:pressed{
+    -fx-background-color: #0078B8;
+    -fx-text-fill: #CEF1F9;
+}

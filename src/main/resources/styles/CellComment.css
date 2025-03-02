@@ -1,0 +1,35 @@
+.button-updateComment{
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    fx-text-fill:blue;
+    -fx-background-color: transparent;
+
+}
+
+.button-updateComment:hover{
+    -fx-text-fill: #03045F;
+    -fx-background-color: #9999df;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+}
+.button-updateComment:pressed{
+    -fx-background-color: #0078B8;
+    -fx-text-fill: #CEF1F9;
+}
+
+.button-delete{
+    -fx-background-color: transparent;
+    -fx-text-fill: red;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.button-delete:hover{
+    -fx-text-fill: #fff;
+    -fx-background-color: #ef5151;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+}
+.button-delete:pressed{
+    -fx-background-color: #0078B8;
+    -fx-text-fill: #CEF1F9;
+}

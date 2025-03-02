@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="614.0" prefWidth="925.0" style="-fx-background-color: #CEF1F9;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.GestionMateriel.ReservationController">
+
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+
+    <children>
+        <!-- Header -->
+        <VBox prefHeight="100.0" prefWidth="930.0" style="-fx-background-color: #03045F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label alignment="CENTER" styleClass="header-label" text="Eventopia" />
+            </children>
+        </VBox>
+
+        <!-- Subheader -->
+        <Label layoutX="20.0" layoutY="110.0" styleClass="subheader-label" text="Réservation de Matériels :" />
+
+        <!-- Formulaire de réservation -->
+        <VBox alignment="CENTER" layoutX="20.0" layoutY="140.0" spacing="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="140.0" />
+
+        <!-- ScrollPane pour les matériels disponibles -->
+        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="20.0" layoutY="170.0" prefHeight="364.0" prefWidth="885.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="170.0">
+            <TilePane fx:id="tilePane" hgap="10" prefHeight="347.0" prefWidth="883.0" vgap="10" />
+        </ScrollPane>
+
+        <!-- Bouton Voir Panier -->
+        <HBox alignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Button styleClass="button-addMateriel" text="Voir Panier" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

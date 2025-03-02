@@ -1,0 +1,48 @@
+/*navigate programmes*/
+.button-navigateProgram{
+    -fx-background-color: #0607af;
+    -fx-text-fill: #CEF1F9;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+/*navigate programmes*/
+.button-navigateComment{
+    -fx-background-color: #03045F;
+    -fx-text-fill: #CEF1F9;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+/*navigate retourner*/
+.button-navigateEvent{
+    -fx-background-color: #4c4de4;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+/*navigate retourner*/
+.button-addProgram{
+    -fx-background-color: #0607af;
+    -fx-text-fill: #CEF1F9;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+

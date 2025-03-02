@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="614.0" prefWidth="925.0" style="-fx-background-color: #CEF1F9;"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pi_dev.controllers.GestionMateriel.AfficheTypeMateriels">
+
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+
+    <children>
+        <!-- En-tête -->
+        <VBox prefHeight="100.0" prefWidth="930.0" style="-fx-background-color: #03045F;"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label styleClass="header-label" text="Eventopia" alignment="CENTER" />
+
+                <!-- Filtres et recherche -->
+                <HBox spacing="10" alignment="CENTER" style="-fx-padding: 10;">
+                    <children>
+                        <ComboBox fx:id="ctri" prefHeight="30.0" prefWidth="120.0" />
+                        <Button fx:id="tri" onAction="#tri" styleClass="button-filter" text="Filtrer" />
+                        <TextField fx:id="tfrecherche" prefWidth="200.0" />
+                        <Button fx:id="recherche" onAction="#recherche" styleClass="button-search" text="Rechercher" />
+                        <Button fx:id="pdf" onAction="#pdf" styleClass="button-filter" text="PDF" />
+                        <Button fx:id="excel" onAction="#excel" styleClass="button-filter" text="Excel" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
+        <!-- Sous-titre -->
+        <Label layoutX="20.0" layoutY="110.0" styleClass="subheader-label" text="Liste des Types de Matériels :" />
+
+        <!-- TableView -->
+        <TableView fx:id="tableTypeMateriels" styleClass="table-view"
+                   AnchorPane.topAnchor="140.0" AnchorPane.leftAnchor="20.0"
+                   AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="80.0">
+            <columns>
+                <TableColumn fx:id="colNomM" text="Nom du Type" />
+                <TableColumn fx:id="colDescription" text="Description" />
+                <TableColumn fx:id="colAction" text="Action" />
+            </columns>
+        </TableView>
+
+        <!-- Bouton Ajouter -->
+        <HBox alignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Button fx:id="btnAjouterType" mnemonicParsing="false" onAction="#Ajout"
+                        prefHeight="30.0" prefWidth="200.0" styleClass="button-addMateriel"
+                        text="Ajouter un type de matériel" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
