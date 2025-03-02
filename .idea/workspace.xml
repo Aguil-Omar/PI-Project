@@ -7,9 +7,15 @@
     <list default="true" id="b1154c01-4f1a-4288-a2b3-c93ce25e2899" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/gestion_utilisateur/authentificationControlleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/gestion_utilisateur/authentificationControlleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/gestion_utilisateur/listUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/gestion_utilisateur/listUtilisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/gestion_utilisateur/signUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/controllers/gestion_utilisateur/signUpController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/models/utilisateur/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/models/utilisateur/Utilisateur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/services/utilisateur/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/services/utilisateur/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/services/utilisateur/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/services/utilisateur/EmailService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/esprit/tests/MainProgGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/esprit/tests/MainProgGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/readUtilisateur.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/readUtilisateur.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,25 +43,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MainProg.executor": "Run",
-    "Application.MainProgGUI.executor": "Run",
-    "Maven.Eventopia [org.openjfx:javafx-maven-plugin:0.0.7:dorun].executor": "Run",
-    "Maven.Eventopia [org.openjfx:javafx-maven-plugin:0.0.7:run].executor": "Run",
-    "Maven.Eventopia [org.openjfx:javafx-maven-plugin:0.0.8:jlink].executor": "Run",
-    "Maven.Eventopia [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.codeium.enabled": "true",
-    "git-widget-placeholder": "Gestion__Utilisateur",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MainProg.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainProgGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Eventopia [org.openjfx:javafx-maven-plugin:0.0.7:dorun].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Eventopia [org.openjfx:javafx-maven-plugin:0.0.7:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Eventopia [org.openjfx:javafx-maven-plugin:0.0.8:jlink].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Eventopia [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Gestion__Utilisateur&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Eventopiaa" />

@@ -1,5 +1,6 @@
 package com.esprit.models.utilisateur;
-
+import com.esprit.models.utilisateur.Adresse;
+import com.esprit.models.utilisateur.Role;
 public class Utilisateur {
 
     private int id;
@@ -120,7 +121,7 @@ public class Utilisateur {
                 ", motDePasse='" + motDePasse + '\'' +
                 ", role=" + role +
                 ", adresse=" + adresse +
-                ", tel='" + tel + '\'' +
+                ", tel='" + tel + '\'' +"imageUrl"+imageUrl+
                 '}';
     }
 }

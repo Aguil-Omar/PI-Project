@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"  stylesheets="/styles/styles.css">
+    <top>
+        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: #03045F; -fx-padding: 20;">
+            <children>
+                <ImageView fx:id="userIcon" fitHeight="40.0" fitWidth="40.0" />
+                <Label fx:id="loggedUserName" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;" />
+                <Label fx:id="headerLabel" style="-fx-text-fill: #FFFFFF; -fx-font-size: 36px; -fx-font-weight: bold;" text="Eventopia" />
+            </children>
+        </VBox>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="15" style="-fx-padding: 20; -fx-background-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+            <ImageView fx:id="profileImage" fitHeight="100" fitWidth="100" />
+            <Button text="Change Image" fx:id="changeImageButton" styleClass="image-button" />
+            <GridPane hgap="10" vgap="10">
+                <Label text="Nom" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                <TextField fx:id="nomField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                <Label text="Prénom" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                <TextField fx:id="prenomField" GridPane.rowIndex="0" GridPane.columnIndex="3" />
+
+                <Label text="Email" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                <TextField fx:id="emailField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                <Label text="Phone" GridPane.rowIndex="1" GridPane.columnIndex="2" />
+                <TextField fx:id="phoneField" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+
+                <Label text="Role" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                <TextField fx:id="roleField" GridPane.rowIndex="2" GridPane.columnIndex="1" editable="false" />
+
+                <Label text="Region" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                <TextField fx:id="regionField" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+                <Label text="Postal Code" GridPane.rowIndex="3" GridPane.columnIndex="2" />
+                <TextField fx:id="postalCodeField" GridPane.rowIndex="3" GridPane.columnIndex="3" />
+            </GridPane>
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Cancel" styleClass="cancel-button" fx:id="cancelButton" />
+                <Button text="Update" styleClass="update-button" fx:id="updateButton" />
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

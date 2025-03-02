@@ -236,6 +236,266 @@ ImageView {
     -fx-font-size: 18px;
     -fx-text-fill: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
 }
+/* General Styles */
+.root {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* Header Styles */
+.header-label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+}
+
+/* Search Field Styles */
+.search-field {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #03045F;
+    -fx-border-radius: 5;
+    -fx-pref-width: 300;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+}
+
+.search-field:focused {
+    -fx-border-color: #0078D7;
+}
+
+/* Add Button Styles */
+.add-button {
+    -fx-background-color: #03045F;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-border-radius: 5;
+    -fx-cursor: hand;
+}
+
+.add-button:hover {
+    -fx-background-color: #0078D7;
+}
+
+/* Table Styles */
+.styled-table {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 5;
+    -fx-padding: 10;
+}
+
+.styled-table .column-header {
+    -fx-background-color: #03045F;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.styled-table .column-header-background {
+    -fx-background-color: #03045F;
+}
+
+.styled-table .table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 0 0 1 0;
+}
+
+.styled-table .table-row-cell:odd {
+    -fx-background-color: #F9F9F9;
+}
+
+.styled-table .table-row-cell:selected {
+    -fx-background-color: #0078D7;
+    -fx-text-fill: #FFFFFF;
+}
+
+.styled-table .table-cell {
+    -fx-padding: 10;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* Avatar Column Styles */
+.image-column {
+    -fx-alignment: CENTER;
+}
+
+/* Update and Delete Button Styles */
+.update-button, .delete-button {
+    -fx-background-color: #03045F;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10;
+    -fx-border-radius: 3;
+    -fx-cursor: hand;
+}
+
+.update-button:hover {
+    -fx-background-color: #0078D7;
+}
+
+.delete-button:hover {
+    -fx-background-color: #D32F2F;
+}
+/* General Styles */
+.root {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #F0F4F8;
+}
+
+/* Header Styles */
+.header-label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 1);
+    -fx-padding: 20;
+    -fx-background-color: #03045F;
+    -fx-background-radius: 0 0 10 10;
+}
+
+/* Search Field Styles */
+.search-field {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #03045F;
+    -fx-border-radius: 20;
+    -fx-pref-width: 300;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 2);
+    -fx-transition: all 0.3s ease;
+}
+
+.search-field:focused {
+    -fx-border-color: #0078D7;
+    -fx-effect: dropshadow(gaussian, rgba(0, 120, 215, 0.3), 10, 0.5, 0, 1);
+}
+
+/* Add Button Styles */
+.add-button {
+    -fx-background-color: #03045F;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-border-radius: 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+    -fx-transition: all 0.3s ease;
+}
+
+.add-button:hover {
+    -fx-background-color: #0078D7;
+    -fx-effect: dropshadow(gaussian, rgba(0, 120, 215, 0.4), 10, 0.5, 0, 3);
+}
+
+/* Table Styles */
+.styled-table {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 10;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.5, 0, 2);
+}
+
+#userIcon {
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+    -fx-border-color: white;
+}
+styled-table .column-header {
+    -fx-background-color: #FFFFFF; /* White background */
+    -fx-text-fill: #FFFFFFF; /* Dark blue text */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-border-radius: 5;
+    -fx-border-color: #E0E0E0; /* Light gray border */
+    -fx-border-width: 0 0 1 0; /* Bottom border only */
+}
+
+.styled-table .column-header:hover {
+    -fx-background-color: #F0F4F8; /* Light gray background on hover */
+    -fx-text-fill: #0078D7; /* Blue text on hover */
+}
+
+.styled-table .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.styled-table .table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 0 0 1 0;
+    -fx-transition: all 0.3s ease;
+}
+
+.styled-table .table-row-cell:odd {
+    -fx-background-color: #FFFFFF;
+}
+
+.styled-table .table-row-cell:hover {
+    -fx-background-color: #E3F2FD;
+    -fx-cursor: hand;
+}
+
+.styled-table .table-row-cell:selected {
+    -fx-background-color: #0078D7;
+    -fx-text-fill: #FFFFFF;
+}
+
+.styled-table .table-cell {
+    -fx-padding: 10;
+    -fx-alignment: CENTER_LEFT;
+    -fx-text-fill: #333333;
+}
+
+/* Avatar Column Styles */
+.image-column {
+    -fx-alignment: CENTER;
+}
+
+/* Update and Delete Button Styles */
+.update-button, .delete-button {
+    -fx-background-color: #03045F;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10;
+    -fx-border-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+    -fx-transition: all 0.3s ease;
+}
+
+.update-button:hover {
+    -fx-background-color: #0078D7;
+    -fx-effect: dropshadow(gaussian, rgba(0, 120, 215, 0.4), 10, 0.5, 0, 3);
+}
+
+.delete-button:hover {
+    -fx-background-color: #D32F2F;
+    -fx-effect: dropshadow(gaussian, rgba(211, 47, 47, 0.4), 10, 0.5, 0, 3);
+}
+
+/* Scrollbar Styles */
+.styled-table .scroll-bar:horizontal,
+.styled-table .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.styled-table .scroll-bar:horizontal .thumb,
+.styled-table .scroll-bar:vertical .thumb {
+    -fx-background-color: #03045F;
+    -fx-background-radius: 10;
+}
+
+.styled-table .scroll-bar:horizontal .thumb:hover,
+.styled-table .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #0078D7;
+}
+
+/* Table Header Hover Effect */
+
 
 /* Right Pane Styling */
 .right-pane {

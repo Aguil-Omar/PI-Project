@@ -3,54 +3,70 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Region?>
 
-<AnchorPane prefHeight="614.0" prefWidth="925.0" style="-fx-background-color: #CEF1F9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.gestion_utilisateur.listUtilisateur">
+<AnchorPane prefHeight="700.0" stylesheets="styles/styles.css" prefWidth="1200.0" style="-fx-background-color: #F0F4F8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.controllers.gestion_utilisateur.listUtilisateur">
 
-    <!-- Header -->
-    <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="964.0" style="-fx-background-color: #03045F;">
+    <!-- Navbar -->
+    <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="1200.0" style="-fx-background-color: #03045F; -fx-padding: 15 30 15 30;">
         <children>
-            <Label fx:id="headerLabel" style="-fx-text-fill: #FFFFFF; -fx-font-size: 36px; -fx-font-weight: bold;" text="Eventopia" />
+            <Label fx:id="headerLabel" text="Eventopia - User Management" style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- User Profile Section -->
+            <HBox alignment="CENTER" spacing="10">
+                <children>
+                    <ImageView fx:id="userIcon" fitHeight="40.0" fitWidth="40.0"
+                               onMouseClicked="#goToModifyProfile"
+                                />
+                    <Label fx:id="loggedUserName" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;" />
+                </children>
+            </HBox>
         </children>
-    </VBox>
+    </HBox>
 
-          <!-- Table Section -->
-    <VBox alignment="CENTER" layoutY="84.0" prefHeight="530.0" prefWidth="940.0" spacing="10" style="-fx-background-color: #FFFFF;">
+    <!-- Search and Add Button Section -->
+    <HBox alignment="CENTER_RIGHT" layoutY="100.0" prefHeight="70.0" prefWidth="1200.0" spacing="20" style="-fx-background-color: #FFFFFF; -fx-padding: 15 30 15 30;">
         <children>
-         <Button mnemonicParsing="false" prefHeight="26.0" onAction="#handleAddUtilisateur" prefWidth="177.0" style="-fx-background-color: #03045F; -fx-text-fill: white;" text="ajouter utilisateur">
-            <VBox.margin>
-               <Insets left="700.0" />
-            </VBox.margin>
-         </Button>
-            <TableView fx:id="utilisateurTable" prefHeight="400.0" prefWidth="905.0" style="-fx-background-color: #FFFFFF;">
+            <TextField fx:id="searchField" promptText="Search users..." styleClass="search-field" />
+            <Button mnemonicParsing="false" onAction="#handleAddUtilisateur" styleClass="add-button" text="Add User" />
+        </children>
+    </HBox>
+
+    <!-- Table Section -->
+    <VBox alignment="CENTER" layoutY="170.0" prefHeight="530.0" prefWidth="1200.0" spacing="10" style="-fx-background-color: #FFFFFF; -fx-padding: 20;">
+        <children>
+            <TableView fx:id="utilisateurTable" AnchorPane.topAnchor="170.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" styleClass="styled-table">
                 <columns>
                     <!-- Avatar Column -->
-                    <TableColumn fx:id="imageColumn" prefWidth="76.79998970031738" text="Avatar">
+                    <TableColumn fx:id="imageColumn" prefWidth="80" text="Avatar">
                         <cellValueFactory>
-                            <PropertyValueFactory property="avatar" />
+                            <PropertyValueFactory property="imageUrl" />
                         </cellValueFactory>
                     </TableColumn>
 
-                          <!-- Other columns -->
-                    <TableColumn fx:id="nomColumn" prefWidth="72.79998016357422" text="Nom" />
-                    <TableColumn fx:id="prenomColumn" prefWidth="82.39996337890625" text="Prénom" />
-                    <TableColumn fx:id="emailColumn" prefWidth="76.7999267578125" text="Email" />
-                    <TableColumn fx:id="motDePasseColumn" prefWidth="122.39996337890625" text="Mot de Passe" />
-                    <TableColumn fx:id="roleColumn" prefWidth="69.60006713867188" text="Role" />
-                    <TableColumn fx:id="codePostalColumn" prefWidth="80.79998779296875" text="Code Postal" />
-                    <TableColumn fx:id="regionColumn" prefWidth="85.5999755859375" text="Region" />
-                    <TableColumn fx:id="telColumn" prefWidth="56.7999267578125" text="Tél" />
-                    <TableColumn fx:id="updateColumn" prefWidth="66.4000244140625" text="Update" />
-                    <TableColumn fx:id="deleteColumn" prefWidth="105.5999755859375" text="Delete" />
+                    <!-- Other columns -->
+                    <TableColumn fx:id="nomColumn" prefWidth="120" text="First Name" />
+                    <TableColumn fx:id="prenomColumn" prefWidth="120" text="Last Name" />
+                    <TableColumn fx:id="emailColumn" prefWidth="200" text="Email" />
+                    <TableColumn fx:id="motDePasseColumn" prefWidth="150" text="Password" />
+                    <TableColumn fx:id="roleColumn" prefWidth="100" text="Role" />
+                    <TableColumn fx:id="codePostalColumn" prefWidth="100" text="Postal Code" />
+                    <TableColumn fx:id="regionColumn" prefWidth="120" text="Region" />
+                    <TableColumn fx:id="telColumn" prefWidth="100" text="Phone" />
+                    <TableColumn fx:id="updateColumn" prefWidth="80" text="Update" />
+                    <TableColumn fx:id="deleteColumn" prefWidth="80" text="Delete" />
                 </columns>
             </TableView>
         </children>
-      <padding>
-         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-      </padding>
     </VBox>
 </AnchorPane>

@@ -1,6 +1,6 @@
 package com.esprit.controllers.gestion_utilisateur;
 
-import com.esprit.models.utilisateur.Utilisateur;
+import  com.esprit.models.utilisateur.Utilisateur;
 import com.esprit.services.utilisateur.AdminService;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -11,16 +11,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -32,7 +30,8 @@ public class listUtilisateur implements Initializable {
     private TableView<Utilisateur> utilisateurTable;
 
     @FXML
-    private Button addUtilisateurButton;
+    private TextField searchField;
+
     @FXML
     private TableColumn<Utilisateur, String> nomColumn;
 
@@ -61,38 +60,50 @@ public class listUtilisateur implements Initializable {
     private TableColumn<Utilisateur, String> regionColumn;
 
     @FXML
-    private TableColumn<Utilisateur, String> imageColumn;  // New column for images
+    private TableColumn<Utilisateur, String> imageColumn;
 
     @FXML
     private TableColumn<Utilisateur, Void> updateColumn;
 
     @FXML
     private TableColumn<Utilisateur, Void> deleteColumn;
+    @FXML
+    private ImageView userIcon;
+
+    @FXML
+    private Label loggedUserName;
+    private Utilisateur utilisateur;
 
     private ObservableList<Utilisateur> utilisateurs = FXCollections.observableArrayList();
-
-    private void initData() {
+private Utilisateur loggedUser;
+    public void initData() {
         utilisateurs.clear();
-        AdminService adminService = new AdminService();
+        AdminService adminService = AdminService.getInstance();
+        this.loggedUser = adminService.getLoggedUser(); // Fetch logged user from singleton
+        System.out.println(loggedUser);// Ensure singleton usage
         List<Utilisateur> utilisateursList = adminService.rechercher();
-
         utilisateurs.addAll(utilisateursList);
+        // Set logged-in user's name
+        loggedUserName.setText(loggedUser.getNom() + " " + loggedUser.getPrenom());
+        System.out.println(loggedUserName.getText());
+        // Load Profile Picture
+        if (loggedUser.getImageUrl() != null && !loggedUser.getImageUrl().isEmpty()) {
+            String imagePath = "file:/C:/wamp64/www/" + loggedUser.getImageUrl();
+            userIcon.setImage(new Image(imagePath));
+        } else {
+            userIcon.setImage(new Image("file:/C:/wamp64/www/utilisateur_images/default.png")); // Default profile icon
+        }
     }
     @FXML
-    public void handleAddUtilisateur() {
+    private void goToModifyProfile() {
         try {
-            // Load the test.fxml scene
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/test.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/modifyProfile.fxml"));
             Parent root = loader.load();
 
-            // Create a new stage for the new scene
-            Stage stage = new Stage();
-            stage.setTitle("Add Utilisateur");
-
-            // Set the scene and show the stage
+            Stage stage = (Stage) userIcon.getScene().getWindow();
             stage.setScene(new Scene(root));
+            stage.setTitle("Modify Profile");
             stage.show();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -100,10 +111,16 @@ public class listUtilisateur implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Set up columns for other attributes
+        // Initialisation des colonnes
         nomColumn.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        nomColumn.setSortable(true);
+
         prenomColumn.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        prenomColumn.setSortable(true);
+
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+        emailColumn.setSortable(true);
+
         motDePasseColumn.setCellValueFactory(new PropertyValueFactory<>("motDePasse"));
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
         telColumn.setCellValueFactory(new PropertyValueFactory<>("tel"));
@@ -121,8 +138,7 @@ public class listUtilisateur implements Initializable {
             }
         });
 
-        // Set up the image column with null check and default image handling
-        imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageUrl"));  // Assuming you have a 'imageUrl' property in Utilisateur
+        imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageUrl"));
 
         imageColumn.setCellFactory(new Callback<TableColumn<Utilisateur, String>, TableCell<Utilisateur, String>>() {
             @Override
@@ -135,14 +151,12 @@ public class listUtilisateur implements Initializable {
                         super.updateItem(imageUrl, empty);
                         if (!empty) {
                             if (imageUrl == null || imageUrl.isEmpty()) {
-                                // If imageUrl is null or empty, display default image
-                                imageView.setImage(new Image("C:\\wamp64\\www\\utilisateur_images\\nullimage.png"));  // Path to your default image
+                                imageView.setImage(new Image("C:\\wamp64\\www\\utilisateur_images\\nullimage.png"));
                             } else {
-                                // Load the image from the provided URL
-                                imageView.setImage(new Image("C:\\wamp64\\www\\" + imageUrl));  // Adjust the URL path accordingly
+                                imageView.setImage(new Image("C:\\wamp64\\www\\" + imageUrl));
                             }
-                            imageView.setFitWidth(50);  // Adjust the width
-                            imageView.setFitHeight(50); // Adjust the height
+                            imageView.setFitWidth(50);
+                            imageView.setFitHeight(50);
                             setGraphic(imageView);
                         } else {
                             setGraphic(null);
@@ -152,7 +166,6 @@ public class listUtilisateur implements Initializable {
             }
         });
 
-        // Update and delete column setup (same as before)
         updateColumn.setCellFactory(new Callback<TableColumn<Utilisateur, Void>, TableCell<Utilisateur, Void>>() {
             @Override
             public TableCell<Utilisateur, Void> call(TableColumn<Utilisateur, Void> param) {
@@ -213,8 +226,48 @@ public class listUtilisateur implements Initializable {
             }
         });
 
-        utilisateurTable.setItems(utilisateurs);
-        initData();
+        // Ajouter un écouteur sur le champ de recherche
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filterUtilisateurs(newValue);
+        });
 
+        // Initialisation des données
+        initData();
+        utilisateurTable.setItems(utilisateurs);
+    }
+    @FXML
+    public void handleAddUtilisateur() {
+        try {
+            // Load the ajoutUtilisateur.fxml scene
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ajoutUtilisateur.fxml"));
+            Parent root = loader.load();
+
+            // Create a new stage for the new scene
+            Stage stage = new Stage();
+            stage.setTitle("Add Utilisateur");
+
+            // Set the scene and show the stage
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void filterUtilisateurs(String searchText) {
+        if (searchText == null || searchText.isEmpty()) {
+            utilisateurTable.setItems(utilisateurs);
+        } else {
+            ObservableList<Utilisateur> filteredList = FXCollections.observableArrayList();
+            for (Utilisateur utilisateur : utilisateurs) {
+                if (utilisateur.getNom().toLowerCase().contains(searchText.toLowerCase()) ||
+                        utilisateur.getPrenom().toLowerCase().contains(searchText.toLowerCase()) ||
+                        utilisateur.getEmail().toLowerCase().contains(searchText.toLowerCase())) {
+                    filteredList.add(utilisateur);
+                }
+            }
+            utilisateurTable.setItems(filteredList);
+        }
     }
 }

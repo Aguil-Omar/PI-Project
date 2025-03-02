@@ -16,8 +16,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 public class AdminService implements IServices<Utilisateur> {
-
+    private Utilisateur loggedUser;
     private Connection connection = DataSource.getInstance().getConnection();
+    private static AdminService instance;
 
     /**
      * Ajoute un utilisateur à la base de données.
@@ -259,12 +260,28 @@ public class AdminService implements IServices<Utilisateur> {
 
                 Utilisateur utilisateur = new Utilisateur(id, nom, prenom, email, motDePasse, Role.valueOf(role), adresse, tel, imageUrl);
                 System.out.println("Authentification réussie !");
-                return utilisateur;
+                loggedUser=utilisateur;
+                AdminService.getInstance().setLoggedUser(loggedUser);
+                System.out.println(loggedUser);
+                return loggedUser;
             }
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
+    }
+    public static AdminService getInstance() {
+        if (instance == null) {
+            instance = new AdminService();
+        }
+        return instance;
+    }
+    public Utilisateur getLoggedUser() {
+        return loggedUser;
+    }
+
+    public void setLoggedUser(Utilisateur user) {
+        this.loggedUser = user;
     }
 
     private Adresse getAdresseById(int adresseId) {

@@ -4,7 +4,6 @@ import com.esprit.services.utilisateur.AdminService;
 import com.esprit.models.utilisateur.Utilisateur;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -83,9 +82,8 @@ public class authentificationControlleur {
                 // Show the verification interface
                 listUtilisateur controller = loader.getController();
                 controller.initData();
-                Stage stage = new Stage(); // If called from an event
                 stage.setScene(new Scene(root, 800, 500));
-                stage.setTitle("list");
+                stage.setTitle("Verify Your Email");
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();

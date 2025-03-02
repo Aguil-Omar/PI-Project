@@ -4,14 +4,12 @@ import com.esprit.models.utilisateur.Adresse;
 import com.esprit.models.utilisateur.Role;
 import com.esprit.models.utilisateur.Utilisateur;
 import com.esprit.services.utilisateur.AdminService;
+import com.esprit.services.utilisateur.EmailService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -50,7 +48,7 @@ public class signUpController {
     @FXML
     private Label signInLabel;
     AdminService adminService=new AdminService();
-
+    EmailService em=new EmailService();
     Utilisateur utilisateur=new Utilisateur();
     // Initialize method (optional)
     @FXML
@@ -74,11 +72,14 @@ public class signUpController {
 
         // Validate fields
         if (nom.isEmpty() || prenom.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || region.isEmpty() || postalCode.isEmpty() || telephone.isEmpty()) {
-            System.out.println("Please fill in all fields.");
+            showAlert(Alert.AlertType.WARNING, "Please fill in all fields.");
         } else if (!password.equals(confirmPassword)) {
-            System.out.println("Passwords do not match.");
+            showAlert(Alert.AlertType.WARNING, "Passwords do not match.");
         } else if (adminService.userExists(email)) {
-            System.out.println("User with this email already exists.");
+            showAlert(Alert.AlertType.WARNING, "User with this email already exists.");
+        } else if (!em.validateEmail(email)) {
+            showAlert(Alert.AlertType.WARNING, "The email is invalid. Please enter a valid email.");
+
         } else {
             int postalcode = Integer.parseInt(postalCode);
             String imageUrl=null;
@@ -95,6 +96,10 @@ public class signUpController {
             System.out.println(utilisateur.toString());
             this.redirectToVerificationInterface(utilisateur);
         }
+    }
+    private void showAlert(Alert.AlertType alertType, String message) {
+        Alert alert = new Alert(alertType, message, ButtonType.OK);
+        alert.showAndWait();
     }
 
     // Event handler for the Sign In link
