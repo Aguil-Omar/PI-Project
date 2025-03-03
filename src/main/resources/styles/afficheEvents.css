@@ -1,0 +1,50 @@
+/* Style général pour la TableView */
+.table-view {
+    -fx-background-color: #ffffff; /* Fond blanc */
+    -fx-border-color: #cccccc; /* Bordure grise */
+    -fx-border-radius: 5px; /* Coins arrondis */
+    -fx-padding: 10px; /* Espacement interne */
+}
+
+/* Style pour les en-têtes de colonnes */
+.table-view .column-header {
+    -fx-background-color: #03045F; /* Fond bleu */
+    -fx-text-fill: white; /* Texte blanc */
+    -fx-font-size: 14px; /* Taille de police */
+    -fx-font-weight: bold; /* Texte en gras */
+    -fx-border-radius: 5px; /* Coins arrondis */
+}
+
+/* Style pour les cellules de la TableView */
+.table-view .table-cell {
+    -fx-padding: 10px; /* Espacement interne */
+    -fx-font-size: 14px; /* Taille de police */
+    -fx-border-color: #cccccc; /* Bordure grise */
+}
+
+/* Style pour les lignes au survol */
+.table-row-cell:hover {
+    -fx-background-color: #f0f0f0; /* Fond gris clair */
+}
+
+/* Style pour les lignes sélectionnées */
+.table-row-cell:selected {
+    -fx-background-color: #03045F; /* Fond bleu */
+    -fx-text-fill: white; /* Texte blanc */
+}
+
+/* Style pour les boutons */
+.button {
+    -fx-background-color: #03045F; /* Fond bleu */
+    -fx-text-fill: white; /* Texte blanc */
+    -fx-font-size: 14px; /* Taille de police */
+    -fx-font-weight: bold; /* Texte en gras */
+    -fx-border-radius: 5px; /* Coins arrondis */
+    -fx-padding: 10px 20px; /* Espacement interne */
+    -fx-cursor: hand; /* Curseur en forme de main */
+}
+
+/* Style au survol des boutons */
+.button:hover {
+    -fx-background-color: #02033a; /* Fond bleu foncé */
+}

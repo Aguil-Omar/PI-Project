@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane prefHeight="614.0" prefWidth="925.0" style="-fx-background-color: #CEF1F9;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.GestionMateriel.AfficheMateriels">
+
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+
+    <children>
+        <!-- Header -->
+        <VBox prefHeight="100.0" prefWidth="930.0" style="-fx-background-color: #03045F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label alignment="CENTER" styleClass="header-label" text="Eventopia" />
+
+                <!-- Filter and Search Controls -->
+                <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10;">
+                    <children>
+                        <ComboBox fx:id="ctriM" prefHeight="30.0" prefWidth="120.0" />
+                        <Button fx:id="triM" onAction="#tri" styleClass="button-filter" text="Filtrer" />
+                        <TextField fx:id="tfrechercheM" prefWidth="200.0" />
+                        <Button fx:id="rechercheM" onAction="#recherche" styleClass="button-search" text="Rechercher" />
+                        <Button fx:id="pdfM" onAction="#pdf" styleClass="button-filter" text="PDF" />
+                        <Button fx:id="excelM" onAction="#excel" styleClass="button-filter" text="Excel" />
+                        <Button fx:id="BtnStat" mnemonicParsing="false" text="Stat" onAction="#stat" styleClass="button"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
+        <!-- Subheader -->
+        <Label layoutX="20.0" layoutY="110.0" styleClass="subheader-label" text="Liste des Matériels :" />
+
+        <!-- TableView (qui s'agrandit avec la fenêtre) -->
+        <TableView fx:id="tableMateriels" styleClass="table-view" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="140.0">
+            <columns>
+                <TableColumn fx:id="colNom" text="Nom" />
+                <TableColumn fx:id="colPrix" text="Prix" />
+                <TableColumn fx:id="colEtat" text="État" />
+                <TableColumn fx:id="colType" text="Type" />
+                <TableColumn fx:id="colImage" text="Image" />
+                <TableColumn fx:id="colAction" text="Action" />
+            </columns>
+        </TableView>
+
+        <!-- Add Button (réduit et centré) -->
+        <HBox alignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Button fx:id="btnA" mnemonicParsing="false" onAction="#Ajout" prefHeight="30.0" prefWidth="150.0" styleClass="button-addMateriel" text="Ajouter un matériel" />
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

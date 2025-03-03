@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+
+<TabPane fx:id="tabPane" prefHeight="614.0" prefWidth="925.0" style="-fx-background-color: #CEF1F9;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.GestionMateriel.MainInterface">
+    <tabs>
+
+        <Tab fx:id="typeMaterielsTab" text="Gestion des Types de Matériels" style="-fx-background-color: #CEF1F9;">
+            <content>
+                <fx:include source="../../../../../../../../integration skander/Pi_dev/src/main/resources/InterfaceMateriel/AfficheTypeMateriels.fxml" />
+            </content>
+        </Tab>
+
+        <Tab fx:id="materielsTab" text="Gestion des Matériels" style="-fx-background-color: #CEF1F9;">
+            <content>
+                <fx:include source="../../../../../../../../integration skander/Pi_dev/src/main/resources/InterfaceMateriel/AfficheMateriels.fxml" />
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

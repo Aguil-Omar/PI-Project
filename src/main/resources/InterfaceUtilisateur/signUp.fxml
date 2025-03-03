@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.FontWeight?>
+<?import javafx.scene.layout.Priority?>
+
+<HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" stylesheets="/InterfaceUtilisateur/styles/styles.css" fx:controller="com.pi_dev.controllers.gestion_utilisateur.signUpController">
+    <!-- Left Pane (Blue Gradient Background with App Logo and Text) -->
+    <StackPane fx:id="leftPane" prefWidth="400" minWidth="300" maxWidth="500" style="-fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298);">
+        <VBox alignment="CENTER" spacing="20" maxWidth="Infinity">
+            <!-- App Logo -->
+            <ImageView fitWidth="200" fitHeight="200" preserveRatio="true">
+                <Image url="/InterfaceUtilisateur/assets/eventopia.png" /> <!-- Replace with your image path -->
+            </ImageView>
+            <!-- App Name -->
+            <Label text="Eventopia" styleClass="app-name-label" />
+            <!-- App Description -->
+            <Label text="Your Event Universe" styleClass="app-description-label" />
+        </VBox>
+    </StackPane>
+
+    <!-- Right Pane (Sign-Up Form) -->
+    <VBox fx:id="rightPane" alignment="CENTER" spacing="20" prefWidth="400" minWidth="300" maxWidth="500" style="-fx-background-color: #ffffff;">
+        <!-- Sign-Up Title -->
+        <Label text="Sign Up" styleClass="signup-title-label" />
+
+        <!-- Nom Field -->
+        <HBox alignment="CENTER" spacing="10">
+            <TextField promptText="Nom" styleClass="input-field" prefWidth="250" fx:id="nomField" HBox.hgrow="ALWAYS" />
+        </HBox>
+
+        <!-- Prenom Field -->
+        <HBox alignment="CENTER" spacing="10">
+            <TextField promptText="Prenom" styleClass="input-field" prefWidth="250" fx:id="prenomField" HBox.hgrow="ALWAYS" />
+        </HBox>
+
+        <!-- Email Field -->
+        <HBox alignment="CENTER" spacing="10">
+            <TextField promptText="Email" styleClass="input-field" prefWidth="250" fx:id="emailField" HBox.hgrow="ALWAYS" />
+        </HBox>
+
+        <!-- Mot de passe Field -->
+        <HBox alignment="CENTER" spacing="10">
+            <PasswordField promptText="Mot de passe" styleClass="input-field" prefWidth="250" fx:id="passwordField" HBox.hgrow="ALWAYS" />
+        </HBox>
+
+        <!-- Confirmer mot de passe Field -->
+        <HBox alignment="CENTER" spacing="10">
+            <PasswordField promptText="Confirmer mot de passe" styleClass="input-field" prefWidth="250" fx:id="confirmPasswordField" HBox.hgrow="ALWAYS" />
+        </HBox>
+
+        <!-- Region Field -->
+        <HBox alignment="CENTER" spacing="10">
+            <TextField promptText="Region" styleClass="input-field" prefWidth="250" fx:id="regionField" HBox.hgrow="ALWAYS" />
+        </HBox>
+
+        <!-- Code postal Field -->
+        <HBox alignment="CENTER" spacing="10">
+            <TextField promptText="Code postal" styleClass="input-field" prefWidth="250" fx:id="postalCodeField" HBox.hgrow="ALWAYS" />
+        </HBox>
+
+        <!-- Telephone Field -->
+        <HBox alignment="CENTER" spacing="10">
+            <TextField promptText="Telephone" styleClass="input-field" prefWidth="250" fx:id="telephoneField" HBox.hgrow="ALWAYS" />
+        </HBox>
+
+        <!-- Sign-Up Button -->
+        <Button text="Sign Up" styleClass="signup-button" fx:id="signUpButton" onAction="#handleSignUpButtonAction" />
+
+        <!-- Already have an account? Sign In Link -->
+        <Label onMouseClicked="#redirectTosignin" text="Already have an account? Sign In" styleClass="link-label" fx:id="signInLabel" />
+    </VBox>
+</HBox>

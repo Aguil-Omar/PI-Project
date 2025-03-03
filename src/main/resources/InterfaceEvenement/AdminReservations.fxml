@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.EvenementController.AdminReservationsController">
+    <TableView fx:id="reservationsTable">
+        <columns>
+            <!-- Colonne Événement -->
+            <TableColumn text="Événement" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="evenement"/>
+                </cellValueFactory>
+            </TableColumn>
+
+            <!-- Colonne Espace Réservé -->
+            <TableColumn text="Espace Réservé" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="espaceReserve"/>
+                </cellValueFactory>
+            </TableColumn>
+
+            <!-- Colonne Matériels Réservés -->
+            <TableColumn text="Matériels Réservés" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="materielsReserves"/>
+                </cellValueFactory>
+            </TableColumn>
+
+            <!-- Colonne Utilisateurs -->
+            <TableColumn text="Utilisateurs" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="utilisateurs"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</VBox>

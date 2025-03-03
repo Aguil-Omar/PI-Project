@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<AnchorPane prefHeight="614.0" prefWidth="925.0" style="-fx-background-color: #CEF1F9;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.GestionMateriel.PanierController">
+
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+
+    <children>
+        <!-- Header -->
+        <VBox prefHeight="100.0" prefWidth="930.0" style="-fx-background-color: #03045F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label alignment="CENTER" styleClass="header-label" text="Eventopia" />
+            </children>
+        </VBox>
+
+        <!-- Subheader -->
+        <Label layoutX="20.0" layoutY="110.0" styleClass="subheader-label" text="Panier des Matériels :" />
+
+        <!-- TableView pour le panier -->
+        <ScrollPane fitToWidth="true" fitToHeight="true" layoutX="20.0" layoutY="140.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="140.0">
+            <TableView fx:id="panierTable" styleClass="table-view">
+                <columns>
+                    <TableColumn fx:id="nomColumn" text="Nom" prefWidth="150">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="nom"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="prixColumn" text="Prix" prefWidth="100">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="prix"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="dateDebutColumn" text="Date Début" prefWidth="150">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="dateDebut"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="dateFinColumn" text="Date Fin" prefWidth="150">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="dateFin"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="utilisateurColumn" text="Utilisateur" prefWidth="150">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="utilisateur"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="100">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="actions"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </ScrollPane>
+
+        <!-- Boutons Valider et Retour -->
+        <HBox spacing="10.0" alignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Button text="Valider" onAction="#handleValider" styleClass="button-filter"/>
+                <Button text="Retour" onAction="#handleRetour" styleClass="button-filter"/>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

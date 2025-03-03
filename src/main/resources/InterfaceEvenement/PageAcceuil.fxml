@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+
+<?import javafx.scene.control.ComboBox?>
+<AnchorPane prefHeight="500.0" stylesheets="@../styles/afficheEvents.css" prefWidth="700.0" style="-fx-background-color: #f4f4f4;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.pi_dev.controllers.EvenementController.AcceuilEvenement">
+
+    <!-- Nav Bar -->
+    <HBox alignment="CENTER_LEFT" prefHeight="60.0" style="-fx-background-color: #03045F;" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <children>
+            <!-- Eventopia Logo -->
+            <Label style="-fx-text-fill: white; -fx-font-size: 30px; -fx-padding: 0 0 0 15px; -fx-font-weight: bold;" text="Eventopia" />
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- Barre de recherche -->
+            <TextField fx:id="searchField" promptText="Search..."
+                       style="-fx-background-color: white; -fx-padding: 5px; -fx-border-radius: 10px; -fx-background-radius: 5px;">
+                <HBox.margin>
+                    <Insets top="10" right="50" bottom="10" left="10"/>
+                </HBox.margin>
+            </TextField>
+            <!-- Barre de tri par catégorie -->
+            <ComboBox fx:id="categoryFilter" promptText="Filter by Category" style="-fx-background-color: white; -fx-padding: 5px; -fx-border-radius: 10px; -fx-background-radius: 5px;">
+                <HBox.margin>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </HBox.margin>
+            </ComboBox>
+            <Button onAction="#openStatisticFeedBack" text="feedBack Statistics" styleClass="chatbot-button" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="20" />
+        </children>
+    </HBox>
+
+    <!-- Liste des événements -->
+    <ListView fx:id="listViewEvenements" stylesheets="@../styles/AcceuilEvenement.css" AnchorPane.topAnchor="60.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"/>
+    <!-- Bouton ChatBot -->
+    <Button onAction="#openchatbot" text="Chat" styleClass="chatbot-button" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="20" />
+</AnchorPane>

@@ -1,0 +1,38 @@
+/* Style de base pour les cellules de la ListView */
+.list-cell {
+    -fx-background-color: white; /* Couleur de fond par défaut */
+    -fx-border-color: #ddd; /* Bordure légère */
+    -fx-border-width: 0 0 1 0; /* Bordure uniquement en bas */
+    -fx-padding: 10px; /* Espacement interne */
+    -fx-cursor: hand; /* Curseur en forme de main pour indiquer que c'est cliquable */
+}
+
+/* Style appliqué lorsque la cellule est sélectionnée */
+.list-cell:selected {
+    -fx-background-color: #e0e0e0; /* Couleur de fond lors de la sélection */
+}
+
+/* Style appliqué au survol */
+.list-cell:hover {
+    -fx-background-color: #03045F; /* Couleur de fond au survol */
+    -fx-text-fill: white; /* Changer la couleur du texte pour le rendre lisible */
+}
+/* Style pour le bouton ChatBot */
+.chatbot-button {
+    -fx-background-color: #03045F; /* Couleur de fond */
+    -fx-text-fill: white; /* Couleur du texte */
+    -fx-font-size: 14px; /* Taille de la police */
+    -fx-font-weight: bold; /* Texte en gras */
+    -fx-border-radius: 50%; /* Bordure circulaire */
+    -fx-background-radius: 50%; /* Fond circulaire */
+    -fx-min-width: 60px; /* Largeur minimale */
+    -fx-min-height: 60px; /* Hauteur minimale */
+    -fx-max-width: 60px; /* Largeur maximale */
+    -fx-max-height: 60px; /* Hauteur maximale */
+    -fx-cursor: hand; /* Curseur en forme de main */
+}
+
+/* Style au survol du bouton ChatBot */
+.chatbot-button:hover {
+    -fx-background-color: #02033a; /* Couleur de fond au survol */
+}

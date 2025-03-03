@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="925.0" style="-fx-background-color: #CEF1F9;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.GestionMateriel.AjoutTypeMateriels">
+    <children>
+
+        <Label fx:id="LbNomM" layoutX="102.0" layoutY="174.0" text="Nom du Type">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+        <Label fx:id="LbDescription" layoutX="102.0" layoutY="299.0" text="Description">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+
+        <TextField fx:id="txtNomM" layoutX="302.0" layoutY="160.0" prefHeight="44.0" prefWidth="247.0" />
+        <TextField fx:id="txtDescription" layoutX="302.0" layoutY="242.0" prefHeight="131.0" prefWidth="441.0" />
+        <VBox prefHeight="100.0" prefWidth="964.0" style="-fx-background-color: #03045F;">
+            <children>
+                <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 36px; -fx-font-weight: bold;" text="Eventopia" />
+            </children>
+        </VBox>
+        <Label fx:id="LbTitre" layoutX="33.0" layoutY="111.0" text="Ajouter un Type de Matériel :">
+            <font>
+                <Font size="20.0" />
+            </font></Label>
+        <Button fx:id="btnAjout" layoutX="224.0" layoutY="446.0" mnemonicParsing="false" onAction="#ajout" prefHeight="38.0" prefWidth="91.0" style="-fx-background-color: #28b463;" text="Ajouter" />
+        <Button fx:id="btnAnnuler" layoutX="581.0" layoutY="446.0" mnemonicParsing="false" onAction="#annuler" prefHeight="38.0" prefWidth="91.0" style="-fx-background-color:#c0392b;" text="Annuler" />
+    </children>
+</Pane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="614.0" prefWidth="925.0" style="-fx-background-color: #CEF1F9;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.GestionMateriel.ModifierTypeMateriels">
+    <children>
+        <!-- VBox pour le titre "Eventopia" -->
+        <VBox prefHeight="100.0" prefWidth="964.0" style="-fx-background-color: #03045F;">
+            <children>
+                <Label style="-fx-text-fill: #FFFFFF; -fx-font-size: 36px; -fx-font-weight: bold;" text="Eventopia" />
+            </children>
+        </VBox>
+
+        <!-- Contenu existant -->
+        <Label layoutX="20.0" layoutY="120.0" text="Modifier le Type de Matériel">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+
+        <Label layoutX="95.0" layoutY="198.0" text="Nom du Type :">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+        <TextField fx:id="txtNomM" layoutX="305.0" layoutY="187.0" prefHeight="40.0" prefWidth="262.0" />
+        <Label layoutX="95.0" layoutY="317.0" text="Description :">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+
+        <TextField fx:id="txtDescription" layoutX="305.0" layoutY="257.0" prefHeight="138.0" prefWidth="431.0" />
+
+        <Button fx:id="btnModifier" layoutX="238.0" layoutY="462.0" onAction="#update" prefHeight="40.0" prefWidth="123.0" style="-fx-background-color: #28b463;" text="Modifier" />
+        <Button fx:id="btnAnnuler" layoutX="552.0" layoutY="456.0" onAction="#annuler" prefHeight="40.0" prefWidth="123.0" style="-fx-background-color:#c0392b;" text="Annuler" />
+    </children>
+</AnchorPane>
