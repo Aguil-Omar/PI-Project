@@ -47,15 +47,28 @@ public class signUpController {
 
     @FXML
     private Label signInLabel;
-    AdminService adminService=new AdminService();
-    EmailService em=new EmailService();
-    Utilisateur utilisateur=new Utilisateur();
+
+    @FXML
+    private ToggleGroup roleToggleGroup; // Add ToggleGroup reference
+
+    // Declare references for the radio buttons
+    @FXML
+    private RadioButton participantRadioButton;
+
+    @FXML
+    private RadioButton organisateurRadioButton;
+
+    AdminService adminService = new AdminService();
+    EmailService em = new EmailService();
+    Utilisateur utilisateur = new Utilisateur();
+
     // Initialize method (optional)
     @FXML
     public void initialize() {
         System.out.println("SignUpController initialized!");
-
-
+        roleToggleGroup = new ToggleGroup();
+        participantRadioButton.setToggleGroup(roleToggleGroup);
+        organisateurRadioButton.setToggleGroup(roleToggleGroup);
     }
 
     // Event handler for the Sign Up button
@@ -79,24 +92,33 @@ public class signUpController {
             showAlert(Alert.AlertType.WARNING, "User with this email already exists.");
         } else if (!em.validateEmail(email)) {
             showAlert(Alert.AlertType.WARNING, "The email is invalid. Please enter a valid email.");
-
         } else {
             int postalcode = Integer.parseInt(postalCode);
-            String imageUrl=null;
+            String imageUrl = null;
             Adresse adresse = new Adresse(postalcode, region);
+
+            // Get the selected role from the radio buttons
+            Role selectedRole = Role.PARTICIPANT; // Default role
+            if (organisateurRadioButton.isSelected()) {
+                selectedRole = Role.ORGANISATEUR;
+            }
+
+            // Create a new Utilisateur with the selected role
             utilisateur.setNom(nom);
-            utilisateur.setPrenom(prenom);  // Create a new Utilisateur
+            utilisateur.setPrenom(prenom);
             utilisateur.setEmail(email);
             utilisateur.setMotDePasse(password);
-            utilisateur.setRole(Role.PARTICIPANT);
+            utilisateur.setRole(selectedRole); // Set the selected role
             utilisateur.setAdresse(adresse);
             utilisateur.setTel(telephone);
             utilisateur.setImageUrl(imageUrl);
+
             // Redirect to the verification interface
             System.out.println(utilisateur.toString());
             this.redirectToVerificationInterface(utilisateur);
         }
     }
+
     private void showAlert(Alert.AlertType alertType, String message) {
         Alert alert = new Alert(alertType, message, ButtonType.OK);
         alert.showAndWait();
@@ -108,7 +130,8 @@ public class signUpController {
         System.out.println("Sign In clicked!");
         // Add logic to navigate to the sign-in screen
     }
-@FXML
+
+    @FXML
     private void redirectToVerificationInterface(Utilisateur utilisateur) {
         try {
             // Load the verification interface
@@ -119,6 +142,7 @@ public class signUpController {
             emailVerificationControlleur verifyEmailController = loader.getController();
             verifyEmailController.setUtilisateur(utilisateur);
             System.out.println(utilisateur.toString());
+
             // Show the verification interface
             Stage stage = (Stage) signUpButton.getScene().getWindow();
             stage.setScene(new Scene(root, 800, 500));

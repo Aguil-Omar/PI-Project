@@ -413,6 +413,32 @@ styled-table .column-header {
     -fx-border-color: #E0E0E0; /* Light gray border */
     -fx-border-width: 0 0 1 0; /* Bottom border only */
 }
+/* Cards */
+.dashboard-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-padding: 20px;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.1, 0, 5);
+    -fx-min-width: 200px;
+    -fx-min-height: 180px;
+    -fx-cursor: hand;
+}
+.dashboard-card:hover {
+    -fx-background-color: #E3F2FD;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 15, 0.2, 0, 10);
+}
+
+/* Card Titles */
+.card-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #03045F;
+    -fx-alignment: center;
+}
+
 
 .styled-table .column-header:hover {
     -fx-background-color: #F0F4F8; /* Light gray background on hover */

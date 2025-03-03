@@ -32,12 +32,11 @@ public class ajoutControlleur {
     private ImageView imageView;
 @FXML
 private Button cancelButton;
-    private AdminService adminService = AdminService.getInstance();
+    private AdminService adminService = new AdminService();
     private String imagePath;
-private Utilisateur user;
+
     @FXML
     public void initialize() {
-        user=adminService.getLoggedUser();
         roleGroup = new ToggleGroup();
         adminRadioButton.setToggleGroup(roleGroup);
         organisateurRadioButton.setToggleGroup(roleGroup);

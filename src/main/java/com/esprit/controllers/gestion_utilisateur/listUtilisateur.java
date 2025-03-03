@@ -22,6 +22,7 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class listUtilisateur implements Initializable {
@@ -73,7 +74,8 @@ public class listUtilisateur implements Initializable {
     @FXML
     private Label loggedUserName;
     private Utilisateur utilisateur;
-
+@FXML
+private ImageView logoutIcon;
     private ObservableList<Utilisateur> utilisateurs = FXCollections.observableArrayList();
 private Utilisateur loggedUser;
     public void initData() {
@@ -256,6 +258,44 @@ private Utilisateur loggedUser;
             e.printStackTrace();
         }
     }
+    @FXML
+    public void logout() {
+        // Show confirmation alert
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout Confirmation");
+        alert.setHeaderText("Are you sure you want to log out?");
+        alert.setContentText("Click OK to log out or Cancel to stay logged in.");
+
+        // Wait for user response
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // Perform logout actions
+            System.out.println("User logged out successfully.");
+
+            // Close the current window
+            Stage stage = (Stage) logoutIcon.getScene().getWindow();
+            stage.close();
+
+            // Open login window (Assuming Login.fxml exists)
+            openLoginWindow();
+        }
+    }
+
+
+    private void openLoginWindow() {
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/signin.fxml"));
+            javafx.scene.Parent root = loader.load();
+            Stage loginStage = new Stage();
+            loginStage.setTitle("Login");
+            loginStage.setScene(new javafx.scene.Scene(root));
+            loginStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     private void filterUtilisateurs(String searchText) {
         if (searchText == null || searchText.isEmpty()) {

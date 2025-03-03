@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.GridPane?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" stylesheets="/styles/styles.css"
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.esprit.controllers.gestion_utilisateur.adminDashControlleur">
+
+    <!-- Navbar -->
+    <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="1200.0" style="-fx-background-color: #03045F; -fx-padding: 20;">
+        <children>
+            <!-- Logo and Title -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <!-- Optional Logo Image -->
+                <ImageView fx:id="logoImage" fitHeight="50.0" fitWidth="50.0">
+                    <Image url="/assets/eventopia.png"/>
+                </ImageView>
+                <!-- Title Label -->
+                <Label fx:id="headerLabel" text="Eventopia" style="-fx-text-fill: #FFFFFF; -fx-font-size: 36px; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <!-- User Section (Optional) -->
+            <HBox alignment="CENTER_RIGHT" spacing="20" HBox.hgrow="ALWAYS">
+                <!-- User Avatar Icon -->
+                <ImageView fx:id="adminIcon" fitHeight="40.0" fitWidth="40.0" style="-fx-cursor: hand;"/>
+                <Label fx:id="adminName" text="Admin Name" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            </HBox>
+        </children>
+    </VBox>
+
+    <!-- Grid Layout for Cards -->
+    <GridPane layoutY="100.0" layoutX="50.0" prefWidth="1100.0" prefHeight="600.0" hgap="30" vgap="30">
+        <children>
+            <!-- User Management Card -->
+            <VBox onMouseClicked="#goToGestionUtilisateur" styleClass="dashboard-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="/assets/user.png"/>
+                </ImageView>
+                <Label text="Gestion Utilisateur" styleClass="card-title"/>
+            </VBox>
+
+            <!-- Space Management Card -->
+            <VBox onMouseClicked="#goToGestionEspace" styleClass="dashboard-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="/assets/espace.png"/>
+                </ImageView>
+                <Label text="Gestion Espace" styleClass="card-title"/>
+            </VBox>
+
+            <!-- Event Management Card -->
+            <VBox onMouseClicked="#goToGestionEvenement" styleClass="dashboard-card" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="/assets/event.png"/>
+                </ImageView>
+                <Label text="Gestion Événement" styleClass="card-title"/>
+            </VBox>
+
+            <!-- Material Management Card -->
+            <VBox onMouseClicked="#goToGestionMateriels" styleClass="dashboard-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="/assets/materiel.png"/>
+                </ImageView>
+                <Label text="Gestion Matériels" styleClass="card-title"/>
+            </VBox>
+
+            <!-- Forum Card -->
+            <VBox onMouseClicked="#goToForum" styleClass="dashboard-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="/assets/forum.png"/>
+                </ImageView>
+                <Label text="Forum" styleClass="card-title"/>
+            </VBox>
+        </children>
+    </GridPane>
+
+</AnchorPane>
