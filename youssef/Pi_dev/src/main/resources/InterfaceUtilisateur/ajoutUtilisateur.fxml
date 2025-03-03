@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@../styles/AjoutEvenement.css" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.gestion_utilisateur.ajoutControlleur">
+   <!-- Nav Bar -->
+   <HBox alignment="CENTER_LEFT" prefHeight="60.0" style="-fx-background-color: #03045F;" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+      <children>
+         <!-- Eventopia Logo -->
+         <Label style="-fx-text-fill: white; -fx-font-size: 30px; -fx-padding: 0 0 0 15px; -fx-font-weight: bold;" text="Eventopia" />
+         <Region HBox.hgrow="ALWAYS" />
+
+         <!-- Afficher Utilisateurs Button -->
+         <Button styleClass="button" onAction="#navigateAfficheUtilisateur" text="Afficher les Utilisateurs" />
+      </children>
+   </HBox>
+
+   <!-- Titre principal -->
+   <Label layoutX="20.0" layoutY="65.0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Ajouter Utilisateur" AnchorPane.topAnchor="70" AnchorPane.leftAnchor="20" />
+
+   <!-- Formulaire -->
+   <Label text="Nom" styleClass="label" AnchorPane.topAnchor="100" AnchorPane.leftAnchor="230" />
+   <TextField fx:id="nomField" styleClass="text-field" AnchorPane.topAnchor="100" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172" />
+
+   <Label text="Prénom" styleClass="label" AnchorPane.topAnchor="150" AnchorPane.leftAnchor="230" />
+   <TextField fx:id="prenomField" styleClass="text-field" AnchorPane.topAnchor="150" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172" />
+
+   <Label text="Email" styleClass="label" AnchorPane.topAnchor="200" AnchorPane.leftAnchor="230" />
+   <TextField fx:id="emailField" styleClass="text-field" AnchorPane.topAnchor="200" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172" />
+
+   <Label text="Mot de Passe" styleClass="label" AnchorPane.topAnchor="250" AnchorPane.leftAnchor="230" />
+   <PasswordField fx:id="motDePasseField" styleClass="text-field" AnchorPane.topAnchor="250" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172" />
+
+   <Label text="Rôle" styleClass="label" AnchorPane.topAnchor="300" AnchorPane.leftAnchor="230" />
+   <HBox spacing="10" AnchorPane.topAnchor="300" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172">
+      <RadioButton fx:id="adminRadioButton" selected="true" style="-fx-font-size: 14px;" text="Admin">
+         <toggleGroup>
+            <ToggleGroup fx:id="roleGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="organisateurRadioButton" style="-fx-font-size: 14px;" text="Organisateur" toggleGroup="$roleGroup" />
+      <RadioButton fx:id="participantRadioButton" style="-fx-font-size: 14px;" text="Participant" toggleGroup="$roleGroup" />
+   </HBox>
+
+   <Label text="Code Postal" styleClass="label" AnchorPane.topAnchor="350" AnchorPane.leftAnchor="230" />
+   <TextField fx:id="codePostalField" styleClass="text-field" AnchorPane.topAnchor="350" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172" />
+
+   <Label text="Région" styleClass="label" AnchorPane.topAnchor="400" AnchorPane.leftAnchor="230" />
+   <TextField fx:id="regionField" styleClass="text-field" AnchorPane.topAnchor="400" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172" />
+
+   <Label text="Téléphone" styleClass="label" AnchorPane.topAnchor="450" AnchorPane.leftAnchor="230" />
+   <TextField fx:id="telField" styleClass="text-field" AnchorPane.topAnchor="450" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172" />
+
+   <!-- Image Upload -->
+   <Label text="Image" styleClass="label" AnchorPane.topAnchor="500" AnchorPane.leftAnchor="230" />
+   <HBox spacing="10" AnchorPane.topAnchor="500" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172">
+      <Button fx:id="btnUploadImage" styleClass="button" text="Importer une image" onAction="#browseImage" />
+      <ImageView fx:id="imageView" fitHeight="50" fitWidth="50" style="-fx-border-color: #2196F3; -fx-border-width: 1px;" />
+   </HBox>
+
+   <!-- Boutons -->
+   <Button fx:id="ajouterButton" styleClass="button" onAction="#ajouterUtilisateur" text="Ajouter" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="120" />
+   <Button fx:id="cancelButton" styleClass="button" onAction="#cancelAdd" text="Annuler" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="20" />
+</AnchorPane>

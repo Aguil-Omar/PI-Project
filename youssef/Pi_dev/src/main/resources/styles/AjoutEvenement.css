@@ -1,0 +1,118 @@
+/* Style général pour les champs de texte */
+.text-field, .text-area, .combo-box, .date-picker {
+    -fx-background-color: #ffffff; /* Fond blanc */
+    -fx-border-color: #cccccc; /* Bordure grise */
+    -fx-border-radius: 5px; /* Coins arrondis */
+    -fx-padding: 8px; /* Espacement interne */
+    -fx-font-size: 14px; /* Taille de police */
+    -fx-font-family: "Arial"; /* Police de caractères */
+}
+
+/* Style au survol */
+.text-field:hover, .text-area:hover, .combo-box:hover, .date-picker:hover {
+    -fx-border-color: #03045F; /* Bordure bleue au survol */
+}
+
+/* Style lorsque le champ est focus (actif) */
+.text-field:focused, .text-area:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: #03045F; /* Bordure bleue */
+    -fx-effect: dropshadow(gaussian, rgba(3, 4, 95, 0.3), 10, 0, 0, 0); /* Ombre légère */
+}
+
+/* Style pour les boutons */
+.button {
+    -fx-background-color: #03045F; /* Fond bleu */
+    -fx-text-fill: white; /* Texte blanc */
+    -fx-font-size: 14px; /* Taille de police */
+    -fx-font-weight: bold; /* Texte en gras */
+    -fx-border-radius: 5px; /* Coins arrondis */
+    -fx-padding: 10px 20px; /* Espacement interne */
+    -fx-cursor: hand; /* Curseur en forme de main */
+}
+
+/* Style au survol des boutons */
+.button:hover {
+    -fx-background-color: #02033a; /* Fond bleu foncé */
+}
+
+/* Style pour les labels */
+.label {
+    -fx-font-size: 14px; /* Taille de police */
+    -fx-font-weight: bold; /* Texte en gras */
+    -fx-text-fill: #2c3e50; /* Couleur du texte */
+}
+
+/* Style pour le TextArea */
+.text-area {
+    -fx-background-insets: 0; /* Supprimer les marges internes */
+    -fx-padding: 8px; /* Espacement interne */
+}
+
+/* Style pour le ComboBox */
+.combo-box {
+    -fx-background-color: #ffffff; /* Fond blanc */
+    -fx-border-color: #cccccc; /* Bordure grise */
+    -fx-border-radius: 5px; /* Coins arrondis */
+    -fx-padding: 8px; /* Espacement interne */
+}
+
+/* Style pour le DatePicker */
+.date-picker {
+    -fx-background-color: #ffffff; /* Fond blanc */
+    -fx-border-color: #cccccc; /* Bordure grise */
+    -fx-border-radius: 5px; /* Coins arrondis */
+    -fx-padding: 8px; /* Espacement interne */
+}
+/* Style pour les labels */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+/* Style pour les champs de texte */
+.text-field {
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+}
+
+/* Style pour les zones de texte */
+.text-area {
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+}
+
+/* Style pour les DatePicker */
+.date-picker {
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+}
+
+/* Style pour les ComboBox */
+.combo-box {
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+}
+
+/* Style pour les boutons */
+.button {
+    -fx-background-color: #03045F;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #02033a;
+}

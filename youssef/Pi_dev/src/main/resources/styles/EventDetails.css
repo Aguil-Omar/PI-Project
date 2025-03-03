@@ -1,0 +1,163 @@
+/* Style général pour les boutons */
+.button-addProgram, .button-navigateProgram, .button-navigateComment, .button-navigateEvent {
+    -fx-font-size: 14px;
+    -fx-text-fill: white; /* Texte en blanc */
+    -fx-background-color: #03045F; /* Bleu marine (#03045F) */
+    -fx-background-radius: 5px; /* Coins arrondis */
+    -fx-padding: 8px 16px; /* Espacement interne */
+    -fx-border-radius: 5px; /* Coins arrondis pour la bordure */
+    -fx-cursor: hand; /* Curseur en forme de main au survol */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 2, 0, 0); /* Ombre légère */
+}
+
+/* Effet au survol des boutons */
+.button-addProgram:hover, .button-navigateProgram:hover, .button-navigateComment:hover, .button-navigateEvent:hover {
+    -fx-background-color: #021f4b; /* Bleu marine légèrement plus clair au survol */
+}
+
+/* Effet au clic des boutons */
+.button-addProgram:pressed, .button-navigateProgram:pressed, .button-navigateComment:pressed, .button-navigateEvent:pressed {
+    -fx-background-color: #011833; /* Bleu marine plus foncé au clic */
+}
+
+/* Style pour le texte de l'événement */
+#eventTitle {
+    -fx-font-size: 20px; /* Taille moyenne */
+    -fx-text-fill: #000000; /* Noir */
+    -fx-font-weight: bold; /* Gras */
+}
+
+#eventDate {
+    -fx-font-size: 16px; /* Taille moyenne */
+    -fx-text-fill: #000000; /* Noir */
+    -fx-font-weight: bold; /* Gras */
+}
+
+#eventDescription {
+    -fx-font-size: 14px; /* Taille moyenne */
+    -fx-fill: #000000; /* Noir */
+    -fx-font-weight: bold; /* Gras */
+    -fx-wrap-text: true; /* Texte qui revient à la ligne */
+}
+
+/* Style pour la barre de navigation */
+.nav-bar {
+    -fx-background-color: #03045F; /* Bleu marine (#03045F) */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 2); /* Ombre légère */
+}
+
+/* Style pour le titre de la barre de navigation */
+.nav-title {
+    -fx-font-size: 22px; /* Taille moyenne */
+    -fx-text-fill: #ffffff; /* Blanc */
+    -fx-font-weight: bold; /* Gras */
+}
+/* Style pour le bouton "Réserver" */
+.button-reserver {
+    -fx-font-size: 14px;
+    -fx-text-fill: white; /* Texte en blanc */
+    -fx-background-color: #03045F; /* Bleu marine (#03045F) */
+    -fx-background-radius: 5px; /* Coins arrondis */
+    -fx-padding: 8px 16px; /* Espacement interne */
+    -fx-border-radius: 5px; /* Coins arrondis pour la bordure */
+    -fx-cursor: hand; /* Curseur en forme de main au survol */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 2, 0, 0); /* Ombre légère */
+    -fx-font-weight: bold; /* Texte en gras */
+    -fx-alignment: center; /* Centrer le texte */
+}
+
+/* Effet au survol du bouton "Réserver" */
+.button-reserver:hover {
+    -fx-background-color: #021f4b; /* Bleu marine légèrement plus clair au survol */
+}
+
+/* Effet au clic du bouton "Réserver" */
+.button-reserver:pressed {
+    -fx-background-color: #011833; /* Bleu marine plus foncé au clic */
+}
+/* Style pour la barre de navigation */
+.nav-bar {
+    -fx-background-color: #03045F; /* Bleu marine (#03045F) */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 2); /* Ombre légère */
+}
+
+/* Style pour le titre de la barre de navigation */
+.nav-title {
+    -fx-font-size: 22px; /* Taille moyenne */
+    -fx-text-fill: #ffffff; /* Blanc */
+    -fx-font-weight: bold; /* Gras */
+}
+
+/* Style pour les boutons */
+.button-navigateEvent {
+    -fx-font-size: 14px;
+    -fx-text-fill: white; /* Texte en blanc */
+    -fx-background-color: #03045F; /* Bleu marine (#03045F) */
+    -fx-background-radius: 5px; /* Coins arrondis */
+    -fx-padding: 8px 16px; /* Espacement interne */
+    -fx-border-radius: 5px; /* Coins arrondis pour la bordure */
+    -fx-cursor: hand; /* Curseur en forme de main au survol */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 2, 0, 0); /* Ombre légère */
+    -fx-font-weight: bold; /* Texte en gras */
+}
+
+/* Effet au survol des boutons */
+.button-navigateEvent:hover {
+    -fx-background-color: #021f4b; /* Bleu marine légèrement plus clair au survol */
+}
+
+/* Effet au clic des boutons */
+.button-navigateEvent:pressed {
+    -fx-background-color: #011833; /* Bleu marine plus foncé au clic */
+}
+
+/* Style pour le tableau */
+.custom-table {
+    -fx-background-color: transparent; /* Fond transparent */
+    -fx-table-cell-border-color: transparent; /* Pas de bordures entre les cellules */
+    -fx-padding: 0; /* Pas de marge interne */
+}
+
+/* Style pour les en-têtes de colonnes */
+.custom-table .column-header-background {
+    -fx-background-color: #03045F; /* Bleu marine (#03045F) */
+}
+
+.custom-table .column-header {
+    -fx-background-color: transparent; /* Fond transparent */
+    -fx-text-fill: white; /* Texte en blanc */
+    -fx-font-size: 14px; /* Taille de police */
+    -fx-font-weight: bold; /* Gras */
+}
+
+/* Style pour les lignes du tableau */
+.custom-table .table-row-cell {
+    -fx-background-color: #ffffff; /* Fond blanc */
+    -fx-text-fill: #000000; /* Texte en noir */
+    -fx-border-color: #e0e0e0; /* Bordure grise entre les lignes */
+    -fx-border-width: 0 0 1 0; /* Bordure uniquement en bas */
+}
+
+/* Style pour les lignes sélectionnées */
+.custom-table .table-row-cell:selected {
+    -fx-background-color: #03045F; /* Bleu marine (#03045F) */
+    -fx-text-fill: white; /* Texte en blanc */
+}
+
+/* Style pour les cellules du tableau */
+.custom-table .table-cell {
+    -fx-text-fill: #000000; /* Texte en noir */
+    -fx-font-size: 14px; /* Taille de police */
+    -fx-alignment: CENTER; /* Centrer le texte */
+}
+.button-confirm {
+    -fx-background-color: #03045F;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.button-cancel {
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.FontWeight?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+
+<HBox fx:id="rootHBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" stylesheets="/InterfaceUtilisateur/styles/styles.css" fx:controller="com.pi_dev.controllers.gestion_utilisateur.authentificationControlleur">
+    <!-- Left Pane (Blue Gradient Background with App Logo and Text) -->
+    <VBox fx:id="leftPanee" style="-fx-background-color:#06234f;" HBox.hgrow="ALWAYS">
+        <VBox alignment="CENTER" spacing="20" VBox.vgrow="ALWAYS">
+            <!-- App Logo -->
+            <ImageView fitWidth="200" fitHeight="200" preserveRatio="true">
+                <Image url="/InterfaceUtilisateur/assets/eventopia.png" /> <!-- Replace with your image path -->
+            </ImageView>
+            <!-- App Name -->
+            <Label text="Eventopia" styleClass="app-name-label" />
+            <!-- App Description -->
+            <Label text=" Where Moments Become Memories" styleClass="app-description-label" />
+        </VBox>
+    </VBox>
+
+    <!-- Right Pane (Sign-In Form) -->
+    <VBox fx:id="rightPane" alignment="CENTER" spacing="20" style="-fx-background-color: #ffffff;" HBox.hgrow="ALWAYS">
+        <!-- Sign-In Title -->
+        <Label text="Sign In" styleClass="signin-title-label" />
+
+        <!-- Email Field -->
+        <HBox alignment="CENTER" spacing="10" HBox.hgrow="ALWAYS">
+            <ImageView fitWidth="24" fitHeight="24" preserveRatio="true" fx:id="emailIcon">
+                <Image url="/InterfaceUtilisateur/assets/email.png" /> <!-- Replace with your email icon path -->
+            </ImageView>
+            <TextField promptText="Email" styleClass="input-field" fx:id="emailField" HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+        <!-- Password Field -->
+        <HBox alignment="CENTER" spacing="10" HBox.hgrow="ALWAYS">
+            <ImageView fitWidth="24" fitHeight="24" preserveRatio="true" fx:id="passwordIcon">
+                <Image url="/InterfaceUtilisateur/assets/passwordicon.png" /> <!-- Replace with your password icon path -->
+            </ImageView>
+            <PasswordField promptText="Password" styleClass="input-field" fx:id="passwordField" HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+        <!-- Sign-In Button -->
+        <Button text="Sign in" styleClass="signin-button" fx:id="signInButton" onAction="#handleSignInButtonAction" />
+
+        <!-- Forgot Password Link -->
+        <Label text="Forgot Password?" styleClass="link-label" fx:id="forgotPasswordLabel" onMouseClicked="#redirectToVerificationInterface" />
+
+        <!-- Sign-Up Link -->
+        <Label text="Don't have an account? Sign up" styleClass="link-label" fx:id="signUpLabel"/>
+    </VBox>
+</HBox>

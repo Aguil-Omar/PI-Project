@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@../styles/AjoutEvenement.css" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.EvenementController.AjoutEvenement">
+    <!-- Nav Bar -->
+    <HBox alignment="CENTER_LEFT" prefHeight="60.0" style="-fx-background-color: #03045F;" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <children>
+            <!-- Eventopia Logo -->
+            <Label style="-fx-text-fill: white; -fx-font-size: 30px;-fx-padding: 0 0 0 15px; -fx-font-weight: bold;" text="Eventopia" />
+            <Region HBox.hgrow="ALWAYS" />
+
+            <!-- Ajouter Événement Button -->
+            <Button styleClass="button" onAction="#navigateAfficheEvent" text="Afficher les Événements" />
+        </children>
+    </HBox>
+
+    <!-- Titre principal -->
+    <Label layoutX="20.0" layoutY="65.0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Ajouter Événement" AnchorPane.topAnchor="70" AnchorPane.leftAnchor="20" />
+
+    <!-- Formulaire -->
+    <Label text="Titre" styleClass="label" AnchorPane.topAnchor="100" AnchorPane.leftAnchor="230" />
+    <TextField fx:id="tfTitre" styleClass="text-field" AnchorPane.topAnchor="100" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172" />
+
+    <Label text="Description" styleClass="label" AnchorPane.topAnchor="150" AnchorPane.leftAnchor="230" />
+    <TextArea fx:id="taDescription" styleClass="text-area" AnchorPane.topAnchor="150" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172" prefHeight="100" wrapText="true" />
+
+    <Label text="Date" styleClass="label" AnchorPane.topAnchor="280" AnchorPane.leftAnchor="230" />
+    <DatePicker fx:id="dpDate" styleClass="date-picker" AnchorPane.topAnchor="275" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172" />
+
+    <Label text="Statut" styleClass="label" AnchorPane.topAnchor="350" AnchorPane.leftAnchor="230" />
+    <ComboBox fx:id="cbStatut" styleClass="combo-box" AnchorPane.topAnchor="345" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172" />
+
+    <Label text="Catégorie" styleClass="label" AnchorPane.topAnchor="420" AnchorPane.leftAnchor="230" />
+    <ComboBox fx:id="cbCategorie" styleClass="combo-box" AnchorPane.topAnchor="415" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172" />
+
+    <Label text="Prix" styleClass="label" AnchorPane.topAnchor="470" AnchorPane.leftAnchor="230" />
+    <TextField fx:id="tfPrix" styleClass="text-field" AnchorPane.topAnchor="465" AnchorPane.leftAnchor="328" AnchorPane.rightAnchor="172" promptText="Prix en €" />
+
+    <!-- Boutons -->
+    <Button fx:id="btnUploadImage" styleClass="button" text="Importer une image" onAction="#uploadImage" AnchorPane.bottomAnchor="50" AnchorPane.leftAnchor="328" />
+    <Label fx:id="lblImagePath" text="Aucune image sélectionnée" styleClass="label" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="328" />
+
+    <Button styleClass="button" mnemonicParsing="false" onAction="#addEvenement" text="Ajouter" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="20" />
+</AnchorPane>

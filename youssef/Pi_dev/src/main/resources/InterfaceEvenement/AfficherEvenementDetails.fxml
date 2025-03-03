@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #f0f2f5;" stylesheets="@../styles/EventDetails.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.EvenementController.AfficherEvenementDetails">
+    <!-- Barre de navigation avec boutons -->
+    <HBox alignment="CENTER_LEFT" prefHeight="60.0" styleClass="nav-bar" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <children>
+            <Label styleClass="nav-title" text="Détails de l'Événement" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="addProgramButton" onAction="#addProgramme" styleClass="button-addProgram" text="Ajouter Programme" prefWidth="150" />
+            <Button onAction="#navigateProgramme" styleClass="button-navigateProgram" text="Voir Programmes" prefWidth="150" />
+            <Button onAction="#navigateComments" styleClass="button-navigateComment" text="Voir Commentaires" prefWidth="150" />
+            <Button onAction="#navigateEvents" styleClass="button-navigateEvent" text="Retourner" prefWidth="100" />
+        </children>
+    </HBox>
+
+    <!-- Contenu principal -->
+    <VBox alignment="TOP_CENTER" spacing="20" AnchorPane.topAnchor="70" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+        <children>
+            <ImageView fx:id="eventImage" fitHeight="150" fitWidth="250" preserveRatio="true" />
+            <Label fx:id="eventTitle" />
+            <Label fx:id="eventDate" />
+            <VBox alignment="TOP_LEFT" spacing="10">
+                <children>
+                    <Label text="Description :" style="-fx-font-size: 16px; -fx-text-fill: #000000; -fx-font-weight: bold;" />
+                    <Text fx:id="eventDescription" wrappingWidth="660" />
+                </children>
+            </VBox>
+            <Label fx:id="eventPrice" style="-fx-font-size: 16px; -fx-text-fill: #000000; -fx-font-weight: bold;" />
+        </children>
+    </VBox>
+
+    <!-- Bouton "Réserver" en bas à droite -->
+    <Button onAction="#reserverEvenement" styleClass="button-reserver" text="Réserver" prefWidth="100" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="20" />
+
+    <!-- Formulaire de réservation (initialement caché) -->
+    <VBox fx:id="reservationForm" alignment="CENTER" spacing="10" style="-fx-background-color: white; -fx-border-color: #ccc; -fx-border-width: 1px; -fx-padding: 20;" prefWidth="400" prefHeight="300" AnchorPane.bottomAnchor="-300" AnchorPane.leftAnchor="150" AnchorPane.rightAnchor="150">
+        <children>
+
+            <Label text="Formulaire de Réservation" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+            <TextField fx:id="clientEmail" promptText="Email du client" />
+            <TextField fx:id="nombrePlaces" promptText="Nombre de places" />
+            <Label fx:id="montantTotal" text="Montant total : 0.0" style="-fx-font-size: 14px; -fx-text-fill: #000000; -fx-font-weight: bold;" />
+            <Button text="Confirmer la Réservation" onAction="#confirmReservation" styleClass="button-confirm" />
+            <Button text="Annuler" onAction="#cancelReservation" styleClass="button-cancel" />
+        </children>
+    </VBox>
+</AnchorPane>

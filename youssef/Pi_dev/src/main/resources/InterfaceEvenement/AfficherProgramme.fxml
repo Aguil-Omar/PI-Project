@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #f4f4f4;" stylesheets="@../styles/EventDetails.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pi_dev.controllers.EvenementController.AfficherProgramme">
+
+    <!-- Barre de navigation -->
+    <HBox alignment="CENTER_LEFT" prefHeight="60.0" styleClass="nav-bar" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <children>
+            <!-- Titre de la barre de navigation -->
+            <Label styleClass="nav-title" text="Programmes de l'Événement" />
+            <Region HBox.hgrow="ALWAYS" />
+            <!-- Bouton Retour -->
+            <Button onAction="#navigateBack" styleClass="button-navigateEvent" text="Retour" prefWidth="100" />
+        </children>
+    </HBox>
+
+    <!-- Tableau des programmes -->
+    <TableView fx:id="tableProgrammes" AnchorPane.topAnchor="60.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <columns>
+            <TableColumn fx:id="colActivite" text="Activité" prefWidth="200.0"/>
+            <TableColumn fx:id="colHeureDebut" text="Heure Début" prefWidth="150.0"/>
+            <TableColumn fx:id="colHeureFin" text="Heure Fin" prefWidth="150.0"/>
+            <TableColumn fx:id="colActions" text="Actions" prefWidth="200.0"/>
+        </columns>
+    </TableView>
+</AnchorPane>
