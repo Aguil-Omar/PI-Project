@@ -40,13 +40,13 @@
 | Layer        | Technology             |
 |--------------|------------------------|
 | Language     | Java 17+               |
-| Framework    | Spring Boot / Jakarta EE |
+| Framework    | Java / JavaFX          |
 | Database     | MySQL / PostgreSQL     |
 | ORM          | Hibernate / JPA        |
-| Frontend     | Thymeleaf / React (Optional) |
+| Frontend     | JavaFX (UI Toolkit)    |
 | Build Tool   | Maven / Gradle         |
-| Security     | Spring Security / JWT  |
-| Deployment   | Docker, GitHub Actions |
+| Security     | Java Security / Custom |
+| Deployment   | Native Packaging, GitHub Actions |
 
 ---
 
