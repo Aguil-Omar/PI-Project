@@ -66,7 +66,7 @@ To run the project locally:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/eventopia-java.git
+git clone https://github.com/Aguil-Omar/PI-Project.git
 cd eventopia-java
 ```
 
